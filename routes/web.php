@@ -111,7 +111,8 @@ Route::get('/dashboard', [AdminDashboardController::class, 'index'])->middleware
 //     ]);
 // });
 
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');  
+// Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');  
+Route::get('/login', [LoginController::class, 'index']);  
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
