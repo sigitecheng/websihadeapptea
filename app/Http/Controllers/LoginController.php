@@ -68,7 +68,7 @@ public function authenticate(Request $request)
         $request->session()->regenerate();
 
         // Redirect ke halaman dashboard setelah login berhasil
-        return redirect()->intended('/dashboard');
+        return redirect()->intended('/dashboardadmin');
     }
 
     // Jika autentikasi gagal, kembalikan ke halaman login dengan pesan kesalahan

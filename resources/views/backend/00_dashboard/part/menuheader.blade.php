@@ -99,7 +99,7 @@
 <div class="container-fluid">
 
     <!--Header-->
-    <div class="row header shadow-sm" style="background: #FFCB0F ">
+    <div class="row header shadow-sm" style="background: #22BB22 ">
         
                     <style>
                 /* CSS untuk gaya elemen h3 */
@@ -118,7 +118,7 @@
                 }
                 </style>
         <!--Logo-->
-        <div class="col-sm-3 pl-0 text-center" style="background: #FFCB0F; height:60px;"> 
+        <div class="col-sm-3 pl-0 text-center" style="background: #22BB22; height:60px;"> 
            <div class=" mr-3 mb-0 mt-10 mb-10 " style="display: flex; align-items: center; margin-bottom:10px">
            <img src="/assets/icon/pupr.png" alt="Logo SIPJAKIKBB" style="margin-left:25px; margin-top:5px; width: 50px; height: 50px; object-fit: cover; margin-right: 10px; padding: 0;">
         
@@ -322,8 +322,8 @@
             margin-left: 150px;
             margin-right: 15px;
             border-radius: 20px;
-            background: #00008b;
-            
+            background: green;
+        
         }
         .marquee {
             display: inline-block;
@@ -341,7 +341,7 @@
         }
     </style>
      <div class="marquee-container">
-        <div class="marquee" style="color: white">Selamat Datang ! di Halaman Admin Sistem Informasi Pembina Jasa Konstruksi Pemerintah Kabupaten Bandung Barat Anda Adalah   </div>
+        <div class="marquee" style="color: white">Selamat Datang ! di Halaman Admin PT Haznia Bina Virofarm </div>
     </div>
     
                 

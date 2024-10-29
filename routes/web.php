@@ -1,22 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminDashboardController;
-use App\Http\Controllers\DatajakonController;
 use App\Http\Controllers\FedashboardController;
-use App\Http\Controllers\GiskbbController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PelatihanController;
-use App\Http\Controllers\PeraturanController;
-use App\Http\Controllers\SkktenagakerjaController;
-use App\Http\Controllers\StrukturController;
-use App\Http\Controllers\UijkController;
-use App\Http\Controllers\AdministratorController;
-use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\SettingmenuController;
-use App\Http\Controllers\UndangundangController;
-use Database\Factories\DatajakonFactory;
-use Database\Factories\SkktenagakerjaFactory;
 use Illuminate\Support\Facades\Route;
 
 
@@ -59,7 +45,8 @@ Route::get('/404', function () {
 });
 
 
-Route::get('/dashboard', [AdminDashboardController::class, 'index'])->middleware('auth');  
+// Route::get('/dashboard', [AdminDashboardController::class, 'index'])->middleware('auth');  
+Route::get('/dashboardadmin', [AdminDashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 // ------------------- BACKEND QA PERTANYAAN --------------------------- 
 
@@ -116,6 +103,8 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
+// -------------------------- TEMPLATE DASHBOARD -------------------------------------
+Route::get('/dashboard', [AdminDashboardController::class, 'index'])->middleware('auth');  
 
 
 // Route::get('/dashboard', function () {

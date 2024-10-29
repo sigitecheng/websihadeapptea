@@ -1,7 +1,7 @@
 
         <!--Main Content-->
 
-        <div class="row main-content h-screen" style="color: #FFCB0F;">
+        <div class="row main-content h-screen" style="color: #22BB22;">
             <!--Sidebar left-->
             <div class="col-sm-3 col-xs-6 sidebar pl-0">
                 <div class="inner-sidebar mr-3">
@@ -32,9 +32,9 @@
                         <style>
                         /* Default link style */
                         .sbar {
-                        color: navy; /* warna biru tua */
+                        color: white; /* warna biru tua */
                         text-decoration: none; /* menghapus garis bawah default */
-                        background-image: linear-gradient(to right, darkblue, white); /* gradasi dari biru tua ke hitam */
+                        background-image: linear-gradient(to right, black, white); /* gradasi dari biru tua ke hitam */
                         background-size: 100% 200%; /* ukuran gradient vertikal */
                         background-position: 0 100%; /* posisi gradient dari bawah */
                         transition: background-position 0.3s, color 0.3s; /* animasi perubahan posisi latar belakang dan warna teks */
@@ -43,9 +43,9 @@
 
                         a {
                         /* font-size: 12px; */
-                        color: navy; /* warna biru tua */
+                        color: #22BB22; /* warna biru tua */
                         text-decoration: none; /* menghapus garis bawah default */
-                        background-image: linear-gradient(to bottom, navy, black); /* gradasi dari biru tua ke hitam */
+                        background-image: linear-gradient(to bottom, black, black); /* gradasi dari biru tua ke hitam */
                         background-size: 100% 200%; /* ukuran gradient vertikal */
                         background-position: 0 100%; /* posisi gradient dari bawah */
                         transition: background-position 0.3s, color 0.3s; /* animasi perubahan posisi latar belakang dan warna teks */
@@ -54,7 +54,7 @@
 
                         /* Hover effect */
                         a:hover {
-                            background: linear-gradient(to right, #FFCB0F, black); /* gradasi dari kuning ke hitam */
+                            background: linear-gradient(to right, #00ff00, black); /* gradasi dari kuning ke hitam */
                             background-size: 100% 200%; /* ukuran gradient vertikal */
                             background-position: 0 100%; /* posisi gradient dari bawah */
                             transition: background-position 0.3s, color 0.3s; /* animasi perubahan posisi latar belakang dan warna teks */
