@@ -167,7 +167,7 @@
                         <small style="font-size:12px; color: white;"><strong>HIMBAUAN DINAS</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-bullhorn" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahHimbauan}} Data
+                        {{-- <i class="fas fa-bullhorn" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahHimbauan}} Data --}}
                     </div>
                 </div>
             </div>
@@ -182,7 +182,7 @@
                         <small style="font-size:12px; color: white;"><strong>PERTANYAAN PUBLIK</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-question-circle" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahQa}} Pertanyaan
+                        {{-- <i class="fas fa-question-circle" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahQa}} Pertanyaan --}}
                     </div>
                 </div>
             </div>
@@ -197,7 +197,7 @@
                         <small style="font-size:12px; color: white;"><strong>BERITA</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-newspaper" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahBerita}} Berita
+                        {{-- <i class="fas fa-newspaper" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahBerita}} Berita --}}
                     </div>
                 </div>
             </div>
@@ -212,7 +212,7 @@
                         <small style="font-size:12px; color: white;"><strong>AGENDA SERTIFIKASI</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-calendar-check" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahAgendasertifikasi}} Agenda
+                        {{-- <i class="fas fa-calendar-check" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahAgendasertifikasi}} Agenda --}}
                     </div>
                 </div>
             </div>
@@ -227,7 +227,7 @@
                         <small style="font-size:12px; color: white;"><strong>DOKUMENTASI PELATIHAN</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-file-alt" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahDokumentasiPelatihan}} Dokumentasi 
+                        {{-- <i class="fas fa-file-alt" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahDokumentasiPelatihan}} Dokumentasi  --}}
                     </div>
                 </div>
             </div>
@@ -242,7 +242,7 @@
                         <small style="font-size:12px; color: white;"><strong>ACARA KEGIATAN</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-calendar-alt" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahDokumentasiAcara}} Kegiatan 
+                        {{-- <i class="fas fa-calendar-alt" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahDokumentasiAcara}} Kegiatan  --}}
                     </div>
                 </div>
             </div>
@@ -257,7 +257,7 @@
                         <small style="font-size:12px; color: white;"><strong>PENGAWASAN & KETERTIBAN</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-eye" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPengawasandanketeriban}} Pengawasan
+                        {{-- <i class="fas fa-eye" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPengawasandanketeriban}} Pengawasan --}}
                     </div>
                 </div>
             </div>
@@ -272,7 +272,7 @@
                         <small style="font-size:12px; color: white;"><strong>ASOSIASI PENGUSAHA</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-users" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahAsosiasiPengusaha}} Asosiasi
+                        {{-- <i class="fas fa-users" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahAsosiasiPengusaha}} Asosiasi --}}
                     </div>
                 </div>
             </div>
@@ -287,7 +287,7 @@
                         <small style="font-size:12px; color: white;"><strong>PAKET PEKERJAAN</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-briefcase" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPaketPekerjaan}} Paket
+                        {{-- <i class="fas fa-briefcase" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPaketPekerjaan}} Paket --}}
                     </div>
                 </div>
             </div>
@@ -302,7 +302,7 @@
                         <small style="font-size:12px; color: white;"><strong>IJIN USAHA JASA KONSTRUKSI</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-check-circle" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahIjinUsaha}} Ijin Usaha
+                        {{-- <i class="fas fa-check-circle" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahIjinUsaha}} Ijin Usaha --}}
                     </div>
                 </div>
             </div>
@@ -317,7 +317,7 @@
                         <small style="font-size:12px; color: white;"><strong>SERTIFIKAT KETERAMPILAN</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-certificate" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahSertifikatKetermpilan}} SKK
+                        {{-- <i class="fas fa-certificate" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahSertifikatKetermpilan}} SKK --}}
                     </div>
                 </div>
             </div>
@@ -332,7 +332,7 @@
                         <small style="font-size:12px; color: white;"><strong>PENANGGUNG JAWAB TEKNIS</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-user-cog" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPenanggungJawabTeknis}} PJT
+                        {{-- <i class="fas fa-user-cog" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPenanggungJawabTeknis}} PJT --}}
                     </div>
                 </div>
             </div>
@@ -347,7 +347,7 @@
                         <small style="font-size:12px; color: white;"><strong>PEMBINA JASA KONSTRUKSI</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-clipboard-list" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPembinaJasaKonstruksi}} Pembina
+                        {{-- <i class="fas fa-clipboard-list" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPembinaJasaKonstruksi}} Pembina --}}
                     </div>
                 </div>
             </div>
@@ -392,7 +392,7 @@
                         <small style="font-size:12px; color: white;"><strong>KECELAKAAN</strong></small>
                     </h5>
                     <div class="text-center" style="font-size:14px;">
-                        <i class="fas fa-exclamation-triangle" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahKecelakaan}} Data
+                        {{-- <i class="fas fa-exclamation-triangle" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahKecelakaan}} Data --}}
                     </div>
                 </div>
             </div>
@@ -417,7 +417,7 @@
                     <small style="font-size:12px; color: white;"><strong>STATUS ADMIN</strong></small>
                 </h5>
                 <div class="text-center" style="font-size:14px;">
-                    <i class="fas fa-users" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahstatusadmin}} Status Admin
+                    {{-- <i class="fas fa-users" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahstatusadmin}} Status Admin --}}
                 </div>
                 
             </div>
@@ -433,7 +433,7 @@
                     <small style="font-size:12px; color: white;"><strong>KECAMATAN/KOTA</strong></small>
                 </h5>
                 <div class="text-center" style="font-size:14px;">
-                    <i class="fas fa-building" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahpengawasanlokasi}} Daerah
+                    {{-- <i class="fas fa-building" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahpengawasanlokasi}} Daerah --}}
                 </div>
             </div>
         </div>
@@ -449,7 +449,7 @@
                     <small style="font-size:12px; color: white;"><strong>QA SEBAGAI</strong></small>
                 </h5>
                 <div class="text-center" style="font-size:14px;">
-                    <i class="fas fa-pen" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahqasebagai}} Subjek 
+                    {{-- <i class="fas fa-pen" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahqasebagai}} Subjek  --}}
                 </div>
             </div>
         </div>
@@ -465,7 +465,7 @@
                     <small style="font-size:12px; color: white;"><strong>QA PERTANYAAN</strong></small>
                 </h5>
                 <div class="text-center" style="font-size:14px;">
-                    <i class="fas fa-pen" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahqapertanyaan}} Pertanyaan 
+                    {{-- <i class="fas fa-pen" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahqapertanyaan}} Pertanyaan  --}}
                 </div>
             </div>
         </div>
@@ -480,7 +480,7 @@
                     <small style="font-size:12px; color: white;"><strong>METODE PANGADAAN</strong></small>
                 </h5>
                 <div class="text-center" style="font-size:14px;">
-                    <i class="fas fa-file" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahmetodepengadaan}} Pengadaan 
+                    {{-- <i class="fas fa-file" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahmetodepengadaan}} Pengadaan  --}}
                 </div>
             </div>
         </div>
@@ -495,7 +495,7 @@
                     <small style="font-size:12px; color: white;"><strong>PENGAWASAN BANGUNAN</strong></small>
                 </h5>
                 <div class="text-center" style="font-size:14px;">
-                    <i class="fas fa-building" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahpengawasanbangunangedung}} Bangunan Gedung 
+                    {{-- <i class="fas fa-building" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahpengawasanbangunangedung}} Bangunan Gedung  --}}
                 </div>
             </div>
         </div>
@@ -510,7 +510,7 @@
                     <small style="font-size:12px; color: white;"><strong>PENGAWASAN STATUS</strong></small>
                 </h5>
                 <div class="text-center" style="font-size:14px;">
-                    <i class="fas fa-warning" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahpengawasanstatus}} Status 
+                    {{-- <i class="fas fa-warning" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahpengawasanstatus}} Status  --}}
                 </div>
             </div>
         </div>
@@ -526,7 +526,7 @@
                     <small style="font-size:12px; color: white;"><strong>PENGAWASAN TINDAKAN</strong></small>
                 </h5>
                 <div class="text-center" style="font-size:14px;">
-                    <i class="fas fa-warning" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahpengawasantindakan}} Tindakan 
+                    {{-- <i class="fas fa-warning" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahpengawasantindakan}} Tindakan  --}}
                 </div>
             </div>
         </div>
@@ -541,7 +541,7 @@
                     <small style="font-size:12px; color: white;"><strong>AGENDA STATUS</strong></small>
                 </h5>
                 <div class="text-center" style="font-size:14px;">
-                    <i class="fas fa-calendar" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahagendastatus}} Status 
+                    {{-- <i class="fas fa-calendar" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahagendastatus}} Status  --}}
                 </div>
             </div>
         </div>
@@ -556,7 +556,7 @@
                     <small style="font-size:12px; color: white;"><strong>KETERAMPILAN PEKERJA</strong></small>
                 </h5>
                 <div class="text-center" style="font-size:14px;">
-                    <i class="fas fa-cogs" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahketerampilanpekerja}} Keterampilan 
+                    {{-- <i class="fas fa-cogs" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahketerampilanpekerja}} Keterampilan  --}}
                 </div>
             </div>
         </div>
@@ -571,7 +571,7 @@
                     <small style="font-size:12px; color: white;"><strong>PILIHAN TAHUN</strong></small>
                 </h5>
                 <div class="text-center" style="font-size:14px;">
-                    <i class="fas fa-list" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahpilihantahun}} Pilihan 
+                    {{-- <i class="fas fa-list" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahpilihantahun}} Pilihan  --}}
                 </div>
             </div>
         </div>
@@ -599,7 +599,7 @@
                 <small style="font-size:12px; color: white;"><strong>UNDANG-UNDANG</strong></small>
             </h5>
             <div class="text-center" style="font-size:14px;">
-                <i class="fas fa-gavel" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahUU}} Undang-Undang
+                {{-- <i class="fas fa-gavel" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahUU}} Undang-Undang --}}
             </div>
         </div>
     </div>
@@ -614,7 +614,7 @@
                 <small style="font-size:12px; color: white;"><strong>PERATURAN PEMERINTAH</strong></small>
             </h5>
             <div class="text-center" style="font-size:14px;">
-                <i class="fas fa-file-contract" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPeraturanPemerintah}} Permen
+                {{-- <i class="fas fa-file-contract" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPeraturanPemerintah}} Permen --}}
             </div>
         </div>
     </div>
@@ -629,7 +629,7 @@
                 <small style="font-size:12px; color: white;"><strong>PERATURAN PRESIDEN</strong></small>
             </h5>
             <div class="text-center" style="font-size:14px;">
-                <i class="fas fa-file-signature" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPeraturanPresiden}} Peraturan
+                {{-- <i class="fas fa-file-signature" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPeraturanPresiden}} Peraturan --}}
             </div>
         </div>
     </div>
@@ -644,7 +644,7 @@
                 <small style="font-size:12px; color: white;"><strong>PERATURAN MENTERI</strong></small>
             </h5>
             <div class="text-center" style="font-size:14px;">
-                <i class="fas fa-file-alt" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPeraturanMenteri}} Peraturan
+                {{-- <i class="fas fa-file-alt" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPeraturanMenteri}} Peraturan --}}
             </div>
         </div>
     </div>
@@ -659,7 +659,7 @@
                 <small style="font-size:12px; color: white;"><strong>KEPUTUSAN MENTERI</strong></small>
             </h5>
             <div class="text-center" style="font-size:14px;">
-                <i class="fas fa-user-tie" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahKeputusanMenteri}} Keputusan
+                {{-- <i class="fas fa-user-tie" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahKeputusanMenteri}} Keputusan --}}
             </div>
         </div>
     </div>
@@ -674,7 +674,7 @@
                 <small style="font-size:12px; color: white;"><strong>SURAT EDARAN MENTERI</strong></small>
             </h5>
             <div class="text-center" style="font-size:14px;">
-                <i class="fas fa-envelope" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahSuratEdaranMenteri}} Surat
+                {{-- <i class="fas fa-envelope" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahSuratEdaranMenteri}} Surat --}}
             </div>
         </div>
     </div>
@@ -689,7 +689,7 @@
                 <small style="font-size:12px; color: white;"><strong>SURAT REFERENSI</strong></small>
             </h5>
             <div class="text-center" style="font-size:14px;">
-                <i class="fas fa-book" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahSuratReferensi}} Surat
+                {{-- <i class="fas fa-book" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahSuratReferensi}} Surat --}}
             </div>
         </div>
     </div>
@@ -704,7 +704,7 @@
                 <small style="font-size:12px; color: white;"><strong>PERATURAN DAERAH</strong></small>
             </h5>
             <div class="text-center" style="font-size:14px;">
-                <i class="fas fa-map-signs" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPeraturanDaerah}} Peraturan
+                {{-- <i class="fas fa-map-signs" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPeraturanDaerah}} Peraturan --}}
             </div>
         </div>
     </div>
@@ -719,7 +719,7 @@
                 <small style="font-size:12px; color: white;"><strong>PERATURAN GUBERNUR</strong></small>
             </h5>
             <div class="text-center" style="font-size:14px;">
-                <i class="fas fa-gavel" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPeraturanGubernur}} Peraturan
+                {{-- <i class="fas fa-gavel" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPeraturanGubernur}} Peraturan --}}
             </div>
         </div>
     </div>
@@ -734,7 +734,7 @@
                 <small style="font-size:12px; color: white;"><strong>PERATURAN WALIKOTA/BUPATI</strong></small>
             </h5>
             <div class="text-center" style="font-size:14px;">
-                <i class="fas fa-city" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPeraturanWalikotaBupati}} Peraturan
+                {{-- <i class="fas fa-city" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahPeraturanWalikotaBupati}} Peraturan --}}
             </div>
         </div>
     </div>
@@ -749,7 +749,7 @@
                 <small style="font-size:12px; color: white;"><strong>SURAT KEPUTUSAN</strong></small>
             </h5>
             <div class="text-center" style="font-size:14px;">
-                <i class="fas fa-file-alt" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahSuratKeputusan}} Surat
+                {{-- <i class="fas fa-file-alt" style="font-size: 20px; margin-right: 5px;"></i> {{$jumlahSuratKeputusan}} Surat --}}
             </div>
         </div>
     </div>

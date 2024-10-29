@@ -9,7 +9,9 @@ class FedashboardController extends Controller
     //
     public function index()
     {
-        return view('welcome');
+        return view('backend.00_dashboard.index', [
+            'title' => 'Ini Adalah Halaman Dashboard'
+        ]);
     }
 
 }
