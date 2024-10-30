@@ -9,8 +9,8 @@ class FedashboardController extends Controller
     //
     public function index()
     {
-        return view('backend.00_dashboard.index', [
-            'title' => 'Ini Adalah Halaman Dashboard'
+        return view('frontend.00_halamanutama.index', [
+            'title' => 'Sihade | PT. Haznia Bina Virofarm'
         ]);
     }
 

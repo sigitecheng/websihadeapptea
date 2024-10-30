@@ -84,12 +84,12 @@
                         </li>
                         
                            <p style="margin-bottom: 5px;"></p>
-                           <li class="parent">
+                           {{-- <li class="parent">
                             <a href="/himbauandinas" class="sbar"><i class="fas fa-newspaper mr-2"></i>
                                 <span class="none">BERITA HIMBAUAN DINAS</span>
                             </a>
                         </li>
-                        
+                         --}}
                            
                         <li class="parent">
                             <a href="/qapertanyaan" class="sbar"><i class="fas fa-question-circle mr-2"></i>
