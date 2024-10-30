@@ -18,7 +18,7 @@
                         <div class="full">
                             <div class="center-desk">
                                 <div class="logo">
-                                    <a href="index.html"><img src="images/logo.png" alt="#"></a>
+                                    <a href="index.html"><img style="width: 35%;" src="/assets/icon/sihadelogo.png" alt="#"></a>
                                 </div>
                             </div>
                         </div>
@@ -26,27 +26,40 @@
                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
                         <div class="location_icon_bottum_tt">
                             <ul>
-                                <li><img src="/assets/frontend/icon/loc1.png" />Location</li>
-                                <li><img src="/assets/frontend/icon/email1.png" />demo@gmail.com</li>
-
-                                <li><img src="/assets/frontend/icon/call1.png" />(+71)9876543109</li>
+                                <li><i style="color: wheat" class="fa fa-building mr-2"></i> Jl. Pelesiran, Coblong, Bandung, Jawa Barat</li>
+                                {{-- <li><i class="fas fa-envelope"></i> demo@gmail.com</li> --}}
+                                <li>
+                                    <a href="https://wa.me/62811237916" target="_blank">
+                                        <i style="color: wheat" class="fa fa-phone mr-2"></i> <span style="color: white">0811237916</span>
+                                    </a>
+                                </li>
+                                
                             </ul>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 location_icon_bottum">
                        <div class="row">
-                            <div class="col-md-8 ">
+                            <div class="col-md-12 ">
                                 <div class="menu-area">
                                     <div class="limit-box">
                                         <nav class="main-menu">
                                             <ul class="menu-area-main">
-                                                <li class="active"> <a href="index.html">Home</a> </li>
+                                                <li> <a href="#home">Home</a> </li>
                                                 <li> <a href="#about">About</a> </li>
                                                 <li><a href="#product">Products</a></li>
                                                 <li><a href="#testimonial">Testimonial</a></li>
+                                                {{-- <li><a href="#testimonial">Info Product</a></li> --}}
                                                 <li><a href="#contact">Contact Us</a></li>
+                                                <li>
+                                                    <a href="/login" style="color: white; font-family: Roboto;">
+                                                    <i class="fa fa-arrow-right"></i> Login
+                                                </a>
+                                                
+                                                </li>
+                                                {{-- <li><a href="#contact">Login</a></li> --}}
 
                                             </ul>
                                         </nav>
@@ -54,12 +67,18 @@
                                 </div>
 
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                                <form class="search">
-                                    <input class="form-control" type="text" placeholder="Search">
-                                    <button><img src="/assets/frontend/images/search_icon.png"></button>
-                                </form>
-                            </div>
+                            {{-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4"> --}}
+                                {{-- <form class="search"> --}}
+                                    {{-- <div class="container">
+                                        <a href="/login">
+                                            <i style="color: white" class="fa fa-arrow-right">Login</i>
+                                        </a>
+                                    </div> --}}
+                                    
+                                    {{-- <input class="form-control" type="text" placeholder="Search">
+                                    <button><img src="/assets/frontend/images/search_icon.png"></button> --}}
+                                {{-- </form> --}}
+                            {{-- </div> --}}
                        </div>
                     </div>
                 </div>
@@ -68,7 +87,7 @@
         <!-- end header inner -->
     </header>
     <!-- end header -->
-    <section class="slider_section">
+    <section class="slider_section" id="home">
         <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
             <ul class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class=""></li>
@@ -133,14 +152,14 @@
                     <div class="for_box">
                         <i><img src="/assets/frontend/images/1.png" alt="#"/></i>
                         <span>1996923</span>
-                        <h3>Harvesta</h3>
+                        <h3>Agriculture</h3>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
                     <div class="for_box">
                         <i><img src="/assets/frontend/images/2.png" alt="#"/></i>
                         <span>8000</span>
-                        <h3>Units of Cattle</h3>
+                        <h3>Animal</h3>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
@@ -148,13 +167,6 @@
                         <i><img src="/assets/frontend/images/3.png" alt="#"/></i>
                         <span>60002</span>
                         <h3>Farm</h3>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
-                    <div class="for_box">
-                        <i><img src="/assets/frontend/images/4.png" alt="#"/></i>
-                        <span>1623</span>
-                        <h3>Units of Technic</h3>
                     </div>
                 </div>
             </div>
