@@ -1,0 +1,37 @@
+#company .company-item .company-logo {
+  width: 65px;
+  height: 65px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+#company .company-item .company-title {
+  margin-bottom: 0;
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+}
+#company .company-item .company-location {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+#company .company-item .company-category {
+  margin-bottom: 0;
+}
+#company .company-item .company-category span {
+  font-size: 0.9rem;
+}
+#company .company-item .company-job {
+  margin-bottom: 1rem;
+}
+#company .company-item .company-job span {
+  font-size: 0.9rem;
+}
+#company .company-item .company-time {
+  margin-bottom: 0;
+}
+#company .company-item .company-time span {
+  font-size: 0.8rem;
+}
+#company .company-item:hover {
+  box-shadow: #c9deff 2px 6px 15px;
+}/*# sourceMappingURL=page-company.css.map */

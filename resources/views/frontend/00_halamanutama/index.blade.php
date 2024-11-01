@@ -97,19 +97,76 @@
             <div class="carousel-inner">
                 
                 {{-- ========================================================================== --}}
-                
-                <div class="carousel-item active">
-                    <img class="first-slide" src="/assets/frontend/images/banner.jpg" alt="First slide">
+                @php
+                $data = $databeranda->first(); // Mengambil data pertama dari koleksi
+            @endphp
+            
+            @if($data)
+                <div class="carousel-item">
+                    <img class="first-slide" src="{{ asset('storage/profil/slide1.jpeg' )}}" alt="{{asset('storage/profil/slide1.jpeg' )}}">
+                    
                     <div class="container">
                         <div class="carousel-caption relative">
-                            <h1 style="font-size: 40px;">Sihade organic farm </h1>
+                            <h1 style="font-size: 40px;">Sihade Organic Farm</h1>
                             <h1 style="font-size: 35px; color: green; font-weight: bold; font-family: 'Roboto';">FARMING COMPANY</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi </p>
-                            <a class="buynow" href="#about">About us</a>
-                            <a class="buynow ggg" href="#">Get a quote</a>
+                            <p>
+                                {{ $data->judul }}
+                            </p>
+
+                            <a class="buynow" href="https://wa.me/62811237916" target="_blank">
+                                <i class="fa fa-phone mr-2"></i>Contact Us
+                            </a>
+                            
+                            {{-- <a class="buynow ggg" href="#">Get a quote</a> --}}
                         </div>
                     </div>
                 </div>
+            @endif
+            
+
+            @if($databeranda->count() > 1)
+    <div class="carousel-item ">
+        <img class="second-slide" src="{{asset('storage/profil/slide2.jpeg' )}}" alt="{{asset('storage/profil/slide2.jpeg' )}}">
+        <div class="container">
+            <div class="carousel-caption relative">
+                <h1 style="font-size: 40px;">Sihade Organic Farm</h1>
+                <h1 style="font-size: 35px; color: green; font-weight: bold; font-family: 'Roboto';">FARMING COMPANY</h1>
+                <p>
+                    {{ $databeranda[1]->judul }}
+                </p>
+            
+                <a class="buynow" href="https://wa.me/62811237916" target="_blank">
+                    <i class="fa fa-phone mr-2"></i>Contact Us
+                </a>
+                
+            </div>
+        </div>
+    </div>
+@endif
+
+@if($databeranda->count() > 2)
+    <div class="carousel-item active">
+        <img class="first-slide" src="{{asset('storage/profil/slide3.jpeg')}}" alt="{{asset('storage/profil/slide3.jpeg')}}">
+        <div class="container">
+            <div class="carousel-caption relative">
+                <h1 style="font-size: 40px;">Sihade Organic Farm</h1>
+                <h1 style="font-size: 35px; color: green; font-weight: bold; font-family: 'Roboto';">FARMING COMPANY</h1>
+                <p>
+                    {{ $databeranda[2]->judul }}
+                </p>
+            
+                <a class="buynow" href="https://wa.me/62811237916" target="_blank">
+                    <i class="fa fa-phone mr-2"></i>Contact Us
+                </a>
+                
+            </div>
+        </div>
+    </div>
+@endif
+
+
+            
+                
                 
                 {{-- ========================================================================== --}}
 
@@ -130,9 +187,12 @@
 
                 <div class="col-xl-5 col-lg-5 col-md-5 co-sm-l2">
                     <div class="about_box">
-                        <h2>About moon<br><strong class="black"> Farm and company</strong></h2>
+                        <h2>About SIHADE<br><strong class="black"> Farm and company</strong></h2>
                         <p>dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
-                        <a href="#">Read More</a>
+                    
+                        <a href="{{ asset('storage/' . $databrosur) }}" target="_blank">{{ asset('storage/' . $databrosur) }}</a>
+
+                    
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-7 col-md-7 co-sm-l2">
@@ -148,21 +208,21 @@
     <div class="for_box_bg">
         <div class="container">
             <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
+                <div class="col-xl-4 col-lg-4 col-md-4 co-sm-l2">
                     <div class="for_box">
                         <i><img src="/assets/frontend/images/1.png" alt="#"/></i>
                         <span>1996923</span>
                         <h3>Agriculture</h3>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
+                <div class="col-xl-4 col-lg-4 col-md-4 co-sm-l2">
                     <div class="for_box">
                         <i><img src="/assets/frontend/images/2.png" alt="#"/></i>
                         <span>8000</span>
                         <h3>Animal</h3>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-3 co-sm-l2">
+                <div class="col-xl-4 col-lg-4 col-md-4 co-sm-l2">
                     <div class="for_box">
                         <i><img src="/assets/frontend/images/3.png" alt="#"/></i>
                         <span>60002</span>

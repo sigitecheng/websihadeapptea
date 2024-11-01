@@ -45,12 +45,12 @@ class DatabaseSeeder extends Seeder
         
         Beranda::create([
             'judul'  => 'Sihade Organic Farm is dedicated to promoting sustainable agriculture and healthy living. Located in the heart of nature, the farm utilizes organic farming practices that prioritize soil health, biodiversity, and ecological balance. By avoiding synthetic pesticides and fertilizers, Sihade ensures that the produce is not only free from harmful chemicals but also rich in nutrients. This commitment to organic farming helps support local ecosystems and fosters a healthier environment for future generations',
-            'gambar' => 'profil/slide1.jpg'    
+            'gambar' => 'profil/slide1.jpeg'    
         ]);
         
         Beranda::create([
             'judul'  => 'At Sihade Organic Farm, visitors can experience the joy of farm life through various educational programs and hands-on activities. The farm offers workshops on organic gardening, composting, and permaculture, allowing individuals and families to learn sustainable practices that can be applied at home. Additionally, guided tours provide insight into the daily operations of the farm, showcasing the importance of responsible farming and the connection between food production and community well-being.',
-            'gambar' => 'profil/slide2.jpg'    
+            'gambar' => 'profil/slide2.jpeg'    
         ]);
         
         Beranda::create([
@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
             By participating in local farmers markets and creating a subscription-based vegetable box service, Sihade Organic Farm strengthens the local food system and promotes healthy eating habits. 
             This direct connection between producers and consumers fosters a sense of community, encouraging people to make informed choices about their food and support sustainable agriculture.
             ' ,
-            'gambar' => 'profil/slide3.jpg'    
+            'gambar' => 'profil/slide3.jpeg'    
         ]);
         
         Berkas::create([
