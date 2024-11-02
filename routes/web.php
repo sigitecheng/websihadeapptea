@@ -22,6 +22,13 @@ use Illuminate\Support\Facades\Auth;
 // ------------------------- FRONTEND HALAMAN UTAMA SIPJAKI BANDUNG BARAT --------------------------
 
 Route::get('/', [FedashboardController::class, 'index']);  
+Route::get('/perusahaan', [FedashboardController::class, 'perusahaan']);  
+Route::get('/perusahaandetails', [FedashboardController::class, 'perusahaandetails']);  
+Route::get('/pertanian', [FedashboardController::class, 'pertanian']);  
+Route::get('/pertaniandetails', [FedashboardController::class, 'pertaniandetails']);  
+Route::get('/mitrakami', [FedashboardController::class, 'mitrakami']);  
+Route::get('/pertanyaan', [FedashboardController::class, 'pertanyaan']);  
+Route::get('/kontak', [FedashboardController::class, 'kontak']);  
 // Route::post('/qapertanyaanstore', [FedashboardController::class, 'createbarustorepertanyaan'])->middleware('auth')->name('create.storeqapertanyaanbaru');
 // Route::post('/qapertanyaanstorebaru', [FedashboardController::class, 'createstorepertanyaanpublik'])->middleware('auth')->name('createpertanyaanstorebaru');
 // Route::post('/qapertanyaanstorebaru', [AdministratorController::class, 'createstorepertanyaanpublik'])->name('createpertanyaanstorebaru');

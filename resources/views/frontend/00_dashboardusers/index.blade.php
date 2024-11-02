@@ -1,55 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-
-    <title>{{$title}}</title>
-    <meta content="" name="description" />
-    <meta content="" name="keywords" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <!-- Favicons -->
-    <link href="/assets/icon/sihadeicon.png" rel="icon" />
-    <link href="/assets/newfrontend/img/apple-touch-icon.png" rel="apple-touch-icon" />
-
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-      rel="stylesheet"
-    />
-
-    <!-- Vendor CSS Files -->
-    <link href="/assets/newfrontend/vendor/aos/aos.css" rel="stylesheet" />
-    <link
-      href="/assets/newfrontend/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="/assets/newfrontend/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link href="/assets/newfrontend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
-    <link
-      href="/assets/newfrontend/vendor/glightbox/css/glightbox.min.css"
-      rel="stylesheet"
-    />
-    <link href="/assets/newfrontend/vendor/remixicon/remixicon.css" rel="stylesheet" />
-    <link href="/assets/newfrontend/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
-    <!-- Template Main CSS File -->
-    <link href="/assets/newfrontend/css/style.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="/assets/newfrontend/css/section-hero.css" />
-    <link rel="stylesheet" href="/assets/newfrontend/css/section-partners.css" />
-    <link rel="stylesheet" href="/assets/newfrontend/css/section-about.css" />
-    <link rel="stylesheet" href="/assets/newfrontend/css/section-whyus.css" />
-    <link rel="stylesheet" href="/assets/newfrontend/css/section-counts.css" />
-    <link rel="stylesheet" href="/assets/newfrontend/css/section-testimonials.css" />
-    <link rel="stylesheet" href="/assets/newfrontend/css/section-faq.css" />
-    <link rel="stylesheet" href="/assets/newfrontend/css/section-contact.css" />
-  </head>
+@include('frontend.00_dashboardusers.style.header')
 
   <body>
     <!-- ======= Header ======= -->
@@ -57,77 +6,13 @@
       <div class="container d-flex align-items-center">
         <!-- <h1 class="logo me-auto"><a href="index.html">Arsha</a></h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="index.html" class="logo me-auto">
-          <img style="width: 15%;" src="/assets/icon/sihadeiconnew.png" alt="" width="150" class="img-fluid" />
-        </a>
 
-        <nav id="navbar" class="navbar">
-          <ul>
-            <style>
-                .nav-link {
-                    color: green;
-                    transition: background-color 0.4s, color 0.3s;
-                }
+{{-- ------------------------------------------------------------- --}}
+{{-- MENU NAVBAR  --}}
+@include('frontend.00_dashboardusers.style.navbar')
 
-                .nav-link:hover {
-                    background-color: white; /* Warna latar belakang saat hover */
-                    color: black; /* Warna teks saat hover */
-                    padding: 8px; /* Tambahkan padding untuk efek button */
-                    border-radius: 10px; /* Sudut membulat untuk button */
-                }
-
-            </style>
-<li>
-    <a style="color: #32CD32" class="nav-link scrollto" href="index.html#hero">
-      Home
-    </a>
-  </li>
-
-
-
-            <li>
-              <a style="color:#32CD32;" class="nav-link scrollto" href="index.html#about"> Tentang Kami </a>
-            </li>
-            <li>
-                <a style="color:#32CD32;" class="nav-link scrollto" href="company.html">Perusahaan</a>
-            </li>
-            <li class="dropdown">
-              <a style="color:#32CD32;" href="#" class="nav-link scrollto active">
-                <span>Produk</span> <i class="bi bi-chevron-down"></i>
-              </a>
-              <ul>
-                
-                <li><a href="student.html">Find Student</a></li>
-                <li><a href="job.html">Find Job & Intern</a></li>
-            </ul>
-        </li>
-        <li>
-          <a style="color:#32CD32;" class="nav-link scrollto" href="index.html#about"> Mitra Kami </a>
-        </li>
-        <li>
-            <li>
-              <a style="color:#32CD32;" class="nav-link scrollto" href="index.html#faq">F.A.Q</a>
-            </li>
-            <li>
-              <a style="color:#32CD32;" class="nav-link scrollto" href="index.html#contact">
-                Contact Us
-              </a>
-            </li>
-            <li class="dropdown">
-
-              <a style="background:green;" href="#" class="getstarted scrollto"> Login </a>
-              
-              <ul>
-                <li><a href="form-polibatam-login.html">Polibatam Login</a></li>
-                <li><a href="form-industry-login.html">Industry Login</a></li>
-              </ul>
-            </li>
-            <!-- <li>
-              <a class="getstarted scrollto" href="#about">Get Started</a>
-            </li> -->
-          </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav>
+{{-- ------------------------------------------------------------- --}}
+        
         <!-- .navbar -->
       </div>
     </header>
@@ -297,33 +182,34 @@
             <h2 style="color: green">About Sihade</h2>
           </div>
 
+          @foreach ($dataaboutsihade as $data)
+              
           <div class="row content">
             <div class="col-lg-6">
               <p>
-                Sihade Organic Farm connects aspiring farmers and environmentally conscious consumers to promote sustainable agriculture and healthy living.              </p>
-              <ul>
-                <li><i class="ri-check-double-line"></i> Committed to sustainable farming practices</li>
-<li><i class="ri-check-double-line"></i> Provides fresh, organic produce directly from the farm</li>
-<li><i class="ri-check-double-line"></i> Supports local farmers through education and training</li>
-<li><i class="ri-check-double-line"></i> Promotes healthy living through organic food choices</li>
-<li><i class="ri-check-double-line"></i> Engages with the community for a better agricultural future</li>
-<li><i class="ri-check-double-line"></i> Offers workshops on organic farming techniques</li>
-<li><i class="ri-check-double-line"></i> Creates partnerships for eco-friendly initiatives</li>
-<li><i class="ri-check-double-line"></i> Fosters a love for nature and environmental stewardship</li>
-<li><i class="ri-check-double-line"></i> Delivers a variety of seasonal fruits and vegetables</li>
-
-              </ul>
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0">
-              <p style="text-align: justify">
-                Sihade Organic Farm is a company dedicated to producing high-quality organic agricultural products, with a strong commitment to sustainability and environmental health. Nestled in the beauty of nature, we employ eco-friendly farming methods that are free from pesticides and harmful chemicals. By combining traditional techniques with modern innovations, we strive not only to cultivate fresh, delicious vegetables and fruits but also to support the local ecosystem and enhance the well-being of the surrounding community. Through education and training, we invite local farmers to join our vision, working together to create a healthier and more sustainable farming environment. At Sihade Organic Farm, we believe that every small step towards organic farming is a significant leap towards a better future for generations to come.              </p>
+                  {{$data->judul}}
+                
+                  <ul>
+                  <li><i style="color: green" class="ri-check-double-line"></i> {{ $data->point1}}</li>
+                  <li><i style="color: green" class="ri-check-double-line"></i> {{ $data->point2}}</li>
+                  <li><i style="color: green" class="ri-check-double-line"></i> {{ $data->point3}}</li>
+                  <li><i style="color: green" class="ri-check-double-line"></i> {{ $data->point4}}</li>
+                  <li><i style="color: green" class="ri-check-double-line"></i> {{ $data->point5}}</li>
+                  <li><i style="color: green" class="ri-check-double-line"></i> {{ $data->point6}}</li>
+                  <li><i style="color: green" class="ri-check-double-line"></i> {{ $data->point7}}</li>
+          </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p style="text-align: justify">
+                {{$data->keterangan}}
             </div>
           </div>
-        </div>
-      </section>
-      <!-- End About Us Section -->
+          </div>
+      @endforeach
+</section>
+<!-- End About Us Section -->
 
-      <!-- ======= Why Us Section ======= -->
+<!-- ======= Why Us Section ======= -->
       <section id="why-us" class="why-us section-bg">
         <div class="container-fluid" data-aos="fade-up">
           <div class="row">
@@ -937,129 +823,4 @@
     </main>
     <!-- End #main -->
 
-    <footer id="footer" class="footer">
-      <div class="footer-top">
-        <div class="container">
-          <div class="row gy-4">
-            <div class="col-lg-5 col-md-12 footer-info">
-              <a href="index.php" class="logo d-flex align-items-center">
-                <!-- <img src="assets/img/Comma.png" alt=""> -->
-                <img
-                  class="ml-2 ps-4"
-                  src="/assets/icon/sihadeiconnew.png"
-                  alt=""
-                  style="transform: scale(2.5); margin-bottom:15px; text-align:left;"
-                />
-                <br>
-              </a>
-              <p><strong> PT. Haznia Bina Virofarm</strong></p>
-              <div class="social-links mt-3">
-                <a style="color: black" href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a style="color: black" href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a style="color: black" href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a style="color: black" href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                <a style="color: black" href="#" class="tiktok"><i class="bi bi-tiktok"></i></a>
-                <a style="color: black" href="#" class="youtube"><i class="bi bi-youtube"></i></a>
-                <a style="color: black" href="mailto:youremail@example.com" class="email"><i class="bi bi-envelope"></i></a>
-              </div>
-              
-            </div>
-
-            <div class="col-lg-2 col-6 footer-links">
-              <h4 style="color: green" >Our Services</h4>
-              <ul>
-                
-                <li>
-                  <i style="color: green;" class="bi bi-chevron-right"></i>
-                  <a style="color: black" href="#hero">Home</a>
-                </li>
-                <li>
-                  <i style="color: green;" class="bi bi-chevron-right"></i>
-                  <a style="color: black" href="#about">Tentang Kami</a>
-                </li>
-                <li>
-                  <i style="color: green;" class="bi bi-chevron-right"></i>
-                  <a style="color: black" href="#">Perusahaan</a>
-                </li>
-                <li>
-                  <i style="color: green;" class="bi bi-chevron-right"></i>
-                  <a style="color: black" href="#">Produk</a>
-                </li>
-                <li>
-                  <i style="color: green;" class="bi bi-chevron-right"></i>
-                  <a style="color: black" href="#">Mitra Kami</a>
-                </li>
-                
-                <li>
-                  <i style="color: green;" class="bi bi-chevron-right"></i>
-                  <a style="color: black" href="#">F.A.Q</a>
-                </li>
-                
-                
-                <li>
-                  <i style="color: green;" class="bi bi-chevron-right"></i>
-                  <a style="color: black" href="#">Contact Us</a>
-                </li>
-                
-              </ul>
-            </div>
-
-            <div
-              class="col-lg-3 col-md-12 footer-contact text-center text-md-start"
-            >
-              <h4 style="color: green;">Contact Us</h4>
-              <p>
-                Jln. Pelesiran No. 20E Desa/Kelurahan lebak Siliwangi Kecamatan Coblong, Kota Bandung Jawa Barat 40132 Indonesia
-                </p>
-                <p>
-                    <strong><i class="bi bi-telephone mr-2"></i> Phone:</strong> +628 8888 888<br />
-                    <strong><i class="bi bi-envelope mr-2"></i> Email:</strong> email@email
-                  </p>
-                                {{-- </p> --}}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="background-color: green; padding: 10px; text-align: center; color: white; width: 100%; margin: 0;">
-        <p style="margin: 0;">
-          Designed by <a href="https://wa.me/628132145585" style="color: white; text-decoration: underline;">sarigit.com</a> &copy; 2024 All Rights Reserved
-        </p>
-      </div>
-      
-    </footer>
-    <!-- End Footer -->
-
-    <div id="preloader"></div>
-    <a style="background: green"
-      href="#"
-      class="back-to-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a>
-
-    <!-- Vendor JS Files -->
-    <script src="/assets/newfrontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/newfrontend/vendor/aos/aos.js"></script>
-    <script src="/assets/newfrontend/vendor/php-email-form/validate.js"></script>
-    <script src="/assets/newfrontend/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="/assets/newfrontend/vendor/purecounter/purecounter.js"></script>
-    <script src="/assets/newfrontend/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="/assets/newfrontend/vendor/glightbox/js/glightbox.min.js"></script>
-    <!-- <script src="assets/vendor/waypoints/noframework.waypoints.js"></script> -->
-    <script>
-      $(function () {
-        var tallest = 0;
-        $(".samakanintern").each(function () {
-          var currentHeight = $(this).height();
-          //console.log(currentHeight);
-          if (currentHeight > tallest) {
-            tallest = $(this).height();
-          }
-        });
-        $(".samakanintern").height(tallest);
-      });
-    </script>
-
-    <!-- Template Main JS File -->
-    <script src="/assets/newfrontend/js/main.js"></script>
-  </body>
-</html>
+    @include('frontend.00_dashboardusers.style.footer')

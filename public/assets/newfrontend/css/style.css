@@ -359,7 +359,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #37517e;
+  color: green;
 }
 
 .section-title h2::before {
@@ -379,7 +379,7 @@ section {
   display: block;
   width: 40px;
   height: 3px;
-  background: #47b2e4;
+  background: green;
   bottom: 0;
   left: calc(50% - 20px);
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Aboutsihade;
 use App\Models\Beranda;
 use App\Models\Berkas;
 use App\Models\User;
@@ -68,6 +69,21 @@ class DatabaseSeeder extends Seeder
             'nib' => 'berkas/nib.pdf',    
             'suratsihade' => 'berkas/suratsihade.pdf',    
         ]);
+        
+        Aboutsihade::create([
+            'judul' => 'Sihade Organic Farm connects aspiring farmers and environmentally conscious consumers to promote sustainable agriculture and healthy living.',    
+            'point1' => 'Committed to sustainable farming practices',    
+            'point2' => 'Provides fresh, organic produce directly from the farm',    
+            'point3' => 'Supports local farmers through education and training',    
+            'point4' => 'Promotes healthy living through organic food choices',    
+            'point5' => 'Engages with the community for a better agricultural future',    
+            'point6' => 'Offers workshops on organic farming techniques',    
+            'point7' => 'Creates partnerships for eco-friendly initiatives',    
+            'point8' => 'Fosters a love for nature and environmental stewardship',    
+            'point9' => 'Delivers a variety of seasonal fruits and vegetables',    
+            'keterangan' => 'Sihade Organic Farm is a company dedicated to producing high-quality organic agricultural products, with a strong commitment to sustainability and environmental health. Nestled in the beauty of nature, we employ eco-friendly farming methods that are free from pesticides and harmful chemicals. By combining traditional techniques with modern innovations, we strive not only to cultivate fresh, delicious vegetables and fruits but also to support the local ecosystem and enhance the well-being of the surrounding community. Through education and training, we invite local farmers to join our vision, working together to create a healthier and more sustainable farming environment. At Sihade Organic Farm, we believe that every small step towards organic farming is a significant leap towards a better future for generations to come.',    
+        ]);
+        
       
     }
 
