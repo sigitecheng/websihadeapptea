@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('daftarmerk');
             $table->string('nib');
             $table->string('suratsihade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

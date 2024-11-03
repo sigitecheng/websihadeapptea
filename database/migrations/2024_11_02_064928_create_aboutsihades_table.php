@@ -24,6 +24,7 @@ return new class extends Migration
             $table->text('point8');
             $table->text('point9');
             $table->text('keterangan');
+            $table->softDeletes(); // Menambahkan kolom deleted_at
             $table->timestamps();
         });
     }

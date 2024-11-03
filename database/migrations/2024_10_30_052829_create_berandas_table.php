@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('judul');
             $table->string('gambar');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

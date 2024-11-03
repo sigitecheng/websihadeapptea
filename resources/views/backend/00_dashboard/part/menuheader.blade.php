@@ -88,7 +88,7 @@
     <div class="loader-circle">
         <div class="loader-wave"></div>
         <div class="loader-wind"></div>
-        <img src="/assets/sipjakikbb.png" alt="Loading" class="loader-image">
+        <img src="/assets/icon/lambangsihade.png" alt="Loading" class="loader-image">
     </div>
 </div>
 
@@ -120,9 +120,9 @@
         <!--Logo-->
         <div class="col-sm-3 pl-0 text-center" style="background: #22BB22; height:60px;"> 
            <div class=" mr-3 mb-0 mt-10 mb-10 " style="display: flex; align-items: center; margin-bottom:10px">
-           <img src="/assets/icon/pupr.png" alt="Logo SIPJAKIKBB" style="margin-left:25px; margin-top:5px; width: 50px; height: 50px; object-fit: cover; margin-right: 10px; padding: 0;">
+           <img src="/assets/icon/lambangsihade.png" alt="" style="margin-left:25px; margin-top:5px; width: 50%; object-fit: cover; margin-right: 10px; padding: 0;">
         
-           <h3>SIPJAKIKBB</h3>
+           {{-- <h3>SIHADE</h3> --}}
            
            </div>
         </div>

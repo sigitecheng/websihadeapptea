@@ -43,7 +43,7 @@ Route::get('/kontak', [FedashboardController::class, 'kontak']);
 //     ]);
 // });
 
-
+    
 Route::get('/404', function () {
     // return view('welcome');
     return view('404', [
@@ -54,6 +54,65 @@ Route::get('/404', function () {
 
 // Route::get('/dashboard', [AdminDashboardController::class, 'index'])->middleware('auth');  
 Route::get('/dashboardadmin', [AdminDashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+
+
+// ------------------- BACKEND BAGIAN HOME (01) --------------------------- 
+
+// -------- BAGIAN 01 BACKEND DATA PROFIL HOME SIHADE  ---------------------------------
+Route::get('/aboutsihade', [AdminDashboardController::class, 'aboutsihade'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/aboutsihade/update/{id}', [AdminDashboardController::class, 'updatedataaboutsihade'])->middleware('auth')->name('updateshow.aboutsihade');
+Route::post('/aboutsihadeupdatestore/{id}', [AdminDashboardController::class, 'createupdatedataaboutsihade'])->middleware('auth')->name('update.dataaboutsihade');
+// Route::get('/databeritacreate', [BeritaController::class, 'createnewdataberita'])->middleware('auth');
+// Route::post('/databeritastore', [BeritaController::class, 'createnewstoredataberita'])->middleware('auth')->name('create.databerita');
+
+// Route::post('/databerita/{judul}', [BeritaController::class, 'deletedataberita'])
+// ->middleware('auth')
+// ->name('delete.databerita');
+
+// -------- BAGIAN 02 BACKEND DATA WHYSIHADE  ---------------------------------
+Route::get('/whysihade', [AdminDashboardController::class, 'whysihade'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/whysihade/update/{id}', [AdminDashboardController::class, 'updatedatawhysihade'])->middleware('auth')->name('updateshow.whysihade');
+Route::post('/whysihadeupdatestore/{id}', [AdminDashboardController::class, 'createupdatedatawhysihade'])->middleware('auth')->name('update.datawhysihade');
+// Route::get('/databeritacreate', [BeritaController::class, 'createnewdataberita'])->middleware('auth');
+// Route::post('/databeritastore', [BeritaController::class, 'createnewstoredataberita'])->middleware('auth')->name('create.databerita');
+
+// Route::post('/databerita/{judul}', [BeritaController::class, 'deletedataberita'])
+// ->middleware('auth')
+// ->name('delete.databerita');
+
+// -------- BAGIAN 03 BACKEND DATA TESTIMONI  ---------------------------------
+Route::get('/testimoni', [AdminDashboardController::class, 'testimoni'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/testimoni/update/{id}', [AdminDashboardController::class, 'updatedatatestimoni'])->middleware('auth')->name('updateshow.testimoni');
+Route::post('/testimoniupdatestore/{id}', [AdminDashboardController::class, 'createupdatedatatestimoni'])->middleware('auth')->name('update.datatestimoni');
+Route::get('/testimonicreate', [AdminDashboardController::class, 'createnewdatatestimoni'])->middleware('auth');
+Route::post('/datatestimonistore', [AdminDashboardController::class, 'createnewstoredatatestimoni'])->middleware('auth')->name('create.datatestimoni');
+
+Route::post('/testimoni/{id}', [AdminDashboardController::class, 'deletedatatestimoni'])
+->middleware('auth')
+->name('delete.datatestimoni');
+
+// -------- BAGIAN 04 FAQ  ---------------------------------
+Route::get('/FAQ', [AdminDashboardController::class, 'FAQ'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/FAQ/update/{id}', [AdminDashboardController::class, 'updatedataFAQ'])->middleware('auth')->name('updateshow.FAQ');
+Route::post('/FAQupdatestore/{id}', [AdminDashboardController::class, 'createupdatedataFAQ'])->middleware('auth')->name('update.dataFAQ');
+// Route::get('/FAQcreate', [AdminDashboardController::class, 'createnewdataFAQ'])->middleware('auth');
+// Route::post('/dataFAQstore', [AdminDashboardController::class, 'createnewstoredataFAQ'])->middleware('auth')->name('create.dataFAQ');
+
+Route::post('/FAQ/{id}', [AdminDashboardController::class, 'deletedataFAQ'])
+->middleware('auth')
+->name('delete.dataFAQ');
+
+// -------- BAGIAN 05 CONTACTS US  ---------------------------------
+Route::get('/contactus', [AdminDashboardController::class, 'contactus'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/contactus/update/{id}', [AdminDashboardController::class, 'updatedatacontactus'])->middleware('auth')->name('updateshow.contactus');
+Route::post('/contactusupdatestore/{id}', [AdminDashboardController::class, 'createupdatedatacontactus'])->middleware('auth')->name('update.datacontactus');
+// Route::get('/FAQcreate', [AdminDashboardController::class, 'createnewdataFAQ'])->middleware('auth');
+// Route::post('/dataFAQstore', [AdminDashboardController::class, 'createnewstoredataFAQ'])->middleware('auth')->name('create.dataFAQ');
 
 // ------------------- BACKEND QA PERTANYAAN --------------------------- 
 

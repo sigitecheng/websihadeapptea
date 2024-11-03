@@ -229,6 +229,9 @@
 
               <div class="accordion-list">
                 <ul>
+
+                  @foreach ($datawhysihade as $data )
+                    
                     <li>
                         <a
                           data-bs-toggle="collapse"
@@ -236,7 +239,7 @@
                           data-bs-target="#accordion-list-1"
                           
                         >
-                          <span style="color: green">01. Promote Organic Practices</span>
+                          <span style="color: green">01. {{ $data->pertanyaan1}}</span>
                          
                           <i style="color: green;" class="bx bx-chevron-down icon-show"> </i>
                           <i style="color: green;" class="bx bx-chevron-up icon-close"></i>
@@ -247,7 +250,7 @@
                           data-bs-parent=".accordion-list"
                         >
                           <p>
-                            Educating the community on the benefits of organic farming and sustainable agriculture practices.
+                          {{$data->jawaban1}}
                           </p>
                         </div>
                       </li>
@@ -258,7 +261,7 @@
                           class="collapse"
                           data-bs-target="#accordion-list-2"
                         >
-                          <span style="color: green">02. Support Local Farmers</span>
+                          <span style="color: green">02. {{ $data->pertanyaan2}}</span>
                           
                           <i style="color: green" class="bx bx-chevron-down icon-show"> </i>
                           <i style="color: green" class="bx bx-chevron-up icon-close"></i>
@@ -269,7 +272,7 @@
                           data-bs-parent=".accordion-list"
                         >
                           <p>
-                            Providing resources and training to empower local farmers in adopting organic methods.
+                            {{$data->jawaban2}}
                           </p>
                         </div>
                       </li>
@@ -280,7 +283,7 @@
                           class="collapse"
                           data-bs-target="#accordion-list-3"
                         >
-                          <span style="color:green ">03. Community Engagement</span>
+                          <span style="color:green ">03. {{$data->pertanyaan3}}</span>
                           
                           <i style="color: green" class="bx bx-chevron-down icon-show"> </i>
                           <i style="color: green" class="bx bx-chevron-up icon-close"></i>
@@ -291,7 +294,7 @@
                           data-bs-parent=".accordion-list"
                         >
                           <p>
-                            Organizing workshops and events to connect with the community and promote healthy living.
+                              {{$data->jawaban3}}
                           </p>
                         </div>
                       </li>
@@ -302,7 +305,7 @@
                           class="collapse"
                           data-bs-target="#accordion-list-4"
                         >
-                          <span style="color: green;">04. Fresh Produce Delivery</span>
+                          <span style="color: green;">04. {{$data->pertanyaan4}}</span>
                           
                           <i style="color: green" class="bx bx-chevron-down icon-show"> </i>
                           <i style="color: green" class="bx bx-chevron-up icon-close"></i>
@@ -313,7 +316,8 @@
                           data-bs-parent=".accordion-list"
                         >
                           <p>
-                            Offering a convenient delivery service for fresh, organic fruits and vegetables straight from the farm.
+
+                              {{$data->jawaban4}}
                           </p>
                         </div>
                       </li>
@@ -342,12 +346,14 @@
                       
 
                 </ul>
+                
+                @endforeach
               </div>
             </div>
 
             <div
               class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
-              style="background-image: url('/assets/icon/aboutuslogo.jpg')"
+              style="background-image: url('/assets/icon/produksihade.jpeg')"
               data-aos="zoom-in"
               data-aos-delay="150"
             >
@@ -369,7 +375,7 @@
                   <div>
                     <span style="color: orange"
                       data-purecounter-start="0"
-                      data-purecounter-end="411"
+                      data-purecounter-end="12"
                       data-purecounter-duration="1"
                       class="purecounter"
                     ></span>
@@ -452,7 +458,10 @@
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <div class="swiper-wrapper">
+
+          
+          <div class="swiper-wrapper">
+              @foreach ($datatestimoni as $data)
               <div class="swiper-slide">
                 <div class="testimonial-item">
                   <div class="stars">
@@ -463,98 +472,19 @@
                     ><i class="bi bi-star-fill"></i>
                   </div>
                   <p>
-                    "This application make easy to find student with enough
-                    competency"
+                    {{$data->komentar}}
                   </p>
                   <div class="profile mt-auto">
-                    <img src="/assets/icon/fototestimoni.jpg" class="testimonial-img" alt="" />
-                    <h3>Radzarul</h3>
-                    <h4>HRD</h4>
+                    <img src="{{asset('storage/' . $data->foto)}}" class="testimonial-img" alt="" />
+                    <h3>{{$data->namalengkap}}</h3>
+                    <h4>{{$data->jabatan}}</h4>
+                    <h4>{{$data->perusahaan}}</h4>
                   </div>
                 </div>
               </div>
               <!-- End testimonial item -->
 
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    "Help me to track all my achievement while i was in collage,
-                    it also help me to find internship offer"
-                  </p>
-                  <div class="profile mt-auto">
-                    <img src="/assets/icon/fototestimoni.jpg" class="testimonial-img" alt="" />
-                    <h3>Dedi Syafriadi</h3>
-                    <h4>Student</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>"Easy to use, very helpfull and usefull"</p>
-                  <div class="profile mt-auto">
-                    <img src="/assets/icon/fototestimoni.jpg" class="testimonial-img" alt="" />
-                    <h3>Aufa Ahmad</h3>
-                    <h4>Supervisor</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>"This application make easy to track student"</p>
-                  <div class="profile mt-auto">
-                    <img src="/assets/icon/fototestimoni.jpg" class="testimonial-img" alt="" />
-                    <h3>Matt</h3>
-                    <h4>Freelancer</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    "The application really friendly to use, help me to find job
-                    vacancies"
-                  </p>
-                  <div class="profile mt-auto">
-                    <img src="/assets/icon/fototestimoni.jpg" class="testimonial-img" alt="" />
-                    <h3>Manash</h3>
-                    <h4>Student</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- End testimonial item -->
+              @endforeach
             </div>
             <div class="swiper-pagination"></div>
           </div>
@@ -571,6 +501,9 @@
 
           <div class="faq-list">
             <ul>
+
+              @foreach ($datafaq as $data)
+                
                 <li data-aos="fade-up" data-aos-delay="100">
                     <i style="color: green;" class="bx bx-help-circle icon-help"></i>
                     <a
@@ -578,7 +511,7 @@
                       class="collapse"
                       data-bs-target="#faq-list-1"
                     >
-                      <span style="color: green">What types of organic products do you offer?</span>
+                      <span style="color: green">{{ $data->pertanyaan1}}</span>
                       <i style="color: green" class="bx bx-chevron-down icon-show"></i>
                       <i style="color: green" class="bx bx-chevron-up icon-close"></i>
                     </a>
@@ -588,7 +521,7 @@
                       data-bs-parent=".faq-list"
                     >
                       <p>
-                        We offer a wide variety of organic products, including fresh fruits, vegetables, herbs, and organic fertilizers. Our produce is grown sustainably on our farm, ensuring that it is not only healthy for you but also beneficial for the environment. We pride ourselves on delivering high-quality, nutrient-rich products that support local agriculture and promote a healthier lifestyle.
+                      {{$data->jawaban1}}
                       </p>
                     </div>
                   </li>
@@ -600,7 +533,7 @@
                       class="collapse"
                       data-bs-target="#faq-list-2"
                     >
-                      <span style="color: green">How can I purchase products from Sihade Organic Farm?</span>
+                      <span style="color: green">{{$data->pertanyaan2}}</span>
                       <i style="color: green" class="bx bx-chevron-down icon-show"></i>
                       <i style="color: green" class="bx bx-chevron-up icon-close"></i>
                     </a>
@@ -610,7 +543,7 @@
                       data-bs-parent=".faq-list"
                     >
                       <p>
-                        You can conveniently purchase our products through our website, where you can browse our full range of offerings. Additionally, you can visit our farm directly for a more personal experience. For our local customers, we also offer home delivery services to ensure you receive fresh organic produce right at your doorstep.
+                      {{$data->jawaban2}}
                       </p>
                     </div>
                   </li>
@@ -622,7 +555,7 @@
                       class="collapse"
                       data-bs-target="#faq-list-3"
                     >
-                      <span style="color: green">Are your products certified organic?</span>
+                      <span style="color: green">{{$data->pertanyaan3}}</span>
                       <i style="color: green" class="bx bx-chevron-down icon-show"></i>
                       <i style="color: green" class="bx bx-chevron-up icon-close"></i>
                     </a>
@@ -632,7 +565,7 @@
                       data-bs-parent=".faq-list"
                     >
                       <p>
-                        Yes, all our products are certified organic by recognized certification bodies. We adhere to strict guidelines and practices that prohibit the use of synthetic pesticides or fertilizers, ensuring that our produce is not only safe but also promotes sustainable farming practices that protect the environment.
+                      {{$data->jawaban3}}
                       </p>
                     </div>
                   </li>
@@ -644,7 +577,7 @@
                       class="collapse"
                       data-bs-target="#faq-list-4"
                     >
-                      <span style="color: green">How can I learn more about organic farming practices?</span>
+                      <span style="color: green">{{$data->pertanyaan4}}</span>
                       <i style="color: green" class="bx bx-chevron-down icon-show"></i>
                       <i style="color: green" class="bx bx-chevron-up icon-close"></i>
                     </a>
@@ -654,7 +587,7 @@
                       data-bs-parent=".faq-list"
                     >
                       <p>
-                        We offer various workshops and educational resources on organic farming practices to help individuals understand the benefits and techniques of sustainable agriculture. Visit our website regularly for updates on upcoming events, workshops, and available materials to enhance your knowledge of organic farming.
+                      {{$data->jawaban4}}
                       </p>
                     </div>
                   </li>
@@ -666,7 +599,7 @@
                       class="collapse"
                       data-bs-target="#faq-list-5"
                     >
-                      <span style="color: green">Can I visit Sihade Organic Farm?</span>
+                      <span style="color: green">{{$data->pertanyaan5}}</span>
                       <i style="color: green" class="bx bx-chevron-down icon-show"></i>
                       <i style="color: green" class="bx bx-chevron-up icon-close"></i>
                     </a>
@@ -676,10 +609,13 @@
                       data-bs-parent=".faq-list"
                     >
                       <p>
-                        Yes, we warmly welcome visitors to Sihade Organic Farm! It’s a wonderful opportunity to see our farming practices in action and learn more about organic agriculture. Please check our website for visiting hours and any special events we may have, including guided tours and workshops that provide insight into our farming methods and products.
+                      {{$data->jawaban5}}
                       </p>
                     </div>
                   </li>
+
+                  
+              @endforeach
               </ul>
               
           </div>
@@ -698,12 +634,15 @@
             <div class="col-lg-6">
               <div class="row gy-4">
                 <div class="col-md-6">
+
+                  
+          @foreach ($datainformasiperusahaan as $data )
+            
                   <div class="info-box">
                     <i style="color: green;" class="bi bi-geo-alt"></i>
                     <h3 style="color: green;">Address</h3>
                     <p>
-                        Jln. Pelesiran No. 20E Desa/Kelurahan lebak Siliwangi Kecamatan Coblong, Kota Bandung Jawa Barat 40132 Indonesia
-                    
+                        {{$data->alamat}}
                     </p>
                   
                 </div>
@@ -713,12 +652,11 @@
                     <i style="color: green" class="bi bi-telephone"></i>
                     <h3 style="color: green;">Call Us</h3>
                     <p>
-                        <a href="https://wa.me/628888888" target="_blank" style="text-decoration: none; color: green;">
-                          <i class="fab fa-whatsapp" style="font-size: 14px; color:green"></i> +628 888888
-                        </a>
+                        <a href="https://wa.me/62811237916" target="_blank" style="text-decoration: none; color: green;">
+                          <i class="fab fa-whatsapp" style="font-size: 14px; color:green"></i> {{$data->telepon1}}                        </a>
                         <br />
                         <a href="https://wa.me/6288888888" target="_blank" style="text-decoration: none; color: green;">
-                          <i class="fab fa-whatsapp" style="font-size: 14px; color:green"></i> +628 8888888
+                          <i class="fab fa-whatsapp" style="font-size: 14px; color:green"></i> {{$data->telepon2}}
                         </a>
                       </p>
                        
@@ -728,7 +666,7 @@
                   <div class="info-box">
                     <i style="color: green" class="bi bi-envelope"></i>
                     <h3 style="color: green">Email Us</h3>
-                    <p>sihade@gmail.com<br />sihadenew@gmail.com</p>
+                    <p>{{$data->email1}}<br />{{$data->email2}}</p>
                   </div>
                 </div>
 
@@ -736,12 +674,13 @@
                   <div class="info-box">
                     <i style="color: green;" class="bi bi-clock"></i>
                     <h3 style="color: green">Open Hours</h3>
-                    <p>Monday - Friday<br />9:00AM - 05:00PM</p>
+                    <p>Monday - Friday<br />{{$data->jamkerjamulai}}:00AM - {{$data->jamkerjaselesai}}:00PM</p>
                   </div>
                 </div>
               </div>
             </div>
 
+            @endforeach
             <div class="col-lg-6">
               <form
                 action="forms/contact.php"

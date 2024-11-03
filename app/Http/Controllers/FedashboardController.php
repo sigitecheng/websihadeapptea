@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Aboutsihade;
 use App\Models\Beranda;
 use App\Models\Berkas;
+use App\Models\Faq;
+use App\Models\Informasiperusahaan;
+use App\Models\Testimoni;
+use App\Models\Whysihade;
 use Illuminate\Http\Request;
 
 class FedashboardController extends Controller
@@ -15,6 +19,10 @@ class FedashboardController extends Controller
         $data = Beranda::all();
         $databerkas = Berkas::all();
         $dataaboutsihade = Aboutsihade::all();
+        $datawhysihade = Whysihade::all();
+        $datatestimoni = Testimoni::all();
+        $datafaq = Faq::all();
+        $datainformasiperusahaan = Informasiperusahaan::all();
 
         $databrosur = Berkas::select('brosur')->get(); // Ambil hanya kolom brosur
         $datadaftarmerk = Berkas::select('daftarmerk')->get(); // Ambil hanya kolom brosur
@@ -30,7 +38,11 @@ class FedashboardController extends Controller
             'datadaftarmerk' => $datadaftarmerk, 
             'datanib' => $datanib, 
             'datansuratsihade' => $datasuratsihade, 
-            'dataaboutsihade' => $dataaboutsihade 
+            'dataaboutsihade' => $dataaboutsihade, 
+            'datawhysihade' => $datawhysihade, 
+            'datatestimoni' => $datatestimoni, 
+            'datafaq' => $datafaq,
+            'datainformasiperusahaan' => $datainformasiperusahaan 
         ]);
     }
 
