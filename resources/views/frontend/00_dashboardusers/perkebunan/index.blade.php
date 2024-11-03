@@ -111,7 +111,7 @@
                 @foreach ($data as $item )
                   
                 <div class="col-md-6">
-                  <a href="/pertaniandetails/{{$item->namaproduk}}">
+                  <a href="/perkebunandetails/{{$item->namaproduk}}">
                     <div class="card job-item mb-3">
                       <div class="card-body">
                         <div class="d-flex align-items-start mb-2">
@@ -132,7 +132,7 @@
                         <div class="job-desc text-muted">
                           <p class="job-type mb-0">
                             <i class="fas fa-leaf me-2 text-muted"></i>
-                            AGRICULTURE
+                            Plantations
                         </p>
                         
                         </div>

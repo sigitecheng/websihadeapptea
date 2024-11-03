@@ -124,6 +124,52 @@
                         
 
 
+                           
+                         <li class="parent">
+                            <a href="#" onclick="toggle_menu('company'); return false" class="sbar">
+                                <i class="fas fa-building mr-2"></i> <!-- Ganti dengan ikon gedung untuk Company -->
+                                <span>COMPANY<i class="fa fa-angle-down pull-right align-bottom" style="color: black;"></i></span>
+                            </a>
+                            
+                            <ul class="children" id="company">
+                                <li class="child">
+                                    <a href="/company" style="font-size: 12px;">
+                                        <i class="fas fa-building mr-2" style="margin-left: 20px;"></i>DATA COMPANY
+                                    </a>
+                        
+                                </li>
+                            </ul>
+                        </li>
+                        
+                           
+                         <li class="parent">
+                            <a href="#" onclick="toggle_menu('products'); return false" class="sbar">
+                                <i class="fas fa-box mr-2"></i> <!-- Ganti dengan ikon kotak untuk Produk -->
+                                <span>PRODUCTS<i class="fa fa-angle-down pull-right align-bottom" style="color: black;"></i></span>
+                            </a>
+                            
+                            <ul class="children" id="products">
+                                <li class="child">
+                                    <a href="/bepertanian" style="font-size: 12px;">
+                                        <i class="fas fa-seedling mr-2" style="margin-left: 20px;"></i>AGRICULTURE
+                                    </a>
+                                </li>
+                                <li class="child">
+                                    <a href="/beperternakan" style="font-size: 12px;">
+                                        <i class="fas fa-paw mr-2" style="margin-left: 20px;"></i>ANIMAL FARMING
+                                    </a>
+                                </li>
+                                <li class="child">
+                                    <a href="/beperkebunan" style="font-size: 12px;">
+                                        <i class="fas fa-tree mr-2" style="margin-left: 20px;"></i>PLANTATION
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        
+
+
 
 
 

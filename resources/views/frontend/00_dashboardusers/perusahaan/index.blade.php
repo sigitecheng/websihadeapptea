@@ -80,9 +80,12 @@
               </button> --}}
 
               <div class="row">
+                @foreach ($data as $item )
                 <div class="col-md-6">
                     <a href="/perusahaandetails">
                     <div class="card company-item mb-3">
+                      
+                        
                       <div class="card-body">
                         <div class="d-flex mb-4">
                           <img
@@ -91,39 +94,41 @@
                             alt=""
                           />
                           <div class="ms-3">
-                            <p style="color: green;" class="company-title"><strong>PT. Haznia Bina Virofarm</strong></p>
+                            <p style="color: green;" class="company-title"><strong>{{$item->namaperusahaan}}</strong></p>
                             <p style="color: black;" class="company-location text-muted">
-                              Bandung, Jawa Barat, Indonesia
+                              {{$item->kota}}, {{$item->provinsi}}, {{$item->negara}}
                             </p>
                           </div>
                         </div>
                         <div class="text-muted">
                             <p class="company-category">
                               <i class="bx bxs-buildings text-muted"></i>
-                              <span>Ruang Produksi Pupuk Organik</span>
+                              <span>{{$item->namaruangproduksi}}</span>
                             </p>
                             <p class="company-job">
                               <i class="bx bxs-user text-muted"></i>
-                              <span>10 Karyawan</span>
+                              <span>{{$item->jumlahkaryawan}} Karyawan</span>
                             </p>
                             <p class="company-capacity">
                               <i class="bx bxs-package text-muted"></i>
-                              <span>Kapasitas Produksi: 500 Ton/Bulan</span>
+                              <span>Kapasitas Produksi: {{$item->kapasitasproduksi}} Ton/Bulan</span>
                             </p>
                             <p class="company-equipment">
                               <i class="fas fa-hammer text-muted"></i>
-                              <span>Peralatan Modern Terkini</span>
+                              <span>{{$item->keteranganperalatan}}</span>
                             </p>
                             <p class="company-quality">
                               <i class="bx bxs-check-circle text-muted"></i>
-                              <span>Standar Kualitas Tinggi</span>
+                              <span>{{$item->kualitas}}</span>
                             </p>
                           </div>
                           
                       </div>
                     </div>
                   </a>
+                  
                 </div>
+                @endforeach
 
                 
               </div>

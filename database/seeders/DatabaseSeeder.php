@@ -6,13 +6,18 @@ use App\Models\Aboutsihade;
 use App\Models\Beranda;
 use App\Models\Berkas;
 use App\Models\Contactus;
+use App\Models\Dataperusahaan;
 use App\Models\Faq;
 use App\Models\Informasiperusahaan;
+use App\Models\Pertanian;
+use App\Models\Peternakan;
+use App\Models\Plantations;
 use App\Models\Testimoni;
 use App\Models\User;
 use App\Models\Whysihade;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -197,7 +202,55 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Contactus::factory(13)->create();
+     
+        Dataperusahaan::create([
+            
+            'namaperusahaan' => 'PT. Haznia Bina Virofarm', 
+            'kota' => 'Bandung', 
+            'provinsi' => 'Jawa Barat', 
+            'negara' => 'Indonesia', 
+            'namaruangproduksi' => 'Ruang Produksi Pupuk Organik', 
+            'jumlahkaryawan' => 23, 
+            'kapasitasproduksi' => 30, 
+            'keteranganperalatan' => 'Peralatan Modern Terkini', 
+            'kualitas' => 'Standar Kualitas Tinggi', 
+        ]);
+
+        Dataperusahaan::create([
+            
+            'namaperusahaan' => 'PT. Haznia Bina Virofarm', 
+            'kota' => 'Salatiga', 
+            'provinsi' => 'Jawa Tengah', 
+            'negara' => 'Indonesia', 
+            'namaruangproduksi' => 'Ruang Produksi Pupuk Organik', 
+            'jumlahkaryawan' => 45, 
+            'kapasitasproduksi' => 34, 
+            'keteranganperalatan' => 'Peralatan Modern Terkini', 
+            'kualitas' => 'Standar Kualitas Tinggi', 
+        ]);
       
+Pertanian::create([
+    'namaproduk' => 'Sihade Pupuk Organik Hayati', 
+    'gambarproduk' => 'produk/pertanian/pertanian.jpeg', 
+    'keterangan' => 'Sihade Organic Biofertilizer is an innovative agricultural product designed to enhance soil fertility and promote sustainable farming practices. This biofertilizer is crafted from natural ingredients that provide essential nutrients to plants while improving soil health. Unlike chemical fertilizers, Sihade Organic Biofertilizer encourages the growth of beneficial microorganisms in the soil, which play a crucial role in nutrient absorption and overall plant vitality. Its application not only boosts crop yields but also helps in maintaining ecological balance by reducing the reliance on synthetic fertilizers. Additionally, this product supports environmental sustainability by minimizing soil degradation and promoting biodiversity. Farmers using Sihade Organic Biofertilizer can expect healthier plants, improved resistance to pests and diseases, and a more resilient agricultural ecosystem, making it an essential choice for those committed to organic farming and environmental stewardship.', 
+    'tanggalupload' => Carbon::today()->toDateString(), // Mengisi tanggal hari ini
+]);
+      
+Peternakan::create([
+    'namaproduk' => 'Sihade Biokatalisator', 
+    'gambarproduk' => 'produk/peternakan/peternakan.jpeg', 
+    'keterangan' => 'Sihade Biocatalyst is an innovative product designed to enhance agricultural productivity by promoting soil health and plant growth. This biocatalyst leverages the power of natural microorganisms to accelerate nutrient cycling in the soil, leading to improved nutrient availability for crops. By fostering a balanced soil ecosystem, Sihade Biocatalyst not only increases crop yield but also enhances the resilience of plants against pests and diseases. It is environmentally friendly, reducing the need for chemical fertilizers and contributing to sustainable farming practices. Farmers who incorporate Sihade Biocatalyst into their agricultural routines can expect healthier plants, richer soil, and ultimately, a more productive and sustainable farming operation. This product represents a significant step towards eco-friendly agriculture, supporting the global movement towards greener and more sustainable food production systems.', 
+    'tanggalupload' => Carbon::today()->toDateString(), // Mengisi tanggal hari ini
+]);
+      
+Plantations::create([
+    'namaproduk' => 'Sihade Booster Buah', 
+    'gambarproduk' => 'produk/perkebunan/perkebunan.png', 
+    'keterangan' => 'Sihade Fruit Booster is an innovative agricultural product designed to enhance fruit development and yield in various crops. Formulated with a unique blend of natural ingredients, this booster stimulates plant growth by improving nutrient uptake and promoting robust root development. It contains essential vitamins and minerals that not only support the overall health of the plants but also enhance their resistance to diseases and environmental stressors. By applying Sihade Fruit Booster, farmers can expect increased fruit size, improved flavor, and higher market value, making it an essential tool for achieving optimal results in fruit production. Its eco-friendly formulation ensures that it is safe for both the environment and consumers, aligning with sustainable agricultural practices. Whether used in orchards or home gardens, Sihade Fruit Booster empowers growers to achieve superior harvests while maintaining soil health and biodiversity.', 
+    'tanggalupload' => Carbon::today()->toDateString(), // Mengisi tanggal hari ini
+]);
+
+
     }
 
 

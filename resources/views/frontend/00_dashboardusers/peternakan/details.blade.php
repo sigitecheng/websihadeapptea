@@ -37,8 +37,8 @@
               />
               <div class="ms-3">
                 <p class="job-title mb-1 h5">{{$data->namaproduk}}</p>
-                <a style="color: green" href="company-detail.html" class="job-company">
-                  Agriculture
+                <a style="color: green;" href="company-detail.html" class="job-company">
+                  Animal Farming
                 </a>
 
                 <br />

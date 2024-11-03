@@ -31,7 +31,7 @@
     border-radius: 25px;
     text-align: center;
     width: 100%;
-    height: 125vh;
+    height: 100vh;
     margin-left: none;
     background: linear-gradient(to bottom, #90EE90, white, wheat);
     align-items: center;
@@ -182,7 +182,7 @@
 
         </style>
         <a style="background: white;">
-            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Create Data Testimoni</div>
+            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Update Data Agriculture Products</div>
         </a>
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
@@ -190,7 +190,7 @@
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
         </a>
-        <a href="/testimoni" style="background: white;">
+        <a href="/bepertanian" style="background: white;">
             <button class="badgekembali" style="border: none; font-size:14px; cursor:pointer;">
                 <i class="fa fa-arrow-circle-left mr-2"></i>Kembali
             </button>
@@ -206,7 +206,7 @@
             .container-update {
                 /* margin-top: 500px; */
                 width: 920px;
-                height: 85vh;
+                height: 60vh;
                 margin: 0 auto;
                 padding: 20px;
                 background-color: #E0E0E0; /* Warna silver */
@@ -265,53 +265,53 @@
             @if (session('success'))
                 <p class="success-message">{{ session('success') }}</p>
             @endif
-
-            <form action="{{ route('create.datatestimoni') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('update.databepertanian', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('POST')
+                @method('POST') <!-- Ubah metode menjadi PUT untuk update data -->
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="namalengkap" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-user mr-2"></i> Nama Lengkap
+                    <label for="namaproduk" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-box mr-2"></i> Nama Produk
                     </label>
-                    <input style="text-transform: uppercase;" type="text" class="form-control" id="namalengkap" name="namalengkap" value="{{ old('namalengkap') }}" required>
+                    <input style="text-transform: uppercase;" type="text" class="form-control" id="namaproduk" name="namaproduk" value="{{ old('namaproduk', $data->namaproduk) }}" required>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="komentar" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-comments mr-2"></i> Komentar
+                    <label for="keterangan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-info-circle mr-2"></i> Keterangan
                     </label>
-                    <textarea style="text-transform: uppercase;" class="form-control" id="komentar" name="komentar" required>{{ old('komentar') }}</textarea>
+                    <textarea style="text-transform: uppercase;" class="form-control" id="keterangan" name="keterangan" required>{{ old('keterangan', $data->keterangan) }}</textarea>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="jabatan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-briefcase mr-2"></i> Jabatan
+                    <label for="tanggalupload" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-calendar-alt mr-2"></i> Tanggal Upload
                     </label>
-                    <input style="text-transform: uppercase;" type="text" class="form-control" id="jabatan" name="jabatan" value="{{ old('jabatan') }}" required>
-                </div>
-                
-                <div class="form-group d-flex align-items-center mt-3">
-                    <label for="perusahaan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-building mr-2"></i> Perusahaan
-                    </label>
-                    <input style="text-transform: uppercase;" type="text" class="form-control" id="perusahaan" name="perusahaan" value="{{ old('perusahaan') }}" required>
-                </div>
-                
-                <div class="form-group d-flex align-items-center mt-3">
-                    <label for="foto" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-image mr-2"></i> Upload Foto
-                    </label>
-                    <button type="button" class="btn btn-success mr-3" onclick="document.getElementById('foto').click();">
-                        Upload Foto
-                    </button>
-                    <input style="text-transform: uppercase; display: none;" type="file" class="form-control" id="foto" name="foto" accept="image/*" required>
-                    <img id="foto_preview" src="{{ asset('default-image.png') }}" alt="Preview" style="width: 200px; height: auto;"/>
+                    <input style="text-transform: uppercase;" type="date" class="form-control" id="tanggalupload" name="tanggalupload" value="{{ old('tanggalupload', $data->tanggalupload) }}" required readonly>
                 </div>
                 
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
-                        const fileInput = document.getElementById('foto');
-                        const preview = document.getElementById('foto_preview');
+                        const inputDate = document.getElementById('tanggalupload');
+                        const today = new Date().toISOString().split('T')[0]; // Mengambil tanggal saat ini dalam format YYYY-MM-DD
+                        inputDate.value = today; // Mengatur nilai input dengan tanggal saat ini
+                    });
+                </script>
+                
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="gambarproduk" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-image mr-2"></i> Gambar Produk
+                    </label>
+                    <button type="button" class="btn btn-success mr-3" onclick="document.getElementById('gambarproduk').click();">
+                        Upload Gambar Produk
+                    </button>
+                    <input style="text-transform: uppercase; display: none;" type="file" class="form-control" id="gambarproduk" name="gambarproduk" accept="image/*">
+                    <img id="gambarproduk_preview" src="{{ asset('storage/' . $data->gambarproduk) }}" alt="Preview" style="width: 200px; height: auto;"/>
+                </div>
+                
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const fileInput = document.getElementById('gambarproduk');
+                        const preview = document.getElementById('gambarproduk_preview');
             
                         fileInput.addEventListener('change', function(event) {
                             const file = event.target.files[0];
@@ -328,11 +328,10 @@
                 
                 <div class="form-group">
                     <button style="float: right; font-size:14px;" class="badgenewupdate" type="submit">
-                        <i class="fab fa-telegram mr-2"></i>Create
+                        <i class="fab fa-telegram mr-2"></i>Update
                     </button>
                 </div>
             </form>
-            
             
             
         </div>

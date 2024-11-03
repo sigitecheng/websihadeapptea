@@ -182,7 +182,7 @@
 
         </style>
         <a style="background: white;">
-            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Create Data Testimoni</div>
+            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Create Data Agriculture Products</div>
         </a>
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
@@ -190,7 +190,7 @@
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
         </a>
-        <a href="/testimoni" style="background: white;">
+        <a href="/bepertanian" style="background: white;">
             <button class="badgekembali" style="border: none; font-size:14px; cursor:pointer;">
                 <i class="fa fa-arrow-circle-left mr-2"></i>Kembali
             </button>
@@ -266,52 +266,46 @@
                 <p class="success-message">{{ session('success') }}</p>
             @endif
 
-            <form action="{{ route('create.datatestimoni') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('create.databepertanian') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
+                
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="namalengkap" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-user mr-2"></i> Nama Lengkap
+                    <label for="namaproduk" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-user mr-2"></i> Nama Produk
                     </label>
-                    <input style="text-transform: uppercase;" type="text" class="form-control" id="namalengkap" name="namalengkap" value="{{ old('namalengkap') }}" required>
+                    <input style="text-transform: uppercase;" type="text" class="form-control" id="namaproduk" name="namaproduk" value="{{ old('namaproduk') }}" required>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="komentar" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-comments mr-2"></i> Komentar
+                    <label for="keterangan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-comments mr-2"></i> Keterangan
                     </label>
-                    <textarea style="text-transform: uppercase;" class="form-control" id="komentar" name="komentar" required>{{ old('komentar') }}</textarea>
+                    <textarea style="text-transform: uppercase;" class="form-control" id="keterangan" name="keterangan" required>{{ old('keterangan') }}</textarea>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="jabatan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-briefcase mr-2"></i> Jabatan
+                    <label for="tanggalupload" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-briefcase mr-2"></i> Tanggal Upload
                     </label>
-                    <input style="text-transform: uppercase;" type="text" class="form-control" id="jabatan" name="jabatan" value="{{ old('jabatan') }}" required>
+                    <input style="text-transform: uppercase;" type="date" class="form-control" id="tanggalupload" name="tanggalupload" value="{{ old('tanggalupload') }}" required>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="perusahaan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-building mr-2"></i> Perusahaan
+                    <label for="gambarproduk" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-image mr-2"></i> Gambar Produk
                     </label>
-                    <input style="text-transform: uppercase;" type="text" class="form-control" id="perusahaan" name="perusahaan" value="{{ old('perusahaan') }}" required>
-                </div>
-                
-                <div class="form-group d-flex align-items-center mt-3">
-                    <label for="foto" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-image mr-2"></i> Upload Foto
-                    </label>
-                    <button type="button" class="btn btn-success mr-3" onclick="document.getElementById('foto').click();">
+                    <button type="button" class="btn btn-success mr-3" onclick="document.getElementById('gambarproduk').click();">
                         Upload Foto
                     </button>
-                    <input style="text-transform: uppercase; display: none;" type="file" class="form-control" id="foto" name="foto" accept="image/*" required>
-                    <img id="foto_preview" src="{{ asset('default-image.png') }}" alt="Preview" style="width: 200px; height: auto;"/>
+                    <input style="text-transform: uppercase; display: none;" type="file" class="form-control" id="gambarproduk" name="gambarproduk" accept="image/*" required>
+                    <img id="gambarproduk_preview" src="{{ asset('default-image.png') }}" alt="Preview" style="width: 200px; height: auto;"/>
                 </div>
                 
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
-                        const fileInput = document.getElementById('foto');
-                        const preview = document.getElementById('foto_preview');
+                        const fileInput = document.getElementById('gambarproduk');
+                        const preview = document.getElementById('gambarproduk_preview');
             
                         fileInput.addEventListener('change', function(event) {
                             const file = event.target.files[0];

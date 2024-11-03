@@ -182,7 +182,7 @@
 
         </style>
         <a style="background: white;">
-            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Create Data Testimoni</div>
+            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Update Data Company</div>
         </a>
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
@@ -190,7 +190,7 @@
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
         </a>
-        <a href="/testimoni" style="background: white;">
+        <a href="/company" style="background: white;">
             <button class="badgekembali" style="border: none; font-size:14px; cursor:pointer;">
                 <i class="fa fa-arrow-circle-left mr-2"></i>Kembali
             </button>
@@ -265,38 +265,82 @@
             @if (session('success'))
                 <p class="success-message">{{ session('success') }}</p>
             @endif
-
-            <form action="{{ route('create.datatestimoni') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('update.datacompany', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('POST')
+                @method('POST') <!-- Ubah metode menjadi PUT untuk update data -->
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="namalengkap" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-user mr-2"></i> Nama Lengkap
+                    <label for="namaperusahaan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-building mr-2"></i> Nama Perusahaan
                     </label>
-                    <input style="text-transform: uppercase;" type="text" class="form-control" id="namalengkap" name="namalengkap" value="{{ old('namalengkap') }}" required>
+                    <input style="text-transform: uppercase;" type="text" class="form-control" id="namaperusahaan" name="namaperusahaan" value="{{ old('namaperusahaan', $data->namaperusahaan) }}" required>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="komentar" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-comments mr-2"></i> Komentar
+                    <label for="kota" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-map-marker-alt mr-2"></i> Kota
                     </label>
-                    <textarea style="text-transform: uppercase;" class="form-control" id="komentar" name="komentar" required>{{ old('komentar') }}</textarea>
+                    <input style="text-transform: uppercase;" type="text" class="form-control" id="kota" name="kota" value="{{ old('kota', $data->kota) }}" required>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="jabatan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-briefcase mr-2"></i> Jabatan
+                    <label for="provinsi" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-map mr-2"></i> Provinsi
                     </label>
-                    <input style="text-transform: uppercase;" type="text" class="form-control" id="jabatan" name="jabatan" value="{{ old('jabatan') }}" required>
+                    <input style="text-transform: uppercase;" type="text" class="form-control" id="provinsi" name="provinsi" value="{{ old('provinsi', $data->provinsi) }}" required>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="perusahaan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-building mr-2"></i> Perusahaan
+                    <label for="negara" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-globe mr-2"></i> Negara
                     </label>
-                    <input style="text-transform: uppercase;" type="text" class="form-control" id="perusahaan" name="perusahaan" value="{{ old('perusahaan') }}" required>
+                    <input style="text-transform: uppercase;" type="text" class="form-control" id="negara" name="negara" value="{{ old('negara', $data->negara) }}" required>
                 </div>
                 
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="namaruangproduksi" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-industry mr-2"></i> Ruang Produksi
+                    </label>
+                    <input style="text-transform: uppercase;" type="text" class="form-control" id="namaruangproduksi" name="namaruangproduksi" value="{{ old('namaruangproduksi', $data->namaruangproduksi) }}" required>
+                </div>
+                
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="jumlahkaryawan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-users mr-2"></i> Jumlah Karyawan
+                    </label>
+                    <input style="text-transform: uppercase;" type="number" class="form-control" id="jumlahkaryawan" name="jumlahkaryawan" value="{{ old('jumlahkaryawan', $data->jumlahkaryawan) }}" required>
+                </div>
+                
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="kapasitasproduksi" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-cogs mr-2"></i> Kapasitas Produksi
+                    </label>
+                    <input style="text-transform: uppercase;" type="number" class="form-control" id="kapasitasproduksi" name="kapasitasproduksi" value="{{ old('kapasitasproduksi', $data->kapasitasproduksi) }}" required>
+                </div>
+                
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="keteranganperalatan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-hammer mr-2"></i> Keterangan Peralatan 
+                    </label>
+                    <input style="text-transform: uppercase;" type="text" class="form-control" id="keteranganperalatan" name="keteranganperalatan" value="{{ old('keteranganperalatan', $data->keteranganperalatan) }}" required>
+                </div>
+                
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="kualitas" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-star mr-2"></i> Kualitas
+                    </label>
+                    <select class="form-control" id="kualitas" name="kualitas" required>
+                        <option value="">PILIH KUALITAS</option>
+                        <option value="tinggi" {{ old('kualitas', $data->kualitas) == 'tinggi' ? 'selected' : '' }}>TINGGI</option>
+                        <option value="sedang" {{ old('kualitas', $data->kualitas) == 'sedang' ? 'selected' : '' }}>SEDANG</option>
+                        <option value="rendah" {{ old('kualitas', $data->kualitas) == 'rendah' ? 'selected' : '' }}>RENDAH</option>
+                        <option value="sangat baik" {{ old('kualitas', $data->kualitas) == 'sangat baik' ? 'selected' : '' }}>SANGAT BAIK</option>
+                        <option value="baik" {{ old('kualitas', $data->kualitas) == 'baik' ? 'selected' : '' }}>BAIK</option>
+                        <option value="cukup" {{ old('kualitas', $data->kualitas) == 'cukup' ? 'selected' : '' }}>CUKUP</option>
+                    </select>
+                </div>
+                
+
+                {{--                 
                 <div class="form-group d-flex align-items-center mt-3">
                     <label for="foto" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
                         <i class="fas fa-image mr-2"></i> Upload Foto
@@ -304,8 +348,8 @@
                     <button type="button" class="btn btn-success mr-3" onclick="document.getElementById('foto').click();">
                         Upload Foto
                     </button>
-                    <input style="text-transform: uppercase; display: none;" type="file" class="form-control" id="foto" name="foto" accept="image/*" required>
-                    <img id="foto_preview" src="{{ asset('default-image.png') }}" alt="Preview" style="width: 200px; height: auto;"/>
+                    <input style="text-transform: uppercase; display: none;" type="file" class="form-control" id="foto" name="foto" accept="image/*">
+                    <img id="foto_preview" src="{{ asset('storage/' . $data->foto) }}" alt="Preview" style="width: 200px; height: auto;"/>
                 </div>
                 
                 <script>
@@ -324,15 +368,14 @@
                             }
                         });
                     });
-                </script>
+                </script> --}}
                 
                 <div class="form-group">
                     <button style="float: right; font-size:14px;" class="badgenewupdate" type="submit">
-                        <i class="fab fa-telegram mr-2"></i>Create
+                        <i class="fab fa-telegram mr-2"></i>Update
                     </button>
                 </div>
             </form>
-            
             
             
         </div>

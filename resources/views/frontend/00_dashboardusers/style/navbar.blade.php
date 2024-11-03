@@ -34,10 +34,11 @@ Home
         <a style="color:#32CD32;" href="#" class="nav-link scrollto active">
           <span>Product</span> <i class="bi bi-chevron-down"></i>
         </a>
-        <ul>
-          
-          <li><a href="/pertanian">Agriculture</a></li>
-          <li><a href="job.html">Find Job & Intern</a></li>
+        <ul>          
+          <li><a style="color: green" href="/pertanian">Agriculture</a></li>
+          <li><a style="color: green" href="/peternakan">Animal Farming</a></li>
+          <li><a style="color: green" href="/perkebunan">Plantation</a></li>
+          {{-- <li><a href="job.html">Find Job & Intern</a></li> --}}
       </ul>
   </li>
   <li>

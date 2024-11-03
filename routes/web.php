@@ -24,8 +24,17 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [FedashboardController::class, 'index']);  
 Route::get('/perusahaan', [FedashboardController::class, 'perusahaan']);  
 Route::get('/perusahaandetails', [FedashboardController::class, 'perusahaandetails']);  
+
 Route::get('/pertanian', [FedashboardController::class, 'pertanian']);  
-Route::get('/pertaniandetails', [FedashboardController::class, 'pertaniandetails']);  
+Route::get('/pertaniandetails/{namaproduk}', [FedashboardController::class, 'pertaniandetails']);  
+
+Route::get('/peternakan', [FedashboardController::class, 'peternakan']);  
+Route::get('/peternakandetails/{namaproduk}', [FedashboardController::class, 'peternakandetails']);  
+
+Route::get('/perkebunan', [FedashboardController::class, 'perkebunan']);  
+Route::get('/perkebunandetails/{namaproduk}', [FedashboardController::class, 'perkebunandetails']);  
+
+Route::get('/job', [FedashboardController::class, 'job']);  
 Route::get('/mitrakami', [FedashboardController::class, 'mitrakami']);  
 Route::get('/pertanyaan', [FedashboardController::class, 'pertanyaan']);  
 Route::get('/kontak', [FedashboardController::class, 'kontak']);  
@@ -113,6 +122,45 @@ Route::get('/contactus/update/{id}', [AdminDashboardController::class, 'updateda
 Route::post('/contactusupdatestore/{id}', [AdminDashboardController::class, 'createupdatedatacontactus'])->middleware('auth')->name('update.datacontactus');
 // Route::get('/FAQcreate', [AdminDashboardController::class, 'createnewdataFAQ'])->middleware('auth');
 // Route::post('/dataFAQstore', [AdminDashboardController::class, 'createnewstoredataFAQ'])->middleware('auth')->name('create.dataFAQ');
+
+// -------- BAGIAN COMPANY  ---------------------------------
+Route::get('/company', [AdminDashboardController::class, 'company'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/company/update/{id}', [AdminDashboardController::class, 'updatedatacompany'])->middleware('auth')->name('updateshow.company');
+Route::post('/companyupdatestore/{id}', [AdminDashboardController::class, 'createupdatedatacompany'])->middleware('auth')->name('update.datacompany');
+Route::get('/companycreate', [AdminDashboardController::class, 'createnewdatacompany'])->middleware('auth');
+Route::post('/datacompanystore', [AdminDashboardController::class, 'createnewstoredatacompany'])->middleware('auth')->name('create.datacompany');
+
+
+Route::post('/company/{id}', [AdminDashboardController::class, 'deletedatacompany'])
+->middleware('auth')
+->name('delete.datacompany');
+
+// -------- BAGIAN BE PERTANIAN  ---------------------------------
+Route::get('/bepertanian', [AdminDashboardController::class, 'bepertanian'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/bepertanian/update/{id}', [AdminDashboardController::class, 'updatedatabepertanian'])->middleware('auth')->name('updateshow.bepertanian');
+Route::post('/bepertanianupdatestore/{id}', [AdminDashboardController::class, 'createupdatedatabepertanian'])->middleware('auth')->name('update.databepertanian');
+Route::get('/bepertaniancreate', [AdminDashboardController::class, 'createnewdatabepertanian'])->middleware('auth');
+Route::post('/databepertanianstore', [AdminDashboardController::class, 'createnewstoredatabepertanian'])->middleware('auth')->name('create.databepertanian');
+
+
+Route::post('/bepertanian/{id}', [AdminDashboardController::class, 'deletedatabepertanian'])
+->middleware('auth')
+->name('delete.databepertanian');
+
+// -------- BAGIAN BE PERTERNAKAN  ---------------------------------
+Route::get('/beperternakan', [AdminDashboardController::class, 'beperternakan'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/beperternakan/update/{id}', [AdminDashboardController::class, 'updatedatabeperternakan'])->middleware('auth')->name('updateshow.beperternakan');
+Route::post('/beperternakanupdatestore/{id}', [AdminDashboardController::class, 'createupdatedatabeperternakan'])->middleware('auth')->name('update.databeperternakan');
+Route::get('/beperternakancreate', [AdminDashboardController::class, 'createnewdatabeperternakan'])->middleware('auth');
+Route::post('/databeperternakanstore', [AdminDashboardController::class, 'createnewstoredatabeperternakan'])->middleware('auth')->name('create.databeperternakan');
+
+
+Route::post('/beperternakan/{id}', [AdminDashboardController::class, 'deletedatabeperternakan'])
+->middleware('auth')
+->name('delete.databeperternakan');
 
 // ------------------- BACKEND QA PERTANYAAN --------------------------- 
 

@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Aboutsihade;
 use App\Models\Beranda;
 use App\Models\Berkas;
+use App\Models\Dataperusahaan;
 use App\Models\Faq;
 use App\Models\Informasiperusahaan;
+use App\Models\Pertanian;
+use App\Models\Peternakan;
+use App\Models\Plantations;
 use App\Models\Testimoni;
 use App\Models\Whysihade;
 use Illuminate\Http\Request;
@@ -48,9 +52,12 @@ class FedashboardController extends Controller
 
     public function perusahaan()
     {
+        $datacompany = Dataperusahaan::all();
+
         
         return view('frontend.00_dashboardusers.perusahaan.index', [
             'title' => 'Perusahaan Kami',
+            'data' => $datacompany,
             
         ]);
     }
@@ -63,6 +70,19 @@ class FedashboardController extends Controller
             
         ]);
     }
+
+    public function job()
+    {
+        // $datacompany = Dataperusahaan::all();
+
+        
+        return view('frontend.index', [
+            'title' => 'JOB',
+            // 'data' => $datacompany,
+            
+        ]);
+    }
+
 
     public function mitrakami()
     {
@@ -93,21 +113,66 @@ class FedashboardController extends Controller
 
     public function pertanian()
     {
+        $datapertanian = Pertanian::all();
         
         return view('frontend.00_dashboardusers.pertanian.index', [
             'title' => 'Agricultural Products',
+            'data' => $datapertanian,
             
         ]);
     }
 
-    public function pertaniandetails()
+    public function pertaniandetails($namaproduk)
     {
+        $datapertanian = Pertanian::where('namaproduk', $namaproduk)->firstOrFail();
         
         return view('frontend.00_dashboardusers.pertanian.details', [
-            'title' => 'Agricultural Products',
+            'data' => $datapertanian,
+            'title' => 'Details Agriculture Products',
+        ]);
+    }
+
+    public function peternakan()
+    {
+        $datapeternakan = Peternakan::all();
+        
+        return view('frontend.00_dashboardusers.peternakan.index', [
+            'title' => 'Animal Farming Products',
+            'data' => $datapeternakan,
             
         ]);
     }
-    
+
+    public function peternakandetails($namaproduk)
+    {
+        $datapeternakan = Peternakan::where('namaproduk', $namaproduk)->firstOrFail();
+        
+        return view('frontend.00_dashboardusers.peternakan.details', [
+            'data' => $datapeternakan,
+            'title' => 'Details Animal Farming Products',
+        ]);
+    }
+
+    public function perkebunan()
+    {
+        $dataperkebunan = Plantations::all();
+        
+        return view('frontend.00_dashboardusers.perkebunan.index', [
+            'title' => 'Plantations',
+            'data' => $dataperkebunan,
+            
+        ]);
+    }
+
+    public function perkebunandetails($namaproduk)
+    {
+        $dataperkebunan = Plantations::where('namaproduk', $namaproduk)->firstOrFail();
+        
+        return view('frontend.00_dashboardusers.perkebunan.details', [
+            'data' => $dataperkebunan,
+            'title' => 'Details Sihade Booster Buah Products',
+        ]);
+    }
+
 
 }

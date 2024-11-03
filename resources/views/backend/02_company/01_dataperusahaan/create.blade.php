@@ -31,7 +31,7 @@
     border-radius: 25px;
     text-align: center;
     width: 100%;
-    height: 125vh;
+    height: 120vh;
     margin-left: none;
     background: linear-gradient(to bottom, #90EE90, white, wheat);
     align-items: center;
@@ -182,7 +182,7 @@
 
         </style>
         <a style="background: white;">
-            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Create Data Testimoni</div>
+            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Create Data Perusahaan</div>
         </a>
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
@@ -206,7 +206,7 @@
             .container-update {
                 /* margin-top: 500px; */
                 width: 920px;
-                height: 85vh;
+                height: 80vh;
                 margin: 0 auto;
                 padding: 20px;
                 background-color: #E0E0E0; /* Warna silver */
@@ -266,37 +266,135 @@
                 <p class="success-message">{{ session('success') }}</p>
             @endif
 
-            <form action="{{ route('create.datatestimoni') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('create.datacompany') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="namalengkap" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-user mr-2"></i> Nama Lengkap
+                    <label for="namaperusahaan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-building mr-2"></i> Nama Perusahaan
                     </label>
-                    <input style="text-transform: uppercase;" type="text" class="form-control" id="namalengkap" name="namalengkap" value="{{ old('namalengkap') }}" required>
+                    <input style="text-transform: uppercase;" type="text" class="form-control" id="namaperusahaan" name="namaperusahaan" value="{{ old('namaperusahaan') }}" required>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="komentar" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-comments mr-2"></i> Komentar
+                    <label for="kota" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-building mr-2"></i> Kota
                     </label>
-                    <textarea style="text-transform: uppercase;" class="form-control" id="komentar" name="komentar" required>{{ old('komentar') }}</textarea>
+                    <input style="text-transform: uppercase;" type="text" class="form-control" id="kota" name="kota" value="{{ old('kota') }}" required>
+                </div>
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="provinsi" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-map mr-2"></i> Provinsi
+                    </label>
+                    <select class="form-control" id="provinsi" name="provinsi" required>
+                        <option value="">PILIH PROVINSI</option>
+                        <option value="ACEH" {{ old('provinsi') == 'ACEH' ? 'selected' : '' }}>ACEH</option>
+                        <option value="BALI" {{ old('provinsi') == 'BALI' ? 'selected' : '' }}>BALI</option>
+                        <option value="BANTEN" {{ old('provinsi') == 'BANTEN' ? 'selected' : '' }}>BANTEN</option>
+                        <option value="BENGKULU" {{ old('provinsi') == 'BENGKULU' ? 'selected' : '' }}>BENGKULU</option>
+                        <option value="DAERAH ISTIMEWA YOGYAKARTA" {{ old('provinsi') == 'DAERAH ISTIMEWA YOGYAKARTA' ? 'selected' : '' }}>DAERAH ISTIMEWA YOGYAKARTA</option>
+                        <option value="DKI JAKARTA" {{ old('provinsi') == 'DKI JAKARTA' ? 'selected' : '' }}>DKI JAKARTA</option>
+                        <option value="GORONTALO" {{ old('provinsi') == 'GORONTALO' ? 'selected' : '' }}>GORONTALO</option>
+                        <option value="JAMBI" {{ old('provinsi') == 'JAMBI' ? 'selected' : '' }}>JAMBI</option>
+                        <option value="JAWA BARAT" {{ old('provinsi') == 'JAWA BARAT' ? 'selected' : '' }}>JAWA BARAT</option>
+                        <option value="JAWA TENGAH" {{ old('provinsi') == 'JAWA TENGAH' ? 'selected' : '' }}>JAWA TENGAH</option>
+                        <option value="JAWA TIMUR" {{ old('provinsi') == 'JAWA TIMUR' ? 'selected' : '' }}>JAWA TIMUR</option>
+                        <option value="KALIMANTAN BARAT" {{ old('provinsi') == 'KALIMANTAN BARAT' ? 'selected' : '' }}>KALIMANTAN BARAT</option>
+                        <option value="KALIMANTAN SELATAN" {{ old('provinsi') == 'KALIMANTAN SELATAN' ? 'selected' : '' }}>KALIMANTAN SELATAN</option>
+                        <option value="KALIMANTAN TENGAH" {{ old('provinsi') == 'KALIMANTAN TENGAH' ? 'selected' : '' }}>KALIMANTAN TENGAH</option>
+                        <option value="KALIMANTAN TIMUR" {{ old('provinsi') == 'KALIMANTAN TIMUR' ? 'selected' : '' }}>KALIMANTAN TIMUR</option>
+                        <option value="KALIMANTAN UTARA" {{ old('provinsi') == 'KALIMANTAN UTARA' ? 'selected' : '' }}>KALIMANTAN UTARA</option>
+                        <option value="KEPULAUAN BANGKA BELITUNG" {{ old('provinsi') == 'KEPULAUAN BANGKA BELITUNG' ? 'selected' : '' }}>KEPULAUAN BANGKA BELITUNG</option>
+                        <option value="KEPULAUAN RIAU" {{ old('provinsi') == 'KEPULAUAN RIAU' ? 'selected' : '' }}>KEPULAUAN RIAU</option>
+                        <option value="LAMPUNG" {{ old('provinsi') == 'LAMPUNG' ? 'selected' : '' }}>LAMPUNG</option>
+                        <option value="MALUKU" {{ old('provinsi') == 'MALUKU' ? 'selected' : '' }}>MALUKU</option>
+                        <option value="MALUKU UTARA" {{ old('provinsi') == 'MALUKU UTARA' ? 'selected' : '' }}>MALUKU UTARA</option>
+                        <option value="NUSA TENGGARA BARAT" {{ old('provinsi') == 'NUSA TENGGARA BARAT' ? 'selected' : '' }}>NUSA TENGGARA BARAT</option>
+                        <option value="NUSA TENGGARA TIMUR" {{ old('provinsi') == 'NUSA TENGGARA TIMUR' ? 'selected' : '' }}>NUSA TENGGARA TIMUR</option>
+                        <option value="PAPUA" {{ old('provinsi') == 'PAPUA' ? 'selected' : '' }}>PAPUA</option>
+                        <option value="PAPUA BARAT" {{ old('provinsi') == 'PAPUA BARAT' ? 'selected' : '' }}>PAPUA BARAT</option>
+                        <option value="RIAU" {{ old('provinsi') == 'RIAU' ? 'selected' : '' }}>RIAU</option>
+                        <option value="SULAWESI BARAT" {{ old('provinsi') == 'SULAWESI BARAT' ? 'selected' : '' }}>SULAWESI BARAT</option>
+                        <option value="SULAWESI SELATAN" {{ old('provinsi') == 'SULAWESI SELATAN' ? 'selected' : '' }}>SULAWESI SELATAN</option>
+                        <option value="SULAWESI TENGAH" {{ old('provinsi') == 'SULAWESI TENGAH' ? 'selected' : '' }}>SULAWESI TENGAH</option>
+                        <option value="SULAWESI UTARA" {{ old('provinsi') == 'SULAWESI UTARA' ? 'selected' : '' }}>SULAWESI UTARA</option>
+                        <option value="SUMATERA BARAT" {{ old('provinsi') == 'SUMATERA BARAT' ? 'selected' : '' }}>SUMATERA BARAT</option>
+                        <option value="SUMATERA SELATAN" {{ old('provinsi') == 'SUMATERA SELATAN' ? 'selected' : '' }}>SUMATERA SELATAN</option>
+                        <option value="SUMATERA UTARA" {{ old('provinsi') == 'SUMATERA UTARA' ? 'selected' : '' }}>SUMATERA UTARA</option>
+                    </select>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="jabatan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-briefcase mr-2"></i> Jabatan
+                    <label for="negara" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-map mr-2"></i> Negara
                     </label>
-                    <input style="text-transform: uppercase;" type="text" class="form-control" id="jabatan" name="jabatan" value="{{ old('jabatan') }}" required>
+                    <select class="form-control" id="negara" name="negara" required>
+                        <option value="">PILIH NEGARA</option>
+                        <option value="BRUNEI DARUSSALAM" {{ old('negara') == 'BRUNEI DARUSSALAM' ? 'selected' : '' }}>BRUNEI DARUSSALAM</option>
+                        <option value="KAMBOJA" {{ old('negara') == 'KAMBOJA' ? 'selected' : '' }}>KAMBOJA</option>
+                        <option value="INDONESIA" {{ old('negara') == 'INDONESIA' ? 'selected' : '' }}>INDONESIA</option>
+                        <option value="LAOS" {{ old('negara') == 'LAOS' ? 'selected' : '' }}>LAOS</option>
+                        <option value="MALAYSIA" {{ old('negara') == 'MALAYSIA' ? 'selected' : '' }}>MALAYSIA</option>
+                        <option value="MYANMAR" {{ old('negara') == 'MYANMAR' ? 'selected' : '' }}>MYANMAR</option>
+                        <option value="FILIPINA" {{ old('negara') == 'FILIPINA' ? 'selected' : '' }}>FILIPINA</option>
+                        <option value="SINGAPURA" {{ old('negara') == 'SINGAPURA' ? 'selected' : '' }}>SINGAPURA</option>
+                        <option value="THAILAND" {{ old('negara') == 'THAILAND' ? 'selected' : '' }}>THAILAND</option>
+                        <option value="VIETNAM" {{ old('negara') == 'VIETNAM' ? 'selected' : '' }}>VIETNAM</option>
+                    </select>
+                </div>
+                  
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="namaruangproduksi" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-industry mr-2"></i> Ruang Produksi
+                    </label>
+                    <input style="text-transform: uppercase;" type="text" class="form-control" id="namaruangproduksi" name="namaruangproduksi" value="{{ old('namaruangproduksi') }}" required>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="perusahaan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-building mr-2"></i> Perusahaan
+                    <label for="jumlahkaryawan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-users mr-2"></i> Jumlah Karyawan
                     </label>
-                    <input style="text-transform: uppercase;" type="text" class="form-control" id="perusahaan" name="perusahaan" value="{{ old('perusahaan') }}" required>
+                    <input style="text-transform: uppercase;" type="number" class="form-control" id="jumlahkaryawan" name="jumlahkaryawan" value="{{ old('jumlahkaryawan') }}" required>
                 </div>
                 
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="kapasitasproduksi" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-cogs mr-2"></i> Kapasitas Produksi
+                    </label>
+                    <input style="text-transform: uppercase;" type="number" class="form-control" id="kapasitasproduksi" name="kapasitasproduksi" value="{{ old('kapasitasproduksi') }}" required>
+                </div>
+                
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="keteranganperalatan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-hammer mr-2"></i> Keterangan Peralatan
+                    </label>
+                    <input style="text-transform: uppercase;" type="text" class="form-control" id="keteranganperalatan" name="keteranganperalatan" value="{{ old('keteranganperalatan') }}" required>
+                </div>
+                
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="kualitas" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-star mr-2"></i> Kualitas
+                    </label>
+                    <select class="form-control" id="kualitas" name="kualitas" required>
+                        <option value="">PILIH KUALITAS</option>
+                        <option value="tinggi" {{ old('kualitas') == 'tinggi' ? 'selected' : '' }}>TINGGI</option>
+                        <option value="sedang" {{ old('kualitas') == 'sedang' ? 'selected' : '' }}>SEDANG</option>
+                        <option value="rendah" {{ old('kualitas') == 'rendah' ? 'selected' : '' }}>RENDAH</option>
+                        <option value="sangat baik" {{ old('kualitas') == 'sangat baik' ? 'selected' : '' }}>SANGAT BAIK</option>
+                        <option value="baik" {{ old('kualitas') == 'baik' ? 'selected' : '' }}>BAIK</option>
+                        <option value="cukup" {{ old('kualitas') == 'cukup' ? 'selected' : '' }}>CUKUP</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <button style="float: right; font-size:14px;" class="badgenewupdate" type="submit">
+                        <i class="fab fa-telegram mr-2"></i>Create
+                    </button>
+                </div>
+            </form>
+            
+            
+                {{--                 
                 <div class="form-group d-flex align-items-center mt-3">
                     <label for="foto" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
                         <i class="fas fa-image mr-2"></i> Upload Foto
@@ -324,15 +422,8 @@
                             }
                         });
                     });
-                </script>
+                </script> --}}
                 
-                <div class="form-group">
-                    <button style="float: right; font-size:14px;" class="badgenewupdate" type="submit">
-                        <i class="fab fa-telegram mr-2"></i>Create
-                    </button>
-                </div>
-            </form>
-            
             
             
         </div>
