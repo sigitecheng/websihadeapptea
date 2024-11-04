@@ -8,6 +8,7 @@ use App\Models\Faq;
 use App\Models\informasiperusahaan;
 use App\Models\Pertanian;
 use App\Models\Peternakan;
+use App\Models\Plantations;
 use App\Models\Testimoni;
 use App\Models\Whysihade;
 use Illuminate\Http\Request;
@@ -910,7 +911,7 @@ class AdminDashboardController extends Controller
 
        
                         // Tampilkan form update dengan data yang ditemukan
-                        return view('backend.03_produk.02_perternakan.update', [
+                        return view('backend.03_produk.02_peternakan.update', [
                             'data' => $peternakan,
                             'user' => $user,
                             'title' => 'Update Animal Farming Products'
@@ -958,7 +959,7 @@ class AdminDashboardController extends Controller
                         session()->flash('update', 'Data Animal Farming Products Berhasil Diupdate!');
                     
                         // Redirect ke halaman yang sesuai
-                        return redirect('/bepeternakan');
+                        return redirect('/beperternakan');
                     }
                     
                     // =====================================================
@@ -1036,6 +1037,173 @@ class AdminDashboardController extends Controller
     
             // Redirect ke halaman yang sesuai
             return redirect('/beperternakan');
+        }
+    }
+                
+
+                    
+
+
+    // ------------ BACKEND DATA PERTANIAN -------------------------------==============================================
+    // ====================================================================================================                                    
+
+    
+    // ------------ BACKEND DATA perkebunan   -------------------------------==============================================
+    // ====================================================================================================
+    
+    
+    public function beperkebunan()
+    {
+        $perkebunan = Plantations::orderBy('created_at', 'desc')->paginate(3);
+
+        // $user = Auth::user();
+
+        return view('backend.03_produk.03_perkebunan.index', [
+            'data' => $perkebunan,
+            // 'user' => $user,
+            'title' => 'Plantations Products',
+           
+        ]);
+
+    }
+
+
+    // ------------------------------------------------------------
+                    // -------------------- UPDATE PENGAWASAN DAN KETERTIBAN  ----------------------
+                    public function updatedatabeperkebunan($id)
+                    {
+                        // Cari data undang-undang berdasarkan nilai 'judul'
+                        $perkebunan = Plantations::where('id', $id)->firstOrFail();
+                        $user = Auth::user();
+
+       
+                        // Tampilkan form update dengan data yang ditemukan
+                        return view('backend.03_produk.03_perkebunan.update', [
+                            'data' => $perkebunan,
+                            'user' => $user,
+                            'title' => 'Update Plantations Products'
+                        ]);
+                    }
+
+
+                    public function createupdatedatabeperkebunan(Request $request, $id)
+                    {
+                        // Validasi input
+                        $request->validate([
+                            'namaproduk' => 'required|string',
+                            'gambarproduk' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Foto bisa null, jika tidak diupload
+                            'keterangan' => 'required|string',
+                            'tanggalupload' => 'required|date',
+                        ]); 
+                        
+                        // Cari data ketertiban berdasarkan id
+                        $perkebunan = Plantations::findOrFail($id);
+                    
+                        // Simpan foto di storage dan ambil namanya
+                        if ($request->hasFile('gambarproduk')) {
+                            // Hapus foto lama jika ada
+                            if ($perkebunan->gambarproduk) {
+                                Storage::disk('public')->delete($perkebunan->gambarproduk);
+                            }
+                            
+                            // Simpan foto baru
+                            $fotoPath = $request->file('gambarproduk')->store('produk/perkebunan', 'public'); // Menyimpan foto di storage/app/testimoni
+                        } else {
+                            // Jika tidak ada foto baru, gunakan foto lama
+                            $fotoPath = $perkebunan->gambarproduk;
+                        }
+                    
+                        // Update data ketertiban dengan data dari form
+                        $perkebunan->update([
+                            'namaproduk' => $request->input('namaproduk'),
+                            'gambarproduk' => $fotoPath, // Simpan path foto
+                            'keterangan' => $request->input('keterangan'),
+                            'tanggalupload' => $request->input('tanggalupload'),
+                            
+                        ]);
+                        
+                        // Flash pesan session
+                        session()->flash('update', 'Data Plantations Products Berhasil Diupdate!');
+                    
+                        // Redirect ke halaman yang sesuai
+                        return redirect('/beperkebunan');
+                    }
+                    
+                    // =====================================================
+
+                    public function createnewdatabeperkebunan()
+                    {
+                        
+                        $perkebunan = Plantations::all();
+                        // $user = Auth::user();
+                
+                        return view('backend.03_produk.03_perkebunan.create', [
+                            'data' => $perkebunan,
+                            // 'user' => $user,
+                            'title' => 'Create Plantations Products',
+                           
+                        ]);
+                
+                    }
+                
+                // ----------------------------------------------------------- 
+    
+                    public function createnewstoredatabeperkebunan(Request $request)
+                    {
+                        // Validasi input
+                        $request->validate([
+                            'namaproduk' => 'required|string',
+                            'gambarproduk' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Foto wajib diupload
+                            'keterangan' => 'required|string',
+                            'tanggalupload' => 'required|date',
+                            // 'perusahaan' => 'required|string',
+                        ]); 
+                        
+                        // Simpan foto di storage dan ambil namanya
+                        $fotoPath = $request->file('gambarproduk')->store('produk/perkebunan', 'public'); // Menyimpan foto di storage/app/testimoni
+                    
+                        // Buat data testimoni baru dengan data dari form
+                        Plantations::create([
+                            'namaproduk' => $request->input('namaproduk'),
+                            'gambarproduk' => $fotoPath, // Simpan path foto
+                            'keterangan' => $request->input('keterangan'),
+                            'tanggalupload' => $request->input('tanggalupload'),
+                            // 'perusahaan' => $request->input('perusahaan'),
+                        ]);
+                        
+                        // Flash pesan session
+                        session()->flash('create', 'Data Plantations Products Berhasil Dibuat!');
+                    
+                        // Redirect ke halaman yang sesuai
+                        return redirect('/beperkebunan');
+                    }
+
+                    public function deletedatabeperkebunan($id)
+
+                    {
+        // Cari entri berdasarkan name
+        $entry = Plantations::where('id', $id)->first();
+    
+        if ($entry) {
+            // Hapus file terkait jika ada
+            if ($entry->gambarproduk) {
+                Storage::disk('public')->delete($entry->gambarproduk);
+            }
+    
+            // Hapus entri dari database
+            Plantations::destroy($entry->id);
+    
+            // Set pesan flash untuk sukses
+            session()->flash('delete', 'Data Berhasil Dihapus!');
+    
+            // Redirect ke halaman yang sesuai
+            return redirect('/beperkebunan');
+        } else {
+            // Set pesan flash jika data tidak ditemukan
+            session()->flash('error', 'Data Tidak Ditemukan!');
+    
+            // Redirect ke halaman yang sesuai
+            return redirect('/beperkebunan');
         }
     }
                 

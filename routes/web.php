@@ -162,6 +162,19 @@ Route::post('/beperternakan/{id}', [AdminDashboardController::class, 'deletedata
 ->middleware('auth')
 ->name('delete.databeperternakan');
 
+// -------- BAGIAN BE PERKEBUNAN  ---------------------------------
+Route::get('/beperkebunan', [AdminDashboardController::class, 'beperkebunan'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/beperkebunan/update/{id}', [AdminDashboardController::class, 'updatedatabeperkebunan'])->middleware('auth')->name('updateshow.beperkebunan');
+Route::post('/beperkebunanupdatestore/{id}', [AdminDashboardController::class, 'createupdatedatabeperkebunan'])->middleware('auth')->name('update.databeperkebunan');
+Route::get('/beperkebunancreate', [AdminDashboardController::class, 'createnewdatabeperkebunan'])->middleware('auth');
+Route::post('/databeperkebunanstore', [AdminDashboardController::class, 'createnewstoredatabeperkebunan'])->middleware('auth')->name('create.databeperkebunan');
+
+
+Route::post('/beperkebunan/{id}', [AdminDashboardController::class, 'deletedatabeperkebunan'])
+->middleware('auth')
+->name('delete.databeperkebunan');
+
 // ------------------- BACKEND QA PERTANYAAN --------------------------- 
 
 // KATEGORI ADMIN  

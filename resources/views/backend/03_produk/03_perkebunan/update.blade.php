@@ -182,7 +182,7 @@
 
         </style>
         <a style="background: white;">
-            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Update Data Animal Farming Products</div>
+            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Update Data Plantations Products</div>
         </a>
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
@@ -190,7 +190,7 @@
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
         </a>
-        <a href="/beperternakan" style="background: white;">
+        <a href="/beperkebunan" style="background: white;">
             <button class="badgekembali" style="border: none; font-size:14px; cursor:pointer;">
                 <i class="fa fa-arrow-circle-left mr-2"></i>Kembali
             </button>
@@ -265,7 +265,7 @@
             @if (session('success'))
                 <p class="success-message">{{ session('success') }}</p>
             @endif
-            <form action="{{ route('update.databeperternakan', $data->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('update.databeperkebunan', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST') <!-- Ubah metode menjadi PUT untuk update data -->
                 <div class="form-group d-flex align-items-center mt-3">

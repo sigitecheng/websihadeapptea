@@ -231,7 +231,7 @@
                         <td style="font-size: 12px; text-align:center;">
                             <img style="width: 50%;" src="{{asset('storage/' . $item->gambarproduk)}}" alt="">
                         </td>
-                        <td style="font-size: 12px; text-align:left;">{{ $item->keterangan}}</td>
+                        <td style="font-size: 12px; text-align:justify;">{{ $item->keterangan}}</td>
                         <td style="font-size: 12px; text-align:center;">
                             {{ \Carbon\Carbon::parse($item->tanggalupload)->translatedFormat('d F Y') }}
                         </td>
