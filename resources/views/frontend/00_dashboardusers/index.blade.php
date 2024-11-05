@@ -1,6 +1,13 @@
 @include('frontend.00_dashboardusers.style.header')
 
   <body>
+
+    
+              
+{{-- ================ --}}
+@include('tambahan.alert')
+{{-- ================ --}}
+
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
       <div class="container d-flex align-items-center">
@@ -681,79 +688,85 @@
             </div>
 
             @endforeach
+
+
             <div class="col-lg-6">
-              <form
-                action="forms/contact.php"
-                method="post"
-                class="php-email-form"
-              >
+            
+            
+              <form action="{{ route('create.pertanyaanusers') }}" method="POST">
+                @csrf <!-- Add CSRF token for security -->
                 <div class="row gy-4">
-                  <div class="col-md-6">
-                    <input
-                      type="text"
-                      name="name"
-                      class="form-control"
-                      placeholder="Your Name"
-                      required
-                    />
-                  </div>
-
-                  <div class="col-md-6">
-                    <input
-                      type="email"
-                      class="form-control"
-                      name="email"
-                      placeholder="Your Email"
-                      required
-                    />
-                  </div>
-
-                  <div class="col-md-12">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="subject"
-                      placeholder="Your Question ?"
-                      required
-                    />
-                  </div>
-
-                  <div class="col-md-12">
-                    <input
-                      type="number"
-                      class="form-control"
-                      name="subject"
-                      placeholder="Your Number Whatsapp ?"
-                      required
-                    />
-                  </div>
-
-                  <div class="col-md-12">
-                    <textarea
-                      class="form-control"
-                      name="message"
-                      rows="6"
-                      placeholder="Message"
-                      required
-                    ></textarea>
-                  </div>
-
-                  <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">
-                      Your message has been sent. Thank you!
+                    <div class="col-md-6">
+                        <input
+                            type="text"
+                            name="namalengkap"
+                            class="form-control"
+                            placeholder="Your Name"
+                            required
+                        />
                     </div>
-                    <button class="btn" type="submit" style="background-color: green; color: white; border: none; transition: background-color 0.3s, color 0.3s;" 
-                    onmouseover="this.style.backgroundColor='white'; this.style.color='black';" 
-                    onmouseout="this.style.backgroundColor='green'; this.style.color='white';">
-                    <i class="fab fa-telegram" style="margin-right: 5px;"></i> Send Message
-                </button>
-                
-                
+            
+                    <div class="col-md-6">
+                        <input
+                            type="email"
+                            class="form-control"
+                            name="email"
+                            placeholder="Your Email"
+                            required
+                        />
+                    </div>
+            
+                    <div class="col-md-12">
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="pertanyaan"
+                            placeholder="Your Question?"
+                            required
+                        />
+                    </div>
+            
+                    <div class="col-md-12">
+                        <input
+                            type="number" 
+                            class="form-control"
+                            name="telepon"
+                            placeholder="Your WhatsApp Number?"
+                            required
+                            pattern="[0-9]{10,15}" />
+                    </div>
+            
+                    <div class="col-md-12">
+                        <textarea
+                            class="form-control"
+                            name="pesan"
+                            rows="6"
+                            placeholder="Message"
+                            required
+                        ></textarea>
+                    </div>
+            
+                    <div class="col-md-12 text-center">
+                        {{-- <div class="loading">Loading</div> --}}
+                        {{-- <div class="error-message"></div> --}}
+                        {{-- <div class="sent-message">
+                            Your message has been sent. Thank you!
+                        </div> --}}
+                        <button
+                            class="btn"
+                            type="submit"
+                            style="background-color: green; color: white; border: none; transition: background-color 0.3s, color 0.3s;"
+                            onmouseover="this.style.backgroundColor='white'; this.style.color='black';"
+                            onmouseout="this.style.backgroundColor='green'; this.style.color='white';"
+                        >
+                            <i class="fab fa-telegram" style="margin-right: 5px;"></i> Send Message
+                        </button>
+                    </div>
                 </div>
-                </div>
-              </form>
+            </form>
+            
+            
+              
             </div>
           </div>
         </div>

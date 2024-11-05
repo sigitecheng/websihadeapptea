@@ -9,9 +9,11 @@ use App\Models\Contactus;
 use App\Models\Dataperusahaan;
 use App\Models\Faq;
 use App\Models\Informasiperusahaan;
+use App\Models\Partners;
 use App\Models\Pertanian;
 use App\Models\Peternakan;
 use App\Models\Plantations;
+use App\Models\Productpertanian;
 use App\Models\Testimoni;
 use App\Models\User;
 use App\Models\Whysihade;
@@ -249,6 +251,72 @@ Plantations::create([
     'keterangan' => 'Sihade Fruit Booster is an innovative agricultural product designed to enhance fruit development and yield in various crops. Formulated with a unique blend of natural ingredients, this booster stimulates plant growth by improving nutrient uptake and promoting robust root development. It contains essential vitamins and minerals that not only support the overall health of the plants but also enhance their resistance to diseases and environmental stressors. By applying Sihade Fruit Booster, farmers can expect increased fruit size, improved flavor, and higher market value, making it an essential tool for achieving optimal results in fruit production. Its eco-friendly formulation ensures that it is safe for both the environment and consumers, aligning with sustainable agricultural practices. Whether used in orchards or home gardens, Sihade Fruit Booster empowers growers to achieve superior harvests while maintaining soil health and biodiversity.', 
     'tanggalupload' => Carbon::today()->toDateString(), // Mengisi tanggal hari ini
 ]);
+
+Partners::create([
+    'namaperusahaan' => 'PT. Asiana Chemicalindo Lestari', 
+    'gambarperusahaan' => 'partners/1.png', 
+    'alamatperusahaan' => 'Jln. Raya Kebayoran Laman No 178-K Jakarta Selatan 12230', 
+
+]);
+
+Partners::create([
+    'namaperusahaan' => 'PT. Sentra Boga Handal ', 
+    'gambarperusahaan' => 'partners/2.png', 
+    'alamatperusahaan' => 'Gedung Menara Hijau Lantai 6 Jln. Mt. Haryono Kav 33 Jakarta Selatan', 
+
+]);
+
+Partners::create([
+    'namaperusahaan' => 'PT. Surveyor Indonesia', 
+    'gambarperusahaan' => 'partners/3.png', 
+    'alamatperusahaan' => 'Graha Surveyor Indonesia Jln. Gatot Subroto Kav 56 Jakarta 12950 ', 
+
+]);
+
+Partners::create([
+    'namaperusahaan' => 'Perum Bulog', 
+    'gambarperusahaan' => 'partners/4.png', 
+    'alamatperusahaan' => 'Jln. Soekarno Hatta No 711A, Bandung', 
+
+]);
+
+Partners::create([
+    'namaperusahaan' => 'Perum Perhutani', 
+    'gambarperusahaan' => 'partners/5.png', 
+    'alamatperusahaan' => 'Jln. Soekarno Hatta No 628 Km 14 Bandung', 
+
+]);
+
+Partners::create([
+    'namaperusahaan' => 'PT. Perkebunan Nusantara X', 
+    'gambarperusahaan' => 'partners/6.png', 
+    'alamatperusahaan' => 'Perumahan Taman Gandaria Valley Blok F/12A Kebayoran Lama Jakarta', 
+
+]);
+
+Partners::create([
+    'namaperusahaan' => 'PT. Inhutani', 
+    'gambarperusahaan' => 'partners/7.png', 
+    'alamatperusahaan' => 'Gedung Manggala Wana Bhakti Blok IV Lantai 2 Jln. Gatot Subroto, Senayan Jakarta ', 
+
+]);
+
+Partners::create([
+    'namaperusahaan' => 'Tani Murni PD Bandung', 
+    'gambarperusahaan' => 'partners/8.png', 
+    'alamatperusahaan' => 'Jln. Soekarno Hatta 283, Kebonlega, Bojongloa Bandung', 
+
+]);
+
+Productpertanian::create([
+    'partners_id' => 3, 
+    'pertanian_id' => 1, 
+    'kuantiti' => 234, 
+    'hargasatuan' => 25000, 
+    'totalharga' => 0,
+    'tanggalpemesanan' => now(),
+]);
+
 
 
     }

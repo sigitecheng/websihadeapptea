@@ -26,117 +26,22 @@
         
       <!-- ======= partners Section ======= -->
        <section id="partners" class="partners section-bg">
+
         <div class="container">
+        
           <div class="row justify-content-center" data-aos="zoom-in">
-            <div
-              class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="/assets/newfrontend/img/partners/logo-ilo.png"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
-            <div
-              class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="/assets/newfrontend/img/partners/logo-polibatam.png"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
-            <div
-              class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="/assets/newfrontend/img/partners/logo-sp.png"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
+        @foreach ($data as $item )
           
-            <div
-              class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="/assets/newfrontend/img/partners/logo-bej.png"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
-            <div
-              class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="/assets/newfrontend/img/partners/logo-bej.png"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
-            <div
-              class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="/assets/newfrontend/img/partners/logo-bej.png"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
-            <div
-              class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="/assets/newfrontend/img/partners/logo-bej.png"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
-            <div
-              class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="/assets/newfrontend/img/partners/logo-bej.png"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
-            <div
-              class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="/assets/newfrontend/img/partners/logo-bej.png"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
-            <div
-              class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="/assets/newfrontend/img/partners/logo-bej.png"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
-            <div
-              class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="/assets/newfrontend/img/partners/logo-bej.png"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
-            <div
-              class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-            >
-              <img
-                src="/assets/newfrontend/img/partners/logo-bej.png"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
+        <div
+        class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+        >
+        <img
+        src="{{asset('storage/' . $item->gambarperusahaan)}}"
+        class="img-fluid"
+        alt="{{asset('storage/' . $item->gambarperusahaan)}}"
+        />
+      </div>
+      @endforeach
 
           </div>
         </div>

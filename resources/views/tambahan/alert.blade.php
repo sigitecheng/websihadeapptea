@@ -202,16 +202,16 @@
 @if (session('pertanyaan')) 
     <div class="modal-alert-pertanyaan">
         <div class="modal-content-pertanyaan">
-            <img src="/assets/icon/lambangsihade.png" alt="Logo SIPJAKIKBB" style="width: 70%; object-fit: cover; margin: 20px;">
-            <p style="color: black;"><strong>PT. Haznia Bina Virofarm</strong></p>
-            <div class="success-text" style="font-size: 18px;">Admin Kami Akan Menghubungi Saudara, Harap Menunggu !
+            <img src="/assets/icon/lambangsihade.png" alt="Logo SIPJAKIKBB" style="width: 70%; object-fit: cover; margin: 20px; text-align:center;">
+            <p style="color: black; text-align:center"><strong style="text-align: center">PT. Haznia Bina Virofarm</strong></p>
+            <div class="success-text" style="font-size: 18px; text-align:center">Admin Kami Akan Menghubungi Saudara, Harap Menunggu !
                 <button type="button" class="btnalert-view" onclick="document.querySelector('.modal-alert-pertanyaan').style.display='none';" style="float: right;">
                     &times;
                 </button>
             </div>
             <br>
-            <button class="button-text" style="color: white;">{{ session('pertanyaan') }}</button>
-            <p style="margin-top: 25px; font-size:12px; color:#000;">Silakan muat ulang halaman ini ! <br> atau tekan tanda x di pojok kanan atas </p>
+            <button  class="button-text" style="color: white; display:center;">{{ session('pertanyaan') }}</button>
+            <p style="margin-top: 25px; font-size:12px; color:#000; text-align:center">Silakan muat ulang halaman ini ! <br> atau tekan tanda x di pojok kanan atas </p>
         </div>
     </div>
 @endif

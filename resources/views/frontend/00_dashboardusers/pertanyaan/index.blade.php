@@ -31,6 +31,9 @@
 
           <div class="faq-list">
             <ul>
+
+              @foreach ($data as $item)
+                
                 <li data-aos="fade-up" data-aos-delay="100">
                     <i style="color: green;" class="bx bx-help-circle icon-help"></i>
                     <a
@@ -38,7 +41,7 @@
                       class="collapse"
                       data-bs-target="#faq-list-1"
                     >
-                      <span style="color: green">What types of organic products do you offer?</span>
+                      <span style="color: green">{{$item->pertanyaan1}}</span>
                       <i style="color: green" class="bx bx-chevron-down icon-show"></i>
                       <i style="color: green" class="bx bx-chevron-up icon-close"></i>
                     </a>
@@ -48,7 +51,7 @@
                       data-bs-parent=".faq-list"
                     >
                       <p>
-                        We offer a wide variety of organic products, including fresh fruits, vegetables, herbs, and organic fertilizers. Our produce is grown sustainably on our farm, ensuring that it is not only healthy for you but also beneficial for the environment. We pride ourselves on delivering high-quality, nutrient-rich products that support local agriculture and promote a healthier lifestyle.
+                      {{$item->jawaban1}}
                       </p>
                     </div>
                   </li>
@@ -60,7 +63,7 @@
                       class="collapse"
                       data-bs-target="#faq-list-2"
                     >
-                      <span style="color: green">How can I purchase products from Sihade Organic Farm?</span>
+                      <span style="color: green">{{$item->pertanyaan2}}</span>
                       <i style="color: green" class="bx bx-chevron-down icon-show"></i>
                       <i style="color: green" class="bx bx-chevron-up icon-close"></i>
                     </a>
@@ -70,7 +73,7 @@
                       data-bs-parent=".faq-list"
                     >
                       <p>
-                        You can conveniently purchase our products through our website, where you can browse our full range of offerings. Additionally, you can visit our farm directly for a more personal experience. For our local customers, we also offer home delivery services to ensure you receive fresh organic produce right at your doorstep.
+                      {{$item->jawaban2}}
                       </p>
                     </div>
                   </li>
@@ -82,7 +85,7 @@
                       class="collapse"
                       data-bs-target="#faq-list-3"
                     >
-                      <span style="color: green">Are your products certified organic?</span>
+                      <span style="color: green">{{$item->pertanyaan3}}</span>
                       <i style="color: green" class="bx bx-chevron-down icon-show"></i>
                       <i style="color: green" class="bx bx-chevron-up icon-close"></i>
                     </a>
@@ -92,7 +95,7 @@
                       data-bs-parent=".faq-list"
                     >
                       <p>
-                        Yes, all our products are certified organic by recognized certification bodies. We adhere to strict guidelines and practices that prohibit the use of synthetic pesticides or fertilizers, ensuring that our produce is not only safe but also promotes sustainable farming practices that protect the environment.
+                      {{$item->jawaban3}}
                       </p>
                     </div>
                   </li>
@@ -104,7 +107,7 @@
                       class="collapse"
                       data-bs-target="#faq-list-4"
                     >
-                      <span style="color: green">How can I learn more about organic farming practices?</span>
+                      <span style="color: green">{{$item->pertanyaan4}}</span>
                       <i style="color: green" class="bx bx-chevron-down icon-show"></i>
                       <i style="color: green" class="bx bx-chevron-up icon-close"></i>
                     </a>
@@ -114,7 +117,7 @@
                       data-bs-parent=".faq-list"
                     >
                       <p>
-                        We offer various workshops and educational resources on organic farming practices to help individuals understand the benefits and techniques of sustainable agriculture. Visit our website regularly for updates on upcoming events, workshops, and available materials to enhance your knowledge of organic farming.
+                      {{$item->jawaban4}}
                       </p>
                     </div>
                   </li>
@@ -126,7 +129,7 @@
                       class="collapse"
                       data-bs-target="#faq-list-5"
                     >
-                      <span style="color: green">Can I visit Sihade Organic Farm?</span>
+                      <span style="color: green">{{$item->pertanyaan5}}</span>
                       <i style="color: green" class="bx bx-chevron-down icon-show"></i>
                       <i style="color: green" class="bx bx-chevron-up icon-close"></i>
                     </a>
@@ -136,10 +139,13 @@
                       data-bs-parent=".faq-list"
                     >
                       <p>
-                        Yes, we warmly welcome visitors to Sihade Organic Farm! It’s a wonderful opportunity to see our farming practices in action and learn more about organic agriculture. Please check our website for visiting hours and any special events we may have, including guided tours and workshops that provide insight into our farming methods and products.
+                      {{$item->jawaban5}}
                       </p>
                     </div>
                   </li>
+
+                  
+              @endforeach
               </ul>
               
           </div>

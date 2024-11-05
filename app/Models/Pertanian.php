@@ -13,4 +13,11 @@ class Pertanian extends Model
 
     protected $guarded = ['id'];
 
+    
+    public function productpertanian()
+    {
+        return $this->hasMany(Productpertanian::class);
+    }
+
+    
 }

@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Aboutsihade;
 use App\Models\Beranda;
 use App\Models\Berkas;
+use App\Models\Contactus;
 use App\Models\Dataperusahaan;
 use App\Models\Faq;
 use App\Models\Informasiperusahaan;
+use App\Models\Partners;
 use App\Models\Pertanian;
+use App\Models\Pertanyaanusers;
 use App\Models\Peternakan;
 use App\Models\Plantations;
 use App\Models\Testimoni;
@@ -86,27 +89,34 @@ class FedashboardController extends Controller
 
     public function mitrakami()
     {
+        $datapartners = Partners::all();
         
         return view('frontend.00_dashboardusers.mitrakami.index', [
             'title' => 'Mitra Kami',
+            'data' => $datapartners,
+
             
         ]);
     }
 
     public function pertanyaan()
     {
+        $datapertanyaan = Faq::all();
         
         return view('frontend.00_dashboardusers.pertanyaan.index', [
             'title' => 'F.A.Q Sihade',
+            'data' => $datapertanyaan,
             
         ]);
     }
 
     public function kontak()
     {
+        $datakontak = Informasiperusahaan::all();
         
         return view('frontend.00_dashboardusers.kontak.index', [
             'title' => 'Contact Sihade',
+            'data' => $datakontak,
             
         ]);
     }
@@ -174,5 +184,30 @@ class FedashboardController extends Controller
         ]);
     }
 
-
+    public function createnewstoredatapertanyaanusers(Request $request)
+    {
+        // Validate input
+        $request->validate([
+            'namalengkap' => 'required|string',
+            'email' => 'required|string', // Validate as a proper email format
+            'pertanyaan' => 'required|string', // Added max length for validation
+            'telepon' => 'required|string', // Regex for validating phone number
+            'pesan' => 'required|string', // Added max length for validation
+        ]);
+    
+        // Create a new entry in the database
+        Pertanyaanusers::create([
+            'namalengkap' => $request->input('namalengkap'),
+            'email' => $request->input('email'),
+            'pertanyaan' => $request->input('pertanyaan'),
+            'telepon' => $request->input('telepon'),
+            'pesan' => $request->input('pesan'),
+        ]);
+    
+        session()->flash('pertanyaan', 'Pertanyaan Berhasil Dikirim!');
+    
+        // Redirect to the desired route
+        return redirect('/'); // Adjust this to your desired route
+    }
+    
 }

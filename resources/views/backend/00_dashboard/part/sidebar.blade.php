@@ -168,6 +168,33 @@
                             </ul>
                         </li>
                         
+                           
+                         <li class="parent">
+                            <a href="#" onclick="toggle_menu('pesanan'); return false" class="sbar">
+                                <i class="fas fa-shopping-cart mr-2"></i> <!-- Ikon keranjang untuk Produk -->
+                                <span>PRODUCT ORDER<i class="fa fa-angle-down pull-right align-bottom" style="color: black;"></i></span>
+                            </a>
+                            
+                            <ul class="children" id="pesanan">
+                                <li class="child">
+                                    <a href="/productagriculture" style="font-size: 12px;">
+                                        <i class="fas fa-tractor mr-2" style="margin-left: 20px;"></i>PRODUCT AGRICULTURE
+                                    </a>
+                                </li>
+                                <li class="child">
+                                    <a href="/beperternakan" style="font-size: 12px;">
+                                        <i class="fas fa-piggy-bank mr-2" style="margin-left: 20px;"></i>PRODUCT ANIMAL FARMING
+                                    </a>
+                                </li>
+                                <li class="child">
+                                    <a href="/beperkebunan" style="font-size: 12px;">
+                                        <i class="fas fa-leaf mr-2" style="margin-left: 20px;"></i>PRODUCT PLANTATION
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                        </li>
+                        
 
 
 

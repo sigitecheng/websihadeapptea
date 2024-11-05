@@ -175,6 +175,33 @@ Route::post('/beperkebunan/{id}', [AdminDashboardController::class, 'deletedatab
 ->middleware('auth')
 ->name('delete.databeperkebunan');
 
+// -------- BAGIAN PRODUCTS AGRICULTURE  ---------------------------------
+Route::get('/productagriculture', [AdminDashboardController::class, 'productagriculture'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/productagriculture/update/{id}', [AdminDashboardController::class, 'updatedataproductagriculture'])->middleware('auth')->name('updateshow.productagriculture');
+Route::post('/productagricultureupdatestore/{id}', [AdminDashboardController::class, 'createupdatedataproductagriculture'])->middleware('auth')->name('update.productagriculture');
+Route::get('/productagriculturecreate', [AdminDashboardController::class, 'createnewdataproductagriculture'])->middleware('auth');
+Route::post('/dataproductagriculturestore', [AdminDashboardController::class, 'createnewstoredataproductagriculture'])->middleware('auth')->name('create.dataproductagriculture');
+
+
+Route::post('/productagriculture/{id}', [AdminDashboardController::class, 'deletedataproductagriculture'])
+->middleware('auth')
+->name('delete.dataproductagriculture');
+
+
+// -------- BAGIAN QA PERTANYAAN USERS  ---------------------------------
+// Route::get('/beperkebunan', [AdminDashboardController::class, 'beperkebunan'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+// Route::get('/beperkebunan/update/{id}', [AdminDashboardController::class, 'updatedatabeperkebunan'])->middleware('auth')->name('updateshow.beperkebunan');
+// Route::post('/beperkebunanupdatestore/{id}', [AdminDashboardController::class, 'createupdatedatabeperkebunan'])->middleware('auth')->name('update.databeperkebunan');
+Route::get('/pertanyaanusers', [AdminDashboardController::class, 'createnewdatapertanyaanusers'])->middleware('auth');
+Route::post('/datapertanyaanusersstore', [FedashboardController::class, 'createnewstoredatapertanyaanusers'])->name('create.pertanyaanusers');
+
+
+Route::post('/pertanyaanusers/{id}', [AdminDashboardController::class, 'deletedatapertanyaanusers'])
+->middleware('auth')
+->name('delete.datapertanyaanusers');
+
 // ------------------- BACKEND QA PERTANYAAN --------------------------- 
 
 // KATEGORI ADMIN  
