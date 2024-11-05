@@ -182,7 +182,7 @@
 
         </style>
         <a style="background: white;">
-            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Update Data Agriculture Products</div>
+            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Update Data Animal Farming Products</div>
         </a>
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
@@ -266,7 +266,7 @@
                 <p class="success-message">{{ session('success') }}</p>
             @endif
 
-            <form action="{{ route('update.productagriculture', $data->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('update.productanimalfarming', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST') <!-- Ubah metode menjadi PUT untuk update data -->
                 
@@ -286,14 +286,14 @@
                 </div>
 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="pertanian_id" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                    <label for="peternakan_id" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
                         <i class="fas fa-user mr-2"></i>Nama Produk
                     </label>
-                    <select class="form-control" id="pertanian_id" name="pertanian_id" required>
+                    <select class="form-control" id="peternakan_id" name="peternakan_id" required>
                         <option style="text-transform: uppercase" value="">Pilih Nama Produk</option>
-                        @foreach($datapertanian as $namaproduk)
+                        @foreach($datapeternakan as $namaproduk)
                             <option style="text-transform: uppercase" value="{{ $namaproduk->id }}" 
-                                {{ old('pertanian_id', $data->pertanian->id) == $namaproduk->id ? 'selected' : '' }}>
+                                {{ old('pertanian_id', $data->peternakan->id) == $namaproduk->id ? 'selected' : '' }}>
                                 {{ $namaproduk->namaproduk }}
                             </option>
                         @endforeach

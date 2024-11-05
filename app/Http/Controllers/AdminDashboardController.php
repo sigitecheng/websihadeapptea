@@ -10,6 +10,7 @@ use App\Models\Partners;
 use App\Models\Pertanian;
 use App\Models\Peternakan;
 use App\Models\Plantations;
+use App\Models\Productanimalfarming;
 use App\Models\Productpertanian;
 use App\Models\Testimoni;
 use App\Models\Whysihade;
@@ -1262,7 +1263,6 @@ class AdminDashboardController extends Controller
                         ]);
                     }
 
-
                     public function createupdatedataproductagriculture(Request $request, $id)
                     {
                         // Validasi input
@@ -1270,48 +1270,41 @@ class AdminDashboardController extends Controller
                             'partners_id' => 'required|integer',
                             'pertanian_id' => 'required|integer',
                             'kuantiti' => 'required|integer',
-                            'hargasatuan' => 'required|integer',
-                            'totalharga' => 'required|integer',
+                            'hargasatuan' => 'required|numeric', // Validasi harga satuan sebagai angka
                             'tanggalpemesanan' => 'required|date',
-                            
-                        ]); 
-                        
-                        // Cari data ketertiban berdasarkan id  
+                        ]);
+                    
+                        // Cari data produk pertanian berdasarkan ID
                         $produkpertanian = Productpertanian::findOrFail($id);
                     
-                        // // Simpan foto di storage dan ambil namanya
-                        // if ($request->hasFile('gambarproduk')) {
-                        //     // Hapus foto lama jika ada
-                        //     if ($perkebunan->gambarproduk) {
-                        //         Storage::disk('public')->delete($perkebunan->gambarproduk);
-                        //     }
-                            
-                        //     // Simpan foto baru
-                        //     $fotoPath = $request->file('gambarproduk')->store('produk/perkebunan', 'public'); // Menyimpan foto di storage/app/testimoni
-                        // } else {
-                        //     // Jika tidak ada foto baru, gunakan foto lama
-                        //     $fotoPath = $perkebunan->gambarproduk;
-                        // }
+                        // Menghapus format Rupiah pada harga satuan dan total harga
+                        $hargasatuan = $this->removeRupiah($request->input('hargasatuan')); // Panggil fungsi removeRupiah di dalam controller
+                        $totalharga = $hargasatuan * $request->input('kuantiti'); // Hitung total harga berdasarkan kuantiti dan harga satuan
                     
-                        // Update data ketertiban dengan data dari form
+                        // Update data produk pertanian dengan data dari form
                         $produkpertanian->update([
                             'partners_id' => $request->input('partners_id'),
-                            // 'gambarproduk' => $fotoPath, // Simpan path foto
                             'pertanian_id' => $request->input('pertanian_id'),
                             'kuantiti' => $request->input('kuantiti'),
-                            'hargasatuan' => $request->input('hargasatuan'),
-                            'totalharga' => $request->input('totalharga'),
+                            'hargasatuan' => $hargasatuan,
+                            'totalharga' => $totalharga,
                             'tanggalpemesanan' => $request->input('tanggalpemesanan'),
-                            
                         ]);
-                        
+                    
                         // Flash pesan session
-                        session()->flash('update', 'Data Plantations Products Berhasil Diupdate!');
+                        session()->flash('update', 'Data Produk Pertanian Berhasil Diupdate!');
                     
                         // Redirect ke halaman yang sesuai
                         return redirect('/productagriculture');
                     }
                     
+                    // Helper function untuk menghapus format Rupiah
+                    private function removeRupiah($rupiah)
+                    {
+                        // Hapus karakter non-digit (termasuk titik dan koma)
+                        return preg_replace('/[^\d]/', '', $rupiah);
+                    }
+                                        
                     // =====================================================
 
                     public function createnewdataproductagriculture()
@@ -1319,12 +1312,16 @@ class AdminDashboardController extends Controller
                         
                         $produkpertanian = Productpertanian::all();
                         // $user = Auth::user();
-                
+                        $datapartners = Partners::orderBy('created_at', 'desc')->paginate(15);
+                        $datapertanian = Pertanian::orderBy('created_at', 'desc')->paginate(15);
+                     
                         return view('backend.04_productsorders.01_agriculuture.create', [
                             'data' => $produkpertanian,
                             // 'user' => $user,
                             'title' => 'Create Agriculture Products',
-                           
+                            'datapartners' => $datapartners,
+                            'datapertanian' => $datapertanian,
+                     
                         ]);
                 
                     }
@@ -1336,28 +1333,25 @@ class AdminDashboardController extends Controller
                         // Validasi input
                         $request->validate([
                             'partners_id' => 'required|integer',
-                            // 'gambarproduk' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Foto wajib diupload
                             'pertanian_id' => 'required|integer',
                             'kuantiti' => 'required|integer',
-                            'hargasatuan' => 'required|integer',
-                            'totalharga' => 'required|integer',
+                            'hargasatuan' => 'required|numeric', // Validasi harga satuan sebagai angka
                             'tanggalpemesanan' => 'required|date',
-                            
-                        ]); 
-                        
+                        ]);
+                    
                         // Simpan foto di storage dan ambil namanya
                         // $fotoPath = $request->file('gambarproduk')->store('produk/perkebunan', 'public'); // Menyimpan foto di storage/app/testimoni
+                        $hargasatuan = $this->removeRupiah($request->input('hargasatuan')); // Panggil fungsi removeRupiah di dalam controller
+                        $totalharga = $hargasatuan * $request->input('kuantiti'); // Hitung total harga berdasarkan kuantiti dan harga satuan
                     
                         // Buat data testimoni baru dengan data dari form
                         Productpertanian::create([
                             'partners_id' => $request->input('partners_id'),
-                            // 'gambarproduk' => $fotoPath, // Simpan path foto
                             'pertanian_id' => $request->input('pertanian_id'),
                             'kuantiti' => $request->input('kuantiti'),
-                            'hargasatuan' => $request->input('hargasatuan'),
-                            'totalharga' => $request->input('totalharga'),
+                            'hargasatuan' => $hargasatuan,
+                            'totalharga' => $totalharga,
                             'tanggalpemesanan' => $request->input('tanggalpemesanan'),
-                            
                         ]);
                         
                         // Flash pesan session
@@ -1393,6 +1387,184 @@ class AdminDashboardController extends Controller
     
             // Redirect ke halaman yang sesuai
             return redirect('/productagriculture');
+        }
+    }
+                
+
+                    
+
+
+    // ------------ BACKEND DATA PERTANIAN -------------------------------==============================================
+    // ====================================================================================================                                    
+    
+    // ------------ BACKEND DATA ANIMAL FARMING PRODUCTS   -------------------------------==============================================
+    // ====================================================================================================
+    
+    
+    public function productanimalfarming()
+    {
+        $produkpeternakan = Productanimalfarming::orderBy('created_at', 'desc')->paginate(5);
+        $datapartners = Partners::orderBy('created_at', 'desc')->paginate(15);
+        $datapeternakan = Peternakan::orderBy('created_at', 'desc')->paginate(15);
+        
+        // $user = Auth::user();
+
+        return view('backend.04_productsorders.02_animalfarming.index', [
+            'data' => $produkpeternakan,
+            'datapartners' => $datapartners,
+            'datapeternakan' => $datapeternakan,
+            // 'user' => $user,
+            'title' => 'Animal Farming Products ',
+            
+        ]);
+        
+    }
+
+    
+    // ------------------------------------------------------------
+                    // -------------------- UPDATE PENGAWASAN DAN KETERTIBAN  ----------------------
+                    public function updatedataproductanimalfarming($id)
+                    {
+                        // Cari data undang-undang berdasarkan nilai 'judul'
+                        $produkpeternakan = Productanimalfarming::where('id', $id)->firstOrFail();
+                        $user = Auth::user();
+                        $datapartners = Partners::orderBy('created_at', 'desc')->paginate(15);
+                        $datapeternakan = Peternakan::orderBy('created_at', 'desc')->paginate(15);
+                        
+       
+                        // Tampilkan form update dengan data yang ditemukan
+                        return view('backend.04_productsorders.02_animalfarming.update', [
+                            'data' => $produkpeternakan,
+                            'user' => $user,
+                            'datapartners' => $datapartners,
+                            'datapeternakan' => $datapeternakan,
+                            'title' => 'Update Animal Farming Products'
+                        ]);
+                    }
+
+                     public function createupdatedataproductanimalfarming(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'partners_id' => 'required|integer',
+            'peternakan_id' => 'required|integer',
+            'kuantiti' => 'required|integer',
+            'hargasatuan' => 'required|numeric', // Validasi harga satuan sebagai angka
+            'tanggalpemesanan' => 'required|date',
+        ]);
+        
+        // Cari data produk peternakan berdasarkan ID
+        $produkpeternakan = Productanimalfarming::findOrFail($id);
+        
+        // Menghapus format Rupiah pada harga satuan
+        $hargasatuan = $this->removeRp($request->input('hargasatuan')); // Panggil fungsi removeRupiah di dalam controller
+        $totalharga = $hargasatuan * $request->input('kuantiti'); // Hitung total harga berdasarkan kuantiti dan harga satuan
+        
+        // Update data produk peternakan dengan data dari form
+        $produkpeternakan->update([
+            'partners_id' => $request->input('partners_id'),
+            'peternakan_id' => $request->input('peternakan_id'),
+            'kuantiti' => $request->input('kuantiti'),
+            'hargasatuan' => $hargasatuan,
+            'totalharga' => $totalharga,
+            'tanggalpemesanan' => $request->input('tanggalpemesanan'),
+        ]);
+        
+        // Flash pesan session
+        session()->flash('update', 'Data Produk Peternakan Berhasil Diupdate!');
+        
+        // Redirect ke halaman yang sesuai
+        return redirect('/productanimalfarming');
+    }
+    
+    // Helper function untuk menghapus format Rupiah
+    private function removeRp($rupiah)
+    {
+        // Hapus karakter non-digit (termasuk titik dan koma)
+        return preg_replace('/[^\d]/', '', $rupiah);
+    } 
+                    // =====================================================
+
+                    public function createnewdataproductanimalfarming()
+                    {
+                        
+                        $produkpeternakan = productanimalfarming::all();
+                        // $user = Auth::user();
+                        $datapartners = Partners::orderBy('created_at', 'desc')->paginate(15);
+                        $datapeternakan = Peternakan::orderBy('created_at', 'desc')->paginate(15);
+                     
+                        return view('backend.04_productsorders.02_animalfarming.create', [
+                            'data' => $produkpeternakan,
+                            // 'user' => $user,
+                            'title' => 'Create Animal Farming Products',
+                            'datapartners' => $datapartners,
+                            'datapeternakan' => $datapeternakan,
+                     
+                        ]);
+                
+                    }
+                
+                // ----------------------------------------------------------- 
+    
+                    public function createnewstoredataproductanimalfarming(Request $request)
+                    {
+                        // Validasi input
+                        $request->validate([
+                            'partners_id' => 'required|integer',
+                            'peternakan_id' => 'required|integer',
+                            'kuantiti' => 'required|integer',
+                            'hargasatuan' => 'required|numeric', // Validasi harga satuan sebagai angka
+                            'tanggalpemesanan' => 'required|date',
+                        ]);
+                    
+                        // Simpan foto di storage dan ambil namanya
+                        // $fotoPath = $request->file('gambarproduk')->store('produk/perkebunan', 'public'); // Menyimpan foto di storage/app/testimoni
+                        $hargasatuan = $this->removeRupiah($request->input('hargasatuan')); // Panggil fungsi removeRupiah di dalam controller
+                        $totalharga = $hargasatuan * $request->input('kuantiti'); // Hitung total harga berdasarkan kuantiti dan harga satuan
+                    
+                        // Buat data testimoni baru dengan data dari form
+                        Productanimalfarming::create([
+                            'partners_id' => $request->input('partners_id'),
+                            'peternakan_id' => $request->input('peternakan_id'),
+                            'kuantiti' => $request->input('kuantiti'),
+                            'hargasatuan' => $hargasatuan,
+                            'totalharga' => $totalharga,
+                            'tanggalpemesanan' => $request->input('tanggalpemesanan'),
+                        ]);
+                        
+                        // Flash pesan session
+                        session()->flash('create', 'Data Plantations Products Berhasil Dibuat!');
+                    
+                        // Redirect ke halaman yang sesuai
+                        return redirect('/productanimalfarming');
+                    }
+
+                    public function deletedataproductanimalfarming($id)
+
+                    {
+        // Cari entri berdasarkan name
+        $entry = Productanimalfarming::where('id', $id)->first();
+    
+        if ($entry) {
+            // Hapus file terkait jika ada
+            // if ($entry->gambarproduk) {
+            //     Storage::disk('public')->delete($entry->gambarproduk);
+            // }
+    
+            // Hapus entri dari database
+            Productanimalfarming::destroy($entry->id);
+    
+            // Set pesan flash untuk sukses
+            session()->flash('delete', 'Data Berhasil Dihapus!');
+    
+            // Redirect ke halaman yang sesuai
+            return redirect('/productanimalfarming');
+        } else {
+            // Set pesan flash jika data tidak ditemukan
+            session()->flash('error', 'Data Tidak Ditemukan!');
+    
+            // Redirect ke halaman yang sesuai
+            return redirect('/productanimalfarming');
         }
     }
                 

@@ -182,7 +182,7 @@
                                     </a>
                                 </li>
                                 <li class="child">
-                                    <a href="/beperternakan" style="font-size: 12px;">
+                                    <a href="/productanimalfarming" style="font-size: 12px;">
                                         <i class="fas fa-piggy-bank mr-2" style="margin-left: 20px;"></i>PRODUCT ANIMAL FARMING
                                     </a>
                                 </li>

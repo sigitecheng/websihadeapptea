@@ -13,4 +13,11 @@ class Peternakan extends Model
 
     protected $guarded = ['id'];
 
+    
+    public function productanimalfarming()
+    {
+        return $this->hasMany(Productanimalfarming::class);
+    }
+
+
 }

@@ -182,7 +182,7 @@
 
         </style>
         <a style="background: white;">
-            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Update Data Agriculture Products</div>
+            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Create Data Animal Farming Product</div>
         </a>
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
@@ -190,7 +190,7 @@
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
         </a>
-        <a href="/productagriculture" style="background: white;">
+        <a href="/productanimalfarming" style="background: white;">
             <button class="badgekembali" style="border: none; font-size:14px; cursor:pointer;">
                 <i class="fa fa-arrow-circle-left mr-2"></i>Kembali
             </button>
@@ -266,10 +266,9 @@
                 <p class="success-message">{{ session('success') }}</p>
             @endif
 
-            <form action="{{ route('update.productagriculture', $data->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('create.dataproductanimalfarming') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('POST') <!-- Ubah metode menjadi PUT untuk update data -->
-                
+                @method('POST')
                 <div class="form-group d-flex align-items-center mt-3">
                     <label for="partners_id" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
                         <i class="fas fa-user mr-2"></i>Nama Perusahaan
@@ -277,34 +276,32 @@
                     <select class="form-control" id="partners_id" name="partners_id" required>
                         <option style="text-transform: uppercase" value="">Pilih Nama Perusahaan</option>
                         @foreach($datapartners as $perusahaan)
-                            <option style="text-transform: uppercase" value="{{ $perusahaan->id }}" 
-                                {{ old('partners_id', $data->partners->id) == $perusahaan->id ? 'selected' : '' }}>
+                            <option style="text-transform: uppercase" value="{{ $perusahaan->id }}">
                                 {{ $perusahaan->namaperusahaan }}
                             </option>
                         @endforeach
                     </select>
                 </div>
-
+                
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="pertanian_id" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                    <label for="peternakan_id" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
                         <i class="fas fa-user mr-2"></i>Nama Produk
                     </label>
-                    <select class="form-control" id="pertanian_id" name="pertanian_id" required>
+                    <select class="form-control" id="peternakan_id" name="peternakan_id" required>
                         <option style="text-transform: uppercase" value="">Pilih Nama Produk</option>
-                        @foreach($datapertanian as $namaproduk)
-                            <option style="text-transform: uppercase" value="{{ $namaproduk->id }}" 
-                                {{ old('pertanian_id', $data->pertanian->id) == $namaproduk->id ? 'selected' : '' }}>
+                        @foreach($datapeternakan as $namaproduk)
+                            <option style="text-transform: uppercase" value="{{ $namaproduk->id }}">
                                 {{ $namaproduk->namaproduk }}
                             </option>
                         @endforeach
                     </select>
                 </div>
-
+                
                 <div class="form-group d-flex align-items-center mt-3">
                     <label for="kuantiti" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
                         <i class="fas fa-briefcase mr-2"></i> Kuantiti
                     </label>
-                    <input style="text-transform: uppercase;" type="number" class="form-control" id="kuantiti" name="kuantiti" value="{{ old('kuantiti', $data->kuantiti) }}" required>
+                    <input style="text-transform: uppercase;" type="number" class="form-control" id="kuantiti" name="kuantiti" value="{{ old('kuantiti') }}" required>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
@@ -315,7 +312,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Rp</span>
                         </div>
-                        <input style="text-transform: uppercase;" type="text" class="form-control" id="hargasatuan" name="hargasatuan" value="{{ old('hargasatuan', number_format($data->hargasatuan, 0, ',', '.')) }}" required>
+                        <input style="text-transform: uppercase;" type="text" class="form-control" id="hargasatuan" name="hargasatuan" value="{{ old('hargasatuan') }}" required>
                     </div>
                 </div>
                 
@@ -327,7 +324,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Rp</span>
                         </div>
-                        <input style="text-transform: uppercase;" type="text" class="form-control" id="totalharga" name="totalharga" value="{{ old('totalharga', number_format($data->totalharga, 0, ',', '.')) }}" readonly required>
+                        <input style="text-transform: uppercase;" type="text" class="form-control" id="totalharga" name="totalharga" value="{{ old('totalharga') }}" readonly required>
                     </div>
                 </div>
                 
@@ -398,7 +395,7 @@
                     <label for="tanggalpemesanan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
                         <i class="fas fa-briefcase mr-2"></i> Tanggal Pemesanan
                     </label>
-                    <input style="text-transform: uppercase;" type="date" class="form-control" id="tanggalpemesanan" name="tanggalpemesanan" value="{{ old('tanggalpemesanan', $data->tanggalpemesanan) }}" required readonly>
+                    <input style="text-transform: uppercase;" type="date" class="form-control" id="tanggalpemesanan" name="tanggalpemesanan" value="{{ old('tanggalpemesanan') }}" required readonly>
                 </div>
                 
                 <script>
@@ -408,20 +405,22 @@
                         var dd = String(today.getDate()).padStart(2, '0'); // Mengambil tanggal dengan dua digit
                         var mm = String(today.getMonth() + 1).padStart(2, '0'); // Mengambil bulan dengan dua digit (0-based)
                         var yyyy = today.getFullYear(); // Mengambil tahun 4 digit
-                        
+                
                         today = yyyy + '-' + mm + '-' + dd; // Format YYYY-MM-DD
                         document.getElementById('tanggalpemesanan').value = today; // Mengatur nilai input
                     }
                 
                     // Jalankan fungsi setTanggalPemesanan saat halaman dimuat
                     window.onload = setTanggalPemesanan;
-                </script>
-                
+                </script>        
+
+
                 <div class="form-group">
                     <button style="float: right; font-size:14px;" class="badgenewupdate" type="submit">
-                        <i class="fab fa-telegram mr-2"></i>Update
+                        <i class="fab fa-telegram mr-2"></i>Create
                     </button>
                 </div>
+
                 
                 <script>
 
@@ -434,6 +433,7 @@
                     </script>
                 
             </form>
+            
             
             
         </div>

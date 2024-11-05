@@ -188,6 +188,18 @@ Route::post('/productagriculture/{id}', [AdminDashboardController::class, 'delet
 ->middleware('auth')
 ->name('delete.dataproductagriculture');
 
+// -------- BAGIAN PRODUCTS AGRICULTURE  ---------------------------------
+Route::get('/productanimalfarming', [AdminDashboardController::class, 'productanimalfarming'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/productanimalfarming/update/{id}', [AdminDashboardController::class, 'updatedataproductanimalfarming'])->middleware('auth')->name('updateshow.productanimalfarming');
+Route::post('/productanimalfarmingupdatestore/{id}', [AdminDashboardController::class, 'createupdatedataproductanimalfarming'])->middleware('auth')->name('update.productanimalfarming');
+Route::get('/productanimalfarmingcreate', [AdminDashboardController::class, 'createnewdataproductanimalfarming'])->middleware('auth');
+Route::post('/dataproductanimalfarmingstore', [AdminDashboardController::class, 'createnewstoredataproductanimalfarming'])->middleware('auth')->name('create.dataproductanimalfarming');
+
+Route::post('/productanimalfarming/{id}', [AdminDashboardController::class, 'deletedataproductanimalfarming'])
+->middleware('auth')
+->name('delete.dataproductanimalfarming');
+
 
 // -------- BAGIAN QA PERTANYAAN USERS  ---------------------------------
 // Route::get('/beperkebunan', [AdminDashboardController::class, 'beperkebunan'])->middleware('auth');  
