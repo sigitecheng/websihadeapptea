@@ -15,6 +15,7 @@ use App\Models\Peternakan;
 use App\Models\Plantations;
 use App\Models\Productanimalfarming;
 use App\Models\Productpertanian;
+use App\Models\Productplantations;
 use App\Models\Testimoni;
 use App\Models\User;
 use App\Models\Whysihade;
@@ -322,6 +323,15 @@ Productanimalfarming::create([
     'partners_id' => 3, 
     'peternakan_id' => 1, 
     'kuantiti' => 200, 
+    'hargasatuan' => 100000, 
+    'totalharga' => 0,
+    'tanggalpemesanan' => now(),
+]);
+
+Productplantations::create([
+    'partners_id' => 3, 
+    'plantations_id' => 1, 
+    'kuantiti' => 67, 
     'hargasatuan' => 100000, 
     'totalharga' => 0,
     'tanggalpemesanan' => now(),

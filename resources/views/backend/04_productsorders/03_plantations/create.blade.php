@@ -182,7 +182,7 @@
 
         </style>
         <a style="background: white;">
-            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Create Data Animal Farming Product</div>
+            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Create Data Plantations Product</div>
         </a>
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
@@ -190,7 +190,7 @@
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
         </a>
-        <a href="/productanimalfarming" style="background: white;">
+        <a href="/productplantations" style="background: white;">
             <button class="badgekembali" style="border: none; font-size:14px; cursor:pointer;">
                 <i class="fa fa-arrow-circle-left mr-2"></i>Kembali
             </button>
@@ -266,7 +266,7 @@
                 <p class="success-message">{{ session('success') }}</p>
             @endif
 
-            <form action="{{ route('create.dataproductanimalfarming') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('create.dataproductplantations') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="form-group d-flex align-items-center mt-3">
@@ -284,12 +284,12 @@
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="peternakan_id" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                    <label for="plantations_id" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
                         <i class="fas fa-user mr-2"></i>Nama Produk
                     </label>
-                    <select class="form-control" id="peternakan_id" name="peternakan_id" required>
+                    <select class="form-control" id="plantations_id" name="plantations_id" required>
                         <option style="text-transform: uppercase" value="">Pilih Nama Produk</option>
-                        @foreach($datapeternakan as $namaproduk)
+                        @foreach($dataperkebunan as $namaproduk)
                             <option style="text-transform: uppercase" value="{{ $namaproduk->id }}">
                                 {{ $namaproduk->namaproduk }}
                             </option>

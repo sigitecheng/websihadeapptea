@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aboutsihade;
+use App\Models\Berkas;
+use App\Models\Contactus;
 use App\Models\Dataperusahaan;
 use App\Models\Faq;
 use App\Models\informasiperusahaan;
@@ -12,13 +14,15 @@ use App\Models\Peternakan;
 use App\Models\Plantations;
 use App\Models\Productanimalfarming;
 use App\Models\Productpertanian;
+use App\Models\Productplantations;
 use App\Models\Testimoni;
 use App\Models\Whysihade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Testing\Fakes\Fake;
+use Mockery\Matcher\Contains;
 
 class AdminDashboardController extends Controller
 {
@@ -26,12 +30,39 @@ class AdminDashboardController extends Controller
     public function index()
     {
         // $datahimbauandinas = himbauandinas::all();
-        // $jumlahHimbauan = himbauandinas::count();  // Mendapatkan jumlah data
+        $jumlahaboutsihade = Aboutsihade::count();  // Mendapatkan jumlah data
+        $jumlahwhysihade = Whysihade::count();  // Mendapatkan jumlah data
+        $jumlahtestimoni = Testimoni::count();  // Mendapatkan jumlah data
+        $jumlahfaq = Faq::count();  // Mendapatkan jumlah data
+        $jumlahcontactus = Contactus::count();  // Mendapatkan jumlah data
+        $jumlahmitra = Partners::count();  // Mendapatkan jumlah data
+        $jumlahprodukpertanian = Pertanian::count();  // Mendapatkan jumlah data
+        $jumlahprodukpeternakan = Peternakan::count();  // Mendapatkan jumlah data
+        $jumlahprodukperkebunan = Plantations::count();  // Mendapatkan jumlah data
+        $jumlahprodukorderpertanian = Productpertanian::count();  // Mendapatkan jumlah data
+        $jumlahprodukorderpeternakan = Productanimalfarming::count();  // Mendapatkan jumlah data
+        $jumlahprodukorderperkebunan = Productplantations::count();  // Mendapatkan jumlah data
+        $jumlahfaq = Faq::count();  // Mendapatkan jumlah data
+        $jumlahberkas = Berkas::count();  // Mendapatkan jumlah data
     
         $user = Auth::user();
     
         return view('backend.00_dashboard.index', [
             'title' => 'Dashboard Sihade',
+            'jumlahaboutsihade' => $jumlahaboutsihade,
+            'jumlahwhysihade' => $jumlahwhysihade,
+            'jumlahtestimoni' => $jumlahtestimoni,
+            'jumlahfaq' => $jumlahfaq,
+            'jumlahcontactus' => $jumlahcontactus,
+            'jumlahmitra' => $jumlahmitra,
+            'jumlahprodukpertanian' => $jumlahprodukpertanian,
+            'jumlahprodukpeternakan' => $jumlahprodukpeternakan,
+            'jumlahprodukperkebunan' => $jumlahprodukperkebunan,
+            'jumlahprodukorderpertanian' => $jumlahprodukorderpertanian,
+            'jumlahprodukorderpeternakan' => $jumlahprodukorderpeternakan,
+            'jumlahprodukorderperkebunan' => $jumlahprodukorderperkebunan,
+            'jumlahfaq' => $jumlahfaq,
+            'jumlahberkas' => $jumlahberkas,
             // 'user' => $user,
         ]);
     }
@@ -1572,8 +1603,356 @@ class AdminDashboardController extends Controller
                     
 
 
-    // ------------ BACKEND DATA PERTANIAN -------------------------------==============================================
+    // ------------ BACKEND DATA PETERNAKAN -------------------------------==============================================
+    // ====================================================================================================                                    
+    
+    // ------------ BACKEND DATA ANIMAL FARMING PRODUCTS   -------------------------------==============================================
+    // ====================================================================================================
+    
+    
+    public function productplantations()
+    {
+        $produkperkebunan = Productplantations::orderBy('created_at', 'desc')->paginate(5);
+        $datapartners = Partners::orderBy('created_at', 'desc')->paginate(15);
+        $dataperkebunan = Plantations::orderBy('created_at', 'desc')->paginate(15);
+        
+        // $user = Auth::user();
+
+        return view('backend.04_productsorders.03_plantations.index', [
+            'data' => $produkperkebunan,
+            'datapartners' => $datapartners,
+            'dataperkebunan' => $dataperkebunan,
+            // 'user' => $user,
+            'title' => 'Plantations Products ',
+            
+        ]);
+        
+    }
+
+    
+    // ------------------------------------------------------------
+                    // -------------------- UPDATE PENGAWASAN DAN KETERTIBAN  ----------------------
+                    public function updatedataproductplantations($id)
+                    {
+                        // Cari data undang-undang berdasarkan nilai 'judul'
+                        $produkperkebunan = Productplantations::where('id', $id)->firstOrFail();
+                        $user = Auth::user();
+                        $datapartners = Partners::orderBy('created_at', 'desc')->paginate(15);
+                        $dataperkebunan = Plantations::orderBy('created_at', 'desc')->paginate(15);
+                        
+       
+                        // Tampilkan form update dengan data yang ditemukan
+                        return view('backend.04_productsorders.03_plantations.update', [
+                            'data' => $produkperkebunan,
+                            'user' => $user,
+                            'datapartners' => $datapartners,
+                            'dataperkebunan' => $dataperkebunan,
+                            'title' => 'Update Plantations Products'
+                        ]);
+                    }
+
+                     public function createupdatedataproductplantations(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'partners_id' => 'required|integer',
+            'plantations_id' => 'required|integer',
+            'kuantiti' => 'required|integer',
+            'hargasatuan' => 'required|numeric', // Validasi harga satuan sebagai angka
+            'tanggalpemesanan' => 'required|date',
+        ]);
+        
+        // Cari data produk peternakan berdasarkan ID
+        $produkperkebunan = Productplantations::findOrFail($id);
+        
+        // Menghapus format Rupiah pada harga satuan
+        $hargasatuan = $this->removeR($request->input('hargasatuan')); // Panggil fungsi removeRupiah di dalam controller
+        $totalharga = $hargasatuan * $request->input('kuantiti'); // Hitung total harga berdasarkan kuantiti dan harga satuan
+        
+        // Update data produk peternakan dengan data dari form
+        $produkperkebunan->update([
+            'partners_id' => $request->input('partners_id'),
+            'plantations_id' => $request->input('plantations_id'),
+            'kuantiti' => $request->input('kuantiti'),
+            'hargasatuan' => $hargasatuan,
+            'totalharga' => $totalharga,
+            'tanggalpemesanan' => $request->input('tanggalpemesanan'),
+        ]);
+        
+        // Flash pesan session
+        session()->flash('update', 'Data Produk Peternakan Berhasil Diupdate!');
+        
+        // Redirect ke halaman yang sesuai
+        return redirect('/productplantations');
+    }
+    
+    // Helper function untuk menghapus format Rupiah
+    private function removeR($rupiah)
+    {
+        // Hapus karakter non-digit (termasuk titik dan koma)
+        return preg_replace('/[^\d]/', '', $rupiah);
+    } 
+                    // =====================================================
+
+                    public function createnewdataproductplantations()
+                    {
+                        
+                        $produkperkebunan = Productplantations::all();
+                        // $user = Auth::user();
+                        $datapartners = Partners::orderBy('created_at', 'desc')->paginate(15);
+                        $dataperkebunan = Plantations::orderBy('created_at', 'desc')->paginate(15);
+                     
+                        return view('backend.04_productsorders.03_plantations.create', [
+                            'data' => $produkperkebunan,
+                            // 'user' => $user,
+                            'title' => 'Create Plantations Products',
+                            'datapartners' => $datapartners,
+                            'dataperkebunan' => $dataperkebunan,
+                     
+                        ]);
+                
+                    }
+                
+                // ----------------------------------------------------------- 
+    
+                    public function createnewstoredataproductplantations(Request $request)
+                    {
+                        // Validasi input
+                        $request->validate([
+                            'partners_id' => 'required|integer',
+                            'plantations_id' => 'required|integer',
+                            'kuantiti' => 'required|integer',
+                            'hargasatuan' => 'required|numeric', // Validasi harga satuan sebagai angka
+                            'tanggalpemesanan' => 'required|date',
+                        ]);
+                    
+                        // Simpan foto di storage dan ambil namanya
+                        // $fotoPath = $request->file('gambarproduk')->store('produk/perkebunan', 'public'); // Menyimpan foto di storage/app/testimoni
+                        $hargasatuan = $this->removeRupiah($request->input('hargasatuan')); // Panggil fungsi removeRupiah di dalam controller
+                        $totalharga = $hargasatuan * $request->input('kuantiti'); // Hitung total harga berdasarkan kuantiti dan harga satuan
+                    
+                        // Buat data testimoni baru dengan data dari form
+                        Productplantations::create([
+                            'partners_id' => $request->input('partners_id'),
+                            'plantations_id' => $request->input('plantations_id'),
+                            'kuantiti' => $request->input('kuantiti'),
+                            'hargasatuan' => $hargasatuan,
+                            'totalharga' => $totalharga,
+                            'tanggalpemesanan' => $request->input('tanggalpemesanan'),
+                        ]);
+                        
+                        // Flash pesan session
+                        session()->flash('create', 'Data Plantations Products Berhasil Dibuat!');
+                    
+                        // Redirect ke halaman yang sesuai
+                        return redirect('/productplantations');
+                    }
+
+                    public function deletedataproductplantations($id)
+
+                    {
+        // Cari entri berdasarkan name
+        $entry = Productplantations::where('id', $id)->first();
+    
+        if ($entry) {
+            // Hapus file terkait jika ada
+            // if ($entry->gambarproduk) {
+            //     Storage::disk('public')->delete($entry->gambarproduk);
+            // }
+    
+            // Hapus entri dari database
+            Productplantations::destroy($entry->id);
+    
+            // Set pesan flash untuk sukses
+            session()->flash('delete', 'Data Berhasil Dihapus!');
+    
+            // Redirect ke halaman yang sesuai
+            return redirect('/productplantations');
+        } else {
+            // Set pesan flash jika data tidak ditemukan
+            session()->flash('error', 'Data Tidak Ditemukan!');
+    
+            // Redirect ke halaman yang sesuai
+            return redirect('/productplantations');
+        }
+    }
+                
+
+                    
+
+
+    // ------------ BACKEND DATA PETERNAKAN -------------------------------==============================================
     // ====================================================================================================                                    
 
+    public function pertanyaanusers()
+    {
+        $pertanyaanusers = Contactus::orderBy('created_at', 'desc')->paginate(10);
+
+        // $user = Auth::user();
+
+        return view('backend.05_faq.index', [
+            'data' => $pertanyaanusers,
+            // 'user' => $user,
+            'title' => 'Frequently Asked Questions',
+           
+        ]);
+
+    }
+
+    public function deletedatapertanyaanusers($id)
+
+                    {
+        // Cari entri berdasarkan name
+        $entry = Contactus::where('id', $id)->first();
+    
+        if ($entry) {
+            // Hapus file terkait jika ada
+            // if ($entry->gambarproduk) {
+            //     Storage::disk('public')->delete($entry->gambarproduk);
+            // }
+    
+            // Hapus entri dari database
+            Contactus::destroy($entry->id);
+    
+            // Set pesan flash untuk sukses
+            session()->flash('delete', 'Data Berhasil Dihapus!');
+    
+            // Redirect ke halaman yang sesuai
+            return redirect('/pertanyaanusers');
+        } else {
+            // Set pesan flash jika data tidak ditemukan
+            session()->flash('error', 'Data Tidak Ditemukan!');
+    
+            // Redirect ke halaman yang sesuai
+            return redirect('/pertanyaanusers');
+        }
+    }
+    // ------------ BACKEND BERKAS SIHADE -------------------------------==============================================
+    // ====================================================================================================                                    
+
+    public function berkassihade()
+    {
+        $berkasberkas = Berkas::orderBy('created_at', 'desc')->paginate(10);
+
+        // $user = Auth::user();
+
+        return view('backend.06_berkassihade.index', [
+            'data' => $berkasberkas,
+            // 'user' => $user,
+            'title' => 'Berkas Sihade',
+           
+        ]);
+
+    }
+
+    public function updatedataberkassihade($id)
+    {
+        // Cari data undang-undang berdasarkan nilai 'judul'
+        $databerkassihade = Berkas::where('id', $id)->firstOrFail();
+        $user = Auth::user();
+
+
+        // Tampilkan form update dengan data yang ditemukan
+        return view('backend.06_berkassihade.update', [
+            'data' => $databerkassihade,
+            'user' => $user,
+            'title' => 'Update Berkas Sihade'
+        ]);
+    }
+    
+    public function deletedataberkassihade($id)
+
+                    {
+        // Cari entri berdasarkan name
+        $entry = Berkas::where('id', $id)->first();
+    
+        if ($entry) {
+            // Hapus file terkait jika ada
+            // if ($entry->gambarproduk) {
+            //     Storage::disk('public')->delete($entry->gambarproduk);
+            // }
+    
+            // Hapus entri dari database
+            Berkas::destroy($entry->id);
+    
+            // Set pesan flash untuk sukses
+            session()->flash('delete', 'Data Berhasil Dihapus!');
+    
+            // Redirect ke halaman yang sesuai
+            return redirect('/berkassihade');
+        } else {
+            // Set pesan flash jika data tidak ditemukan
+            session()->flash('error', 'Data Tidak Ditemukan!');
+    
+            // Redirect ke halaman yang sesuai
+            return redirect('/berkassihade');
+        }
+    }
+
+
+
+    // ====================
+
+    public function createupdatedataberkassihade(Request $request, $id)
+    {
+        // Validasi file PDF dengan ukuran maksimal 10MB
+        $request->validate([
+            'brosur' => 'nullable|file|mimes:pdf|max:10240',
+            'daftarmerk' => 'nullable|file|mimes:pdf|max:10240',
+            'nib' => 'nullable|file|mimes:pdf|max:10240',
+            'suratsihade' => 'nullable|file|mimes:pdf|max:10240',
+        ]);
+    
+        // Mencari data yang akan diupdate
+        $dataBerkas = Berkas::findOrFail($id);
+    
+        // Proses update Brosur
+        if ($request->hasFile('brosur')) {
+            // Hapus file lama jika ada
+            if ($dataBerkas->brosur) {
+                Storage::disk('public')->delete($dataBerkas->brosur);
+            }
+            // Simpan file baru dan update field
+            $brosurPath = $request->file('brosur')->store('berkas', 'public');
+            $dataBerkas->brosur = $brosurPath;
+        }
+    
+        // Proses update Daftar Merk
+        if ($request->hasFile('daftarmerk')) {
+            if ($dataBerkas->daftarmerk) {
+                Storage::disk('public')->delete($dataBerkas->daftarmerk);
+            }
+            $daftarMerkPath = $request->file('daftarmerk')->store('berkas', 'public');
+            $dataBerkas->daftarmerk = $daftarMerkPath;
+        }
+    
+        // Proses update NIB
+        if ($request->hasFile('nib')) {
+            if ($dataBerkas->nib) {
+                Storage::disk('public')->delete($dataBerkas->nib);
+            }
+            $nibPath = $request->file('nib')->store('berkas', 'public');
+            $dataBerkas->nib = $nibPath;
+        }
+    
+        // Proses update Surat Sihade
+        if ($request->hasFile('suratsihade')) {
+            if ($dataBerkas->suratsihade) {
+                Storage::disk('public')->delete($dataBerkas->suratsihade);
+            }
+            $suratSihadePath = $request->file('suratsihade')->store('berkas', 'public');
+            $dataBerkas->suratsihade = $suratSihadePath;
+        }
+    
+        // Simpan perubahan data lainnya jika ada
+        $dataBerkas->save();
+    
+        // Flash message untuk sukses update
+        session()->flash('update', 'Data Surat Berkas Sihade Berhasil Diupdate!');
+    
+        // Redirect ke halaman yang sesuai
+        return redirect('/berkassihade');
+    }
+        
 
 }

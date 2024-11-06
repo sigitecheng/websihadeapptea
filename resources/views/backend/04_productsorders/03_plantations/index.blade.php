@@ -121,7 +121,7 @@
             }
         </style> <!-- <div class="badge"><i class="fas fa-edit me-2"></i>Create New </div></label> -->
          <button id="previewBtn" class="badge" style="border: none; font-size: 14px; cursor: pointer;">
-            <i class="fas fa-piggy-bank mr-2"></i>Animal Farming Product Order
+            <i class="fas fa-seedling mr-2"></i>Plantations Product Order
 
         </button>
         {{-- <a href="/settingkecamatan" style="background: inherit">
@@ -149,7 +149,7 @@
         </a>
          --}}
 
-        <a href="/productanimalfarmingcreate" style="background: inherit">
+        <a href="/productplantationscreate" style="background: inherit">
             <button class="badge-plus" style="border: none; font-size: 14px; cursor: pointer; margin-left:-20px;">
                 <i class="fas fa-plus mr-2" style="color: white;"></i> Create
             </button>
@@ -228,7 +228,7 @@
                     <tr>
                         <td style="font-size: 12px;">{{ $loop->iteration + $start - 1 }}</td>
                         <td style="font-size: 12px; text-align:left;">{{ $item->partners->namaperusahaan}}</td>
-                        <td style="font-size: 12px; text-align:left;">{{ $item->peternakan->namaproduk}}</td>
+                        <td style="font-size: 12px; text-align:left;">{{ $item->plantations->namaproduk}}</td>
                         {{-- <td style="font-size: 12px; text-align:center;">
                             <img style="width: 50%;" src="{{asset('storage/' . $item->foto)}}" alt="">
                         </td> --}}
@@ -371,11 +371,11 @@
                         {{-- <a href="/pengawasandanketertiban/{{$item->judul}}" class="iconhover" title="View">
                             <i class="fas fa-eye"></i>
                         </a> --}}
-                                <a href="/productanimalfarming/update/{{$item->id}}" class="iconhover" title="Update">
+                                <a href="/productplantations/update/{{$item->id}}" class="iconhover" title="Update">
                                     <i class="fas fa-edit"></i>
                                 </a>
 
-                                <a href="#" class="iconhover" title="Delete" data-toggle="modal" data-target="#deleteModal" onclick="setDeleteAction('{{ route('delete.dataproductanimalfarming', $item->id) }}')">
+                                <a href="#" class="iconhover" title="Delete" data-toggle="modal" data-target="#deleteModal" onclick="setDeleteAction('{{ route('delete.dataproductplantations', $item->id) }}')">
                                     <i class="fas fa-trash"></i>
                                 </a>
                                                                 

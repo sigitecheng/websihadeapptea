@@ -31,19 +31,20 @@
     border-radius: 25px;
     text-align: center;
     width: 100%;
-    height: 200vh;
+    height: 185vh;
     margin-left: none;
-    background: linear-gradient(to bottom, yellow, white, black);
+    background: linear-gradient(to bottom, #90EE90, white, wheat);
     align-items: center;
     position: relative;
 ">
-<div style="display: flex; align-items: center;">
-    <img src="/assets/icon/pupr.png" alt="Logo SIPJAKIKBB" style="width: 50px; height: 50px; object-fit: cover; margin: 0 10px;">
-    <img src="/assets/icon/sipjakikbb.png" alt="Logo SIPJAKIKBB" style="width: 70px; height: 70px; object-fit: cover; margin: 0 10px;">
+
+<div style="display: flex; align-items: center; margin-left:120px;">
+    <img src="/assets/icon/lambangsihade.png" alt="Logo SIPJAKIKBB" style="width: 50%; object-fit: cover;">
+    {{-- <img src="/assets/icon/sipjakikbb.png" alt="Logo SIPJAKIKBB" style="width: 70px; height: 70px; object-fit: cover; margin: 0 10px;"> --}}
 </div>
 
-
-    <h1 style="margin-top:10px; font-size: 16px; font-family: 'Lato', sans-serif; font-weight: 700; "><span style="color: #000000;"> Kementrian Pekerjaan Umum Dan Penataan Ruang </span></h1>
+<h1 style="margin-top:10px; font-size: 16px; font-family: 'Lato', sans-serif; font-weight: 700; "><span style="color: #000000;"> PT. Haznia Bina Virofarm </span></h1>
+    
     <div class="container">
         <div class="card" style="
             background-color: white;
@@ -84,7 +85,7 @@
             }
 
             .badge-plus {
-            background: linear-gradient(to right, navy, black);
+            background: linear-gradient(to right, orange, black);
             color: white;
             padding: 10px 15px;
             border-radius: 10px;
@@ -119,10 +120,12 @@
                 color: black;
             }
         </style> <!-- <div class="badge"><i class="fas fa-edit me-2"></i>Create New </div></label> -->
-        <button id="previewBtn" class="badge" style="border: none; font-size: 15px; cursor: pointer;">
-            <i class="fas fa-eye mr-2"></i>Pengawasan dan Ketertiban
+         <button id="previewBtn" class="badge" style="border: none; font-size: 14px; cursor: pointer;">
+            <i class="fas fa-question-circle mr-2"></i> Frequently Asked Questions
+
+
         </button>
-        <a href="/settingkecamatan" style="background: inherit">
+        {{-- <a href="/settingkecamatan" style="background: inherit">
             <button class="badge" style="border: none; font-size: 14px; cursor: pointer;">
                 <i class="fas fa-map-marker-alt"></i>
             </button>
@@ -145,13 +148,13 @@
                 <i class="fas fa-check-circle"></i>
             </button>
         </a>
-        
+         --}}
 
-        <a href="/pengawasandanketertibancreate" style="background: inherit">
-            <button class="badge-plus" style="border: none; font-size: 15px; cursor: pointer; margin-left:-20px;">
-                <i class="fas fa-plus-circle mr-2"></i>Create New
+        {{-- <a href="/testimonicreate" style="background: inherit">
+            <button class="badge-plus" style="border: none; font-size: 14px; cursor: pointer; margin-left:-20px;">
+                <i class="fas fa-plus mr-2" style="color: white;"></i> Create
             </button>
-        </a>
+        </a> --}}
         
                         <!-- <button id="downloadBtn" class="badge" style="border:none; font-size:12px; cursor:pointer "> <i class="fas fa-download"></i> Download</button> -->
 
@@ -195,7 +198,7 @@
                 th {
                     /* background-color: #4CAF50; */
                     /* background: linear-gradient(to bottom, #000000, #FFCB0F); */
-                    background-color:  #FFCB0F;
+                    background-color:  #90EE90;
                     color: black;
                     font-size: 14px;
                 }
@@ -203,15 +206,13 @@
              <table>
                 <thead>
                     <tr>
-                        <th style="width:5%; font-size:12px;">No</th>
+                        <th style="width:5%; font-size:12px;">NO</th>
                         {{-- <th>Judul</th> --}}
-                        <th style="width:100px; font-size:12px;">LOKASI</th>
-                        <th style="width:150px; font-size:12px;">JENIS BANGUNAN</th>
-                        <th style="width:200px; font-size:12px;">PJT</th>
-                        <th style="width:100px; font-size:12px;">STATUS</th>
-                        <th style="width:100px; font-size:12px;">TINDAKAN</th>
-                        <th style="width:100px; font-size:12px;">TANGGAL LAPORAN</th>
-                        {{-- <th>Keterangan</th> --}}
+                        <th style="width:100px; font-size:12px;">NAMA LENGKAP</th>
+                        <th style="width:100px; font-size:12px;">EMAIL</th>
+                        <th style="width:100px; font-size:12px;">SUBJEK</th>
+                        <th style="width:500px; font-size:12px;">PERTANYAAN</th>
+                        <th style="width:200px; font-size:12px;">TELEPON</th>
                         <th style="width:75px; font-size:12px;">AKSI</th>
                     </tr>
                 </thead>
@@ -226,11 +227,16 @@
                     
                     <tr>
                         <td style="font-size: 12px;">{{ $loop->iteration + $start - 1 }}</td>
-                        {{-- <td style="font-size: 12px; text-align:left;">{{ $item->judul}}</td> --}}
-                        <td style="font-size: 12px; text-align:left;">{{ $item->pengawasanlokasi->kota}}</td>
-                        <td style="font-size: 12px; text-align:left;">{{ $item->pengawasanbangunangedung->bangunan}}</td>
-                        <td style="font-size: 12px; text-align:left; text-transform:uppercase;">{{ $item->penanggungjawabteknis->nama_lengkap}}</td>
-                        <style>
+                        <td style="font-size: 12px; text-align:left;">{{ $item->name}}</td>
+                        <td style="font-size: 12px; text-align:left;">{{ $item->email}}</td>
+                        {{-- <td style="font-size: 12px; text-align:center;">
+                            <img style="width: 50%;" src="{{asset('storage/' . $item->foto)}}" alt="">
+                        </td> --}}
+                        <td style="font-size: 12px; text-align:left;">{{ $item->subjek}}</td>
+                        <td style="font-size: 12px; text-align:left;">{{ $item->pertanyaan}}</td>
+                        <td style="font-size: 12px; text-align:left;">{{ $item->telepon}}</td>
+                   
+                   <style>
                             .btn-full-width {
                                     width: 100%;
                                     text-align: center;
@@ -300,63 +306,12 @@
 
                         </style>
                         
-                        <td style="font-size: 12px; text-align:left;">
-                            @php
-                                $status = $item->pengawasanstatus->status;
-                                $class = '';
-                        
-                                switch ($status) {
-                                    case 'RESIKO TINGGI':
-                                        $class = 'btn-high-risk'; // Merah
-                                        break;
-                                    case 'RESIKO RENDAH':
-                                        $class = 'btn-low-risk'; // Hijau
-                                        break;
-                                    case 'RESIKO SEDANG':
-                                        $class = 'btn-medium-risk'; // Kuning
-                                        break;
-                                    default:
-                                        $class = 'btn-secondary'; // Default jika status tidak sesuai
-                                }
-                            @endphp
-                        
-                            <button class="btn btn-full-width {{ $class }}">
-                                {{ $status }}
-                            </button>
-                        </td>
-                        
-                        
-                        <td style="font-size: 12px; text-align:left;">
-                            @php
-                                $status = $item->pengawasantindakan->tindakan;
-                                $class = '';
-                        
-                                switch ($status) {
-                                    case 'SELESAI':
-                                        $class = 'btn-selesai'; // Merah
-                                        break;
-                                    case 'SEDANG DI PROSES':
-                                        $class = 'btn-proses'; // Hijau
-                                        break;
-                                    case 'BELUM DI TINDAKLANJUTI':
-                                        $class = 'btn-lanjuti'; // Kuning
-                                        break;
-                                    default:
-                                        $class = 'btn-secondary'; // Default jika status tidak sesuai
-                                }
-                            @endphp
-                        
-                            <button class="btn btn-full-width {{ $class }}">
-                                {{ $status }}
-                            </button>
-                        </td>
-                        
                         {{-- <td style="font-size: 12px; text-align:left;">{{ $item->pengawasantindakan->tindakan}}</td> --}}
-                        
+{{--                         
                         
                         <td style="font-size: 12px; text-align:center;">
                             {{ \Carbon\Carbon::parse($item->tanggal_laporan)->locale('id')->translatedFormat('l, d F Y') }}
-                        </td>
+                        </td> --}}
                         
                         
                         {{-- <td style="font-size: 12px; text-align:left;">{{ $item->keterangan}}</td> --}}
@@ -380,7 +335,7 @@
                         justify-content: center;
                         width: 25px; /* Adjust width as needed */
                         height: 25px; /* Adjust height as needed */
-                        background: navy, white; /* Yellow background */
+                        background: green, white; /* Yellow background */
                         color: white; /* Text color */
                         border: none;
                         border-radius: 50%;
@@ -403,14 +358,15 @@
                         </style>
 
                         <div class="button-container">
-                        <a href="/pengawasandanketertiban/{{$item->judul}}" class="iconhover" title="View">
+                        {{-- <a href="/pengawasandanketertiban/{{$item->judul}}" class="iconhover" title="View">
                             <i class="fas fa-eye"></i>
-                        </a>
-                                <a href="/pengawasandanketertiban/update/{{$item->judul}}" class="iconhover" title="Update">
+                        </a> --}}
+                        
+                                {{-- <a href="/testimoni/update/{{$item->id}}" class="iconhover" title="Update">
                                     <i class="fas fa-edit"></i>
-                                </a>
+                                </a> --}}
 
-                                <a href="#" class="iconhover" title="Delete" data-toggle="modal" data-target="#deleteModal" onclick="setDeleteAction('{{ route('delete.pengawasandanketertiban', $item->id) }}')">
+                                <a href="#" class="iconhover" title="Delete" data-toggle="modal" data-target="#deleteModal" onclick="setDeleteAction('{{ route('delete.datapertanyaanusers', $item->id) }}')">
                                     <i class="fas fa-trash"></i>
                                 </a>
                                                                 
@@ -422,7 +378,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                                        <img src="/assets/icon/sipjakikbb.png" alt="" style="width:50px; height:50px; margin-bottom: 10px;">
+                                        <img src="/assets/icon/lambangsihade.png" alt="" style="width:200px; height:50px; margin-bottom: 10px;">
                                         {{-- <img src="/assets/icon/pupr.png" alt="" style="width:10px; height:10px; margin-bottom: 10px;"> --}}
                                         <h5 class="modal-title" id="deleteModalLabel" style="margin: 0;">Konfirmasi Delete</h5>
                                     </div>
@@ -480,12 +436,12 @@
                         <li class="page-item {{ $data->onFirstPage() ? 'disabled' : '' }}" style="margin-right: 5px;">
                             <a class="page-link" href="{{ $data->previousPageUrl() }}" style="position: relative; display: block; padding: 0.5rem 0.75rem; margin-left: -1px; line-height: 1.25; color: white; background-color: #fff; border: 1px solid #dee2e6; font-size:12px; border-radius: 20px 0px 0px 20px;"><i class="fas fa-arrow-left" style="margin-right:10px;"></i>Previous</a>
                         </li>
-
+{{-- 
                         @foreach ($data->getUrlRange($data->currentPage() - 0, $data->currentPage() + 2) as $page => $url)
                             <li class="page-item {{ $page == $data->currentPage() ? 'active' : '' }}" style="margin-right: 5px;">
                                 <a class="page-link" href="{{ $url }}" style="position: relative; display: block; padding: 0.5rem 0.75rem; margin-left: -1px; line-height: 1.25; color: white; background-color: #fff; border: 1px solid #dee2e6; font-size:12px; ">{{ $page }}</a>
                             </li>
-                        @endforeach
+                        @endforeach --}}
 
                         <li class="page-item {{ $data->hasMorePages() ? '' : 'disabled' }}" style="margin-right: 5px;">
                             <a class="page-link" href="{{ $data->nextPageUrl() }}" style="position: relative; display: block; padding: 0.5rem 0.75rem; margin-left: -1px; line-height: 1.25; color: white; background-color: #fff; border: 1px solid #dee2e6; font-size:12px; border-radius: 0px 20px 20px 0px;">Next <i class="fas fa-arrow-right" style="margin-left:10px;"></i></a>
@@ -497,7 +453,7 @@
         </div>
     </div>
     
-                <hr style="border:0; height:5px; background-color:navy; margin: 20px 0px;">
+                <hr style="border:0; height:5px; background-color:green; margin: 20px 0px;">
                 @include('backend.00_dashboard.part.menufooter')
                     
 </div>

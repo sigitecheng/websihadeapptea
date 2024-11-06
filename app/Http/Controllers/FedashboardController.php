@@ -30,6 +30,9 @@ class FedashboardController extends Controller
         $datatestimoni = Testimoni::all();
         $datafaq = Faq::all();
         $datainformasiperusahaan = Informasiperusahaan::all();
+        
+        // $jumlahaboutsihade = Aboutsihade::count();
+        $jumlahaboutsihade = Aboutsihade::count();
 
         $databrosur = Berkas::select('brosur')->get(); // Ambil hanya kolom brosur
         $datadaftarmerk = Berkas::select('daftarmerk')->get(); // Ambil hanya kolom brosur
@@ -49,18 +52,22 @@ class FedashboardController extends Controller
             'datawhysihade' => $datawhysihade, 
             'datatestimoni' => $datatestimoni, 
             'datafaq' => $datafaq,
-            'datainformasiperusahaan' => $datainformasiperusahaan 
+            'datainformasiperusahaan' => $datainformasiperusahaan, 
+            
+            'jumlahAboutsihade' => $jumlahaboutsihade 
         ]);
     }
 
     public function perusahaan()
     {
         $datacompany = Dataperusahaan::all();
+        $databerkas = Berkas::all();
 
         
         return view('frontend.00_dashboardusers.perusahaan.index', [
             'title' => 'Perusahaan Kami',
             'data' => $datacompany,
+            'databerkas' => $databerkas,
             
         ]);
     }

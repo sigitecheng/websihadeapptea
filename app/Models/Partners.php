@@ -23,4 +23,9 @@ class Partners extends Model
         return $this->hasMany(Productanimalfarming::class);
     }
 
+    public function productplantations()
+    {
+        return $this->hasMany(Productplantations::class);
+    }
+
 }

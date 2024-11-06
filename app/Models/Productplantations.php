@@ -7,17 +7,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Plantations extends Model
+class Productplantations extends Model
 {
     use HasFactory, SoftDeletes, HasApiTokens;
 
     protected $guarded = ['id'];
 
-    
-    public function productplantations()
+    public function partners()
     {
-        return $this->hasMany(Productplantations::class);
+        return $this->belongsTo(Partners::class);
     }
 
+    public function plantations()
+    {
+        return $this->belongsTo(Plantations::class);
+    }
 
 }

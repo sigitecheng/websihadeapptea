@@ -31,7 +31,7 @@
     border-radius: 25px;
     text-align: center;
     width: 100%;
-    height: 125vh;
+    height: 170vh;
     margin-left: none;
     background: linear-gradient(to bottom, #90EE90, white, wheat);
     align-items: center;
@@ -182,7 +182,7 @@
 
         </style>
         <a style="background: white;">
-            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Update Data Animal Farming Products</div>
+            <div class="badge" style="font-size: 14px;"><i class="fas fa-pencil-alt mr-2"></i>Update Data Berkas Sihade</div>
         </a>
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
@@ -190,7 +190,7 @@
         <a style="background: white;">
             <div class="badgehidden" style="color: white"><i class="fas fa-eye-slash mr-2"></i>........ ........ ........ ........ ........ ........</div>
         </a>
-        <a href="/productagriculture" style="background: white;">
+        <a href="/berkassihade" style="background: white;">
             <button class="badgekembali" style="border: none; font-size:14px; cursor:pointer;">
                 <i class="fa fa-arrow-circle-left mr-2"></i>Kembali
             </button>
@@ -206,7 +206,7 @@
             .container-update {
                 /* margin-top: 500px; */
                 width: 920px;
-                height: 85vh;
+                height: 135vh;
                 margin: 0 auto;
                 padding: 20px;
                 background-color: #E0E0E0; /* Warna silver */
@@ -265,156 +265,161 @@
             @if (session('success'))
                 <p class="success-message">{{ session('success') }}</p>
             @endif
-
-            <form action="{{ route('update.productanimalfarming', $data->id) }}" method="POST" enctype="multipart/form-data">
+            
+            <form action="{{ route('update.databerkassihade', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST') <!-- Ubah metode menjadi PUT untuk update data -->
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="partners_id" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-user mr-2"></i>Nama Perusahaan
+                    <label for="brosur" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-image mr-2"></i> Upload Brosur
                     </label>
-                    <select class="form-control" id="partners_id" name="partners_id" required>
-                        <option style="text-transform: uppercase" value="">Pilih Nama Perusahaan</option>
-                        @foreach($datapartners as $perusahaan)
-                            <option style="text-transform: uppercase" value="{{ $perusahaan->id }}" 
-                                {{ old('partners_id', $data->partners->id) == $perusahaan->id ? 'selected' : '' }}>
-                                {{ $perusahaan->namaperusahaan }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group d-flex align-items-center mt-3">
-                    <label for="peternakan_id" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-user mr-2"></i>Nama Produk
-                    </label>
-                    <select class="form-control" id="peternakan_id" name="peternakan_id" required>
-                        <option style="text-transform: uppercase" value="">Pilih Nama Produk</option>
-                        @foreach($datapeternakan as $namaproduk)
-                            <option style="text-transform: uppercase" value="{{ $namaproduk->id }}" 
-                                {{ old('peternakan_id', $data->peternakan->id) == $namaproduk->id ? 'selected' : '' }}>
-                                {{ $namaproduk->namaproduk }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group d-flex align-items-center mt-3">
-                    <label for="kuantiti" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-briefcase mr-2"></i> Kuantiti
-                    </label>
-                    <input style="text-transform: uppercase;" type="number" class="form-control" id="kuantiti" name="kuantiti" value="{{ old('kuantiti', $data->kuantiti) }}" required>
-                </div>
-                
-                <div class="form-group d-flex align-items-center mt-3">
-                    <label for="hargasatuan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-briefcase mr-2"></i> Harga Satuan
-                    </label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Rp</span>
-                        </div>
-                        <input style="text-transform: uppercase;" type="text" class="form-control" id="hargasatuan" name="hargasatuan" value="{{ old('hargasatuan', number_format($data->hargasatuan, 0, ',', '.')) }}" required>
-                    </div>
-                </div>
-                
-                <div class="form-group d-flex align-items-center mt-3">
-                    <label for="totalharga" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-briefcase mr-2"></i> Total Harga
-                    </label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Rp</span>
-                        </div>
-                        <input style="text-transform: uppercase;" type="text" class="form-control" id="totalharga" name="totalharga" value="{{ old('totalharga', number_format($data->totalharga, 0, ',', '.')) }}" readonly required>
+                    <button type="button" class="btn btn-success mr-3" onclick="document.getElementById('brosur').click();">
+                        Upload Brosur
+                    </button>
+                    <input style="text-transform: uppercase; display: none;" type="file" class="form-control" id="brosur" name="brosur" accept="application/pdf">
+                    
+                    <!-- Preview PDF untuk file yang sudah ada -->
+                    <div id="brosur_preview_container" style="width: 200px; height: auto; display: {{ $data->brosur ? 'block' : 'none' }};">
+                        <embed id="brosur_preview" src="{{ asset('storage/' . $data->brosur) }}" type="application/pdf" width="200px" height="200px" />
                     </div>
                 </div>
                 
                 <script>
-                    // Format angka menjadi Rupiah
-                    function formatRupiah(angka) {
-                        var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                            split = number_string.split(','),
-                            sisa = split[0].length % 3,
-                            rupiah = split[0].substr(0, sisa),
-                            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const fileInput = document.getElementById('brosur');
+                        const previewContainer = document.getElementById('brosur_preview_container');
+                        const preview = document.getElementById('brosur_preview');
                 
-                        if (ribuan) {
-                            separator = sisa ? '.' : '';
-                            rupiah += separator + ribuan.join('.');
-                        }
-                
-                        rupiah = split[1] ? rupiah + ',' + split[1].substr(0, 2) : rupiah;
-                        return rupiah ? rupiah : '';
-                    }
-                
-                    // Menghapus format Rupiah dan mengembalikan ke angka murni
-                    function removeRupiah(rupiah) {
-                        return rupiah.replace(/[^\d]/g, '');
-                    }
-                
-                    // Menghitung total harga berdasarkan harga satuan dan kuantiti
-                    function hitungTotalHarga() {
-                        var kuantiti = document.getElementById('kuantiti').value;
-                        var hargasatuan = document.getElementById('hargasatuan').value;
-                
-                        // Pastikan kuantiti dan harga satuan adalah angka yang valid
-                        if (kuantiti && hargasatuan) {
-                            var hargasatuanNumerik = removeRupiah(hargasatuan); // Hapus format Rupiah
-                            var totalHarga = parseFloat(kuantiti) * parseFloat(hargasatuanNumerik);
-                            document.getElementById('totalharga').value = formatRupiah(totalHarga.toString());
-                        } else {
-                            document.getElementById('totalharga').value = 'Rp 0';
-                        }
-                    }
-                
-                    // Event listener untuk perubahan di harga satuan atau kuantiti
-                    document.getElementById('kuantiti').addEventListener('input', hitungTotalHarga);
-                    document.getElementById('hargasatuan').addEventListener('input', function(e) {
-                        // Format harga satuan saat input
-                        var inputValue = e.target.value;
-                        e.target.value = formatRupiah(removeRupiah(inputValue));
-                        hitungTotalHarga(); // Update total harga setelah format
+                        fileInput.addEventListener('change', function(event) {
+                            const file = event.target.files[0];
+                            if (file && file.type === 'application/pdf') {
+                                const reader = new FileReader();
+                                reader.onload = function(e) {
+                                    // Update the source of the PDF preview
+                                    preview.src = e.target.result;
+                                    previewContainer.style.display = 'block';  // Show preview container
+                                };
+                                reader.readAsDataURL(file);
+                            } else {
+                                alert('Please upload a valid PDF file.');
+                            }
+                        });
                     });
-                
-                    // Inisialisasi format Rupiah saat focus dan blur untuk hargasatuan
-                    document.getElementById('hargasatuan').addEventListener('focus', function(e) {
-                        var inputValue = e.target.value;
-                        e.target.value = removeRupiah(inputValue); // Hapus format Rupiah saat focus
-                    });
-                
-                    document.getElementById('hargasatuan').addEventListener('blur', function(e) {
-                        var inputValue = e.target.value;
-                        e.target.value = formatRupiah(inputValue); // Kembalikan format Rupiah saat blur
-                        hitungTotalHarga(); // Update total harga setelah format
-                    });
-                
-                    // Pastikan total harga sudah dihitung saat pertama kali halaman dimuat
-                    document.addEventListener('DOMContentLoaded', hitungTotalHarga);
                 </script>
                 
                 <div class="form-group d-flex align-items-center mt-3">
-                    <label for="tanggalpemesanan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-briefcase mr-2"></i> Tanggal Pemesanan
+                    <label for="daftarmerk" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-image mr-2"></i> Upload Merk
                     </label>
-                    <input style="text-transform: uppercase;" type="date" class="form-control" id="tanggalpemesanan" name="tanggalpemesanan" value="{{ old('tanggalpemesanan', $data->tanggalpemesanan) }}" required readonly>
+                    <button type="button" class="btn btn-success mr-3" onclick="document.getElementById('daftarmerk').click();">
+                        Upload Merk
+                    </button>
+                    <input style="text-transform: uppercase; display: none;" type="file" class="form-control" id="daftarmerk" name="daftarmerk" accept="application/pdf">
+                    
+                    <!-- Preview PDF untuk file yang sudah ada -->
+                    <div id="daftarmerk_preview_container" style="width: 200px; height: auto; display: {{ $data->daftarmerk ? 'block' : 'none' }};">
+                        <embed id="daftarmerk_preview" src="{{ asset('storage/' . $data->daftarmerk) }}" type="application/pdf" width="200px" height="200px" />
+                    </div>
                 </div>
                 
                 <script>
-                    // Fungsi untuk mendapatkan tanggal hari ini dalam format YYYY-MM-DD
-                    function setTanggalPemesanan() {
-                        var today = new Date();
-                        var dd = String(today.getDate()).padStart(2, '0'); // Mengambil tanggal dengan dua digit
-                        var mm = String(today.getMonth() + 1).padStart(2, '0'); // Mengambil bulan dengan dua digit (0-based)
-                        var yyyy = today.getFullYear(); // Mengambil tahun 4 digit
-                        
-                        today = yyyy + '-' + mm + '-' + dd; // Format YYYY-MM-DD
-                        document.getElementById('tanggalpemesanan').value = today; // Mengatur nilai input
-                    }
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const fileInput = document.getElementById('daftarmerk');
+                        const previewContainer = document.getElementById('daftarmerk_preview_container');
+                        const preview = document.getElementById('daftarmerk_preview');
                 
-                    // Jalankan fungsi setTanggalPemesanan saat halaman dimuat
-                    window.onload = setTanggalPemesanan;
+                        fileInput.addEventListener('change', function(event) {
+                            const file = event.target.files[0];
+                            if (file && file.type === 'application/pdf') {
+                                const reader = new FileReader();
+                                reader.onload = function(e) {
+                                    // Update the source of the PDF preview
+                                    preview.src = e.target.result;
+                                    previewContainer.style.display = 'block';  // Show preview container
+                                };
+                                reader.readAsDataURL(file);
+                            } else {
+                                alert('Please upload a valid PDF file.');
+                            }
+                        });
+                    });
+                </script>
+                
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="nib" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-image mr-2"></i> Upload NIB
+                    </label>
+                    <button type="button" class="btn btn-success mr-3" onclick="document.getElementById('nib').click();">
+                        Upload NIB
+                    </button>
+                    <input style="text-transform: uppercase; display: none;" type="file" class="form-control" id="nib" name="nib" accept="application/pdf">
+                    
+                    <!-- Preview PDF untuk file yang sudah ada -->
+                    <div id="nib_preview_container" style="width: 200px; height: auto; display: {{ $data->nib ? 'block' : 'none' }};">
+                        <embed id="nib_preview" src="{{ asset('storage/' . $data->nib) }}" type="application/pdf" width="200px" height="200px" />
+                    </div>
+                </div>
+                
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const fileInput = document.getElementById('nib');
+                        const previewContainer = document.getElementById('nib_preview_container');
+                        const preview = document.getElementById('nib_preview');
+                
+                        fileInput.addEventListener('change', function(event) {
+                            const file = event.target.files[0];
+                            if (file && file.type === 'application/pdf') {
+                                const reader = new FileReader();
+                                reader.onload = function(e) {
+                                    // Update the source of the PDF preview
+                                    preview.src = e.target.result;
+                                    previewContainer.style.display = 'block';  // Show preview container
+                                };
+                                reader.readAsDataURL(file);
+                            } else {
+                                alert('Please upload a valid PDF file.');
+                            }
+                        });
+                    });
+                </script>
+                
+                <div class="form-group d-flex align-items-center mt-3">
+                    <label for="suratsihade" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
+                        <i class="fas fa-image mr-2"></i> Upload Surat Sihade
+                    </label>
+                    <button type="button" class="btn btn-success mr-3" onclick="document.getElementById('suratsihade').click();">
+                        Upload Surat Sihade
+                    </button>
+                    <input style="text-transform: uppercase; display: none;" type="file" class="form-control" id="suratsihade" name="suratsihade" accept="application/pdf">
+                    
+                    <!-- Preview PDF untuk file yang sudah ada -->
+                    <div id="suratsihade_preview_container" style="width: 200px; height: auto; display: {{ $data->suratsihade ? 'block' : 'none' }};">
+                        <embed id="suratsihade_preview" src="{{ asset('storage/' . $data->suratsihade) }}" type="application/pdf" width="200px" height="200px" />
+                    </div>
+                </div>
+                
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const fileInput = document.getElementById('suratsihade');
+                        const previewContainer = document.getElementById('suratsihade_preview_container');
+                        const preview = document.getElementById('suratsihade_preview');
+                
+                        fileInput.addEventListener('change', function(event) {
+                            const file = event.target.files[0];
+                            if (file && file.type === 'application/pdf') {
+                                const reader = new FileReader();
+                                reader.onload = function(e) {
+                                    // Update the source of the PDF preview
+                                    preview.src = e.target.result;
+                                    previewContainer.style.display = 'block';  // Show preview container
+                                };
+                                reader.readAsDataURL(file);
+                            } else {
+                                alert('Please upload a valid PDF file.');
+                            }
+                        });
+                    });
                 </script>
                 
                 <div class="form-group">
@@ -422,17 +427,6 @@
                         <i class="fab fa-telegram mr-2"></i>Update
                     </button>
                 </div>
-                
-                <script>
-
-                    
-                    document.querySelector('form').addEventListener('submit', function(event) {
-                        // Menghapus format Rupiah sebelum submit
-                        document.getElementById('hargasatuan').value = removeRupiah(document.getElementById('hargasatuan').value);
-                        document.getElementById('totalharga').value = removeRupiah(document.getElementById('totalharga').value);
-                    });
-                    </script>
-                
             </form>
             
             

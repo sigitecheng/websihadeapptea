@@ -25,6 +25,33 @@
           <h2 style="color:green; ">Perusahaan Kami</h2>
         </div>
 
+        @foreach ($databerkas as $item)
+       
+<div style="margin-bottom: 50px;" class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <!-- Button Brosur Sihade -->
+  <a href="{{ asset('storage/' . $item->brosur) }}" class="btn btn-success mx-2 d-flex align-items-center" target="_blank" style="width: 200px;">
+    <i class="fas fa-file-pdf" style="margin-right:10px;"></i> Brosur Sihade
+  </a>
+
+  <!-- Button Daftar Merk -->
+  <a href="{{ asset('storage/' . $item->daftarmerk ) }}" class="btn btn-success mx-2 d-flex align-items-center" target="_blank" style="width: 200px;">
+    <i class="fas fa-box-open mr-2" style="margin-right:10px;"></i> Daftar Merk
+  </a>
+
+  <!-- Button NIB -->
+  <a href="{{ asset('storage/' . $item->nib) }}" class="btn btn-success mx-2 d-flex align-items-center" target="_blank" style="width: 200px;">
+    <i class="fas fa-id-card mr-2" style="margin-right:10px;"></i> NIB Sihade
+  </a>
+
+  <!-- Button Surat Sihade -->
+  <a href="{{ asset('storage/' . $item->suratsihade) }}" class="btn btn-success mx-2 d-flex align-items-center" target="_blank" style="width: 200px;">
+    <i class="fas fa-envelope mr-2" style="margin-right:10px;"></i> Surat Sihade
+  </a>
+</div>
+        @endforeach
+      
+              
+
         <div class="container-fluid">
           <div class="row">
             {{-- <div class="col-xl-3 d-none d-xl-flex"> --}}

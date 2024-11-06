@@ -187,7 +187,7 @@
                                     </a>
                                 </li>
                                 <li class="child">
-                                    <a href="/beperkebunan" style="font-size: 12px;">
+                                    <a href="/productplantations" style="font-size: 12px;">
                                         <i class="fas fa-leaf mr-2" style="margin-left: 20px;"></i>PRODUCT PLANTATION
                                     </a>
                                 </li>
@@ -262,14 +262,20 @@
                             </li> --}}
                         <p style="margin-bottom: 5px;"></p>
                             <li class="parent">
-                                <a href="/qapertanyaan" class="sbar"><i class="fas fa-question-circle mr-2"></i>
+                                <a href="/pertanyaanusers" class="sbar"><i class="fas fa-question-circle mr-2"></i>
                                     <span class="none">Q&A PUBLIK</span>
                                 </a>
                             </li>
                             
                          <p style="margin-bottom: 5px;"></p>
-                         
                          <li class="parent">
+                            <a href="/berkassihade" class="sbar">
+                                <i class="fas fa-folder mr-2"></i>
+                                <span class="none">BERKAS SIHADE</span>
+                            </a>
+                        </li>
+                        <p style="margin-bottom: 5px;"></p>
+                        {{-- <li class="parent">
                             <a href="#" onclick="toggle_menu('settingsmenu'); return false" class="sbar">
                                 <i class="fas fa-cogs mr-2"></i> <!-- Ikon untuk pelatihan -->
                                 <span>SETTINGS<i class="fa fa-angle-down pull-right align-bottom" style="color: black;"></i></span>
@@ -323,25 +329,25 @@
                                     <a href="/settingtahunpilihan" style="font-size: 12px;">
                                         <i class="fas fa-calendar-alt mr-2" style="margin-left: 20px;"></i>TAHUN REGISTRASI
                                     </a>
-                                    
+                                     --}}
                                     {{-- 
                                     <a href="/404" style="font-size: 12px;">
                                         <i class="fas fa-laptop mr-2" style="margin-left: 20px;"></i>TEKNOLOGI <!-- Ikon untuk teknologi -->
                                     </a> 
                                     --}}
-                                </li>
+                                {{-- </li>
                             </ul>
                         </li>
-                        
+                         --}}
                     
                          <p style="margin-bottom: 5px;"></p>
 
-                         <li class="parent">
+                         {{-- <li class="parent">
                             <a href="/administrator" class="sbar">
                                 <i class="fas fa-user-shield mr-2"></i> <!-- Ikon untuk administrator -->
                                 <span class="none">ADMINISTRATOR</span>
                             </a>
-                        </li>
+                        </li> --}}
                         
                             
                         </ul>
