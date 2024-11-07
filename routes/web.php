@@ -239,6 +239,31 @@ Route::post('/berkassihade/{id}', [AdminDashboardController::class, 'deletedatab
 ->middleware('auth')
 ->name('delete.databerkassihade');
 
+// -------- BAGIAN BERKAS SIHADE  ---------------------------------
+Route::get('/berkassihade', [AdminDashboardController::class, 'berkassihade'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/berkassihade/update/{id}', [AdminDashboardController::class, 'updatedataberkassihade'])->middleware('auth')->name('updateshow.berkassihade');
+Route::post('/berkassihadeupdatestore/{id}', [AdminDashboardController::class, 'createupdatedataberkassihade'])->middleware('auth')->name('update.databerkassihade');
+// Route::get('/pertanyaanuserscreate', [AdminDashboardController::class, 'createnewdatapertanyaanusers'])->middleware('auth');
+// Route::post('/datapertanyaanusersstore', [FedashboardController::class, 'createnewstoredatapertanyaanusers'])->name('create.pertanyaanusers');
+
+
+Route::post('/berkassihade/{id}', [AdminDashboardController::class, 'deletedataberkassihade'])
+->middleware('auth')
+->name('delete.databerkassihade');
+
+// -------- BAGIAN BERKAS SIHADE  ---------------------------------
+Route::get('/partners', [AdminDashboardController::class, 'partners'])->middleware('auth');  
+// Route::get('/databerita/{judul}', [BeritaController::class, 'databeritashowbyjudul'])->middleware('auth');
+Route::get('/partners/update/{id}', [AdminDashboardController::class, 'updatedatapartners'])->middleware('auth')->name('updateshow.partners');
+Route::post('/partnersupdatestore/{id}', [AdminDashboardController::class, 'createupdatedatapartners'])->middleware('auth')->name('update.datapartners');
+Route::get('/partnerscreate', [AdminDashboardController::class, 'createnewdatapartners'])->middleware('auth');
+Route::post('/datapartnersstore', [AdminDashboardController::class, 'createnewstoredatapartners'])->name('create.datapartners');
+
+Route::post('/partners/{id}', [AdminDashboardController::class, 'deletedatapartners'])
+->middleware('auth')
+->name('delete.datapartners');
+
 // ------------------- BACKEND QA PERTANYAAN --------------------------- 
 
 // KATEGORI ADMIN  

@@ -134,11 +134,17 @@
                             <ul class="children" id="company">
                                 <li class="child">
                                     <a href="/company" style="font-size: 12px;">
-                                        <i class="fas fa-building mr-2" style="margin-left: 20px;"></i>DATA COMPANY
+                                        <i class="fas fa-industry mr-2" style="margin-left: 20px;"></i>DATA COMPANY
                                     </a>
-                        
                                 </li>
+                                <li class="child">
+                                    <a href="/partners" style="font-size: 12px;">
+                                        <i class="fas fa-handshake mr-2" style="margin-left: 20px;"></i>PARTNERS
+                                    </a>
+                                </li>
+                                
                             </ul>
+
                         </li>
                         
                            

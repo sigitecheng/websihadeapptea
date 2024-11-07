@@ -52,7 +52,7 @@ class AdminDashboardController extends Controller
             'jumlahaboutsihade' => $jumlahaboutsihade,
             'jumlahwhysihade' => $jumlahwhysihade,
             'jumlahtestimoni' => $jumlahtestimoni,
-            'jumlahfaq' => $jumlahfaq,
+            // 'jumlahfaq' => $jumlahfaq,
             'jumlahcontactus' => $jumlahcontactus,
             'jumlahmitra' => $jumlahmitra,
             'jumlahprodukpertanian' => $jumlahprodukpertanian,
@@ -1953,6 +1953,170 @@ class AdminDashboardController extends Controller
         // Redirect ke halaman yang sesuai
         return redirect('/berkassihade');
     }
-        
+
+    
+    
+    // ------------ TESTIMONI -------------------------------==============================================
+    // ====================================================================================================
+    
+    
+    public function partners()
+    {
+        $mitrakami = Partners::orderBy('created_at', 'desc')->paginate(8);
+
+        // $user = Auth::user();
+
+        return view('backend.02_company.02_partners.index', [
+            'data' => $mitrakami,
+            // 'user' => $user,
+            'title' => 'Partners Sihade',
+           
+        ]);
+
+    }
+
+
+    // ------------------------------------------------------------
+                    // -------------------- UPDATE PENGAWASAN DAN KETERTIBAN  ----------------------
+                    public function updatedatapartners($id)
+                    {
+                        // Cari data undang-undang berdasarkan nilai 'judul'
+                        $datamitra = Partners::where('id', $id)->firstOrFail();
+                        $user = Auth::user();
+
+       
+                        // Tampilkan form update dengan data yang ditemukan
+                        return view('backend.02_company.02_partners.update', [
+                            'data' => $datamitra,
+                            'user' => $user,
+                            'title' => 'Update Partners Sihade'
+                        ]);
+                    }
+
+
+                    public function createupdatedatapartners(Request $request, $id)
+{
+    // Validasi input
+    $request->validate([
+        'namaperusahaan' => 'required|string',
+        'gambarperusahaan' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Foto bisa null, jika tidak diupload
+        'alamatperusahaan' => 'required|string',
+    ]); 
+    
+    // Cari data mitra berdasarkan id
+    $datamitra = Partners::findOrFail($id);
+
+    // Simpan foto di storage dan ambil namanya
+    if ($request->hasFile('gambarperusahaan')) {
+        // Hapus foto lama jika ada
+        if ($datamitra->gambarperusahaan) {
+            Storage::disk('public')->delete($datamitra->gambarperusahaan);
+        }
+
+        // Simpan foto baru
+        $fotoPath = $request->file('gambarperusahaan')->store('partners', 'public'); // Menyimpan foto di storage/app/public
+    } else {
+        // Jika tidak ada foto baru, gunakan foto lama
+        $fotoPath = $datamitra->gambarperusahaan;
+    }
+
+    // Update data mitra dengan data dari form
+    $datamitra->update([
+        'namaperusahaan' => $request->input('namaperusahaan'),
+        'gambarperusahaan' => $fotoPath, // Simpan path foto
+        'alamatperusahaan' => $request->input('alamatperusahaan'),
+    ]);
+
+    // Flash pesan session
+    session()->flash('update', 'Data Mitra Berhasil Diupdate!');
+    
+    // Redirect ke halaman yang sesuai
+    return redirect('/partners');  // Sesuaikan dengan route yang sesuai
+}
+
+                    // =====================================================
+
+                    public function createnewdatapartners()
+                    {
+                        
+                        $datamitra = Partners::all();
+                        // $user = Auth::user();
+                
+                        return view('backend.02_company.02_partners.create', [
+                            'data' => $datamitra,
+                            // 'user' => $user,
+                            'title' => 'Create Mitra Sihade',
+                           
+                        ]);
+                
+                    }
+                
+                // ----------------------------------------------------------- 
+    
+                    public function createnewstoredatapartners(Request $request)
+                    {
+                        // Validasi input
+                        $request->validate([
+                            'namaperusahaan' => 'required|string',
+                            'gambarperusahaan' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Foto wajib diupload
+                            'alamatperusahaan' => 'required|string',
+                            // 'jabatan' => 'required|string',
+                            // 'perusahaan' => 'required|string',
+                        ]); 
+                        
+                        // Simpan foto di storage dan ambil namanya
+                        $fotoPath = $request->file('gambarperusahaan')->store('partners', 'public'); // Menyimpan foto di storage/app/testimoni
+                    
+                        // Buat data testimoni baru dengan data dari form
+                        Partners::create([
+                            'namaperusahaan' => $request->input('namaperusahaan'),
+                            'gambarperusahaan' => $fotoPath, // Simpan path foto
+                            'alamatperusahaan' => $request->input('alamatperusahaan'),
+                            // 'jabatan' => $request->input('jabatan'),
+                            // 'perusahaan' => $request->input('perusahaan'),
+                        ]);
+                        
+                        // Flash pesan session
+                        session()->flash('create', 'Data Mitra Sihade Berhasil Dibuat!');
+                    
+                        // Redirect ke halaman yang sesuai
+                        return redirect('/partners');
+                    }
+
+                    public function deletedatapartners($id)
+    {
+        // Cari entri berdasarkan name
+        $entry = Partners::where('id', $id)->first();
+    
+        if ($entry) {
+            // Hapus file terkait jika ada
+            if ($entry->gambarperusahaan) {
+                Storage::disk('public')->delete($entry->gambarperusahaan);
+            }
+    
+            // Hapus entri dari database
+            Partners::destroy($entry->id);
+    
+            // Set pesan flash untuk sukses
+            session()->flash('delete', 'Data Berhasil Dihapus!');
+    
+            // Redirect ke halaman yang sesuai
+            return redirect('/partners');
+        } else {
+            // Set pesan flash jika data tidak ditemukan
+            session()->flash('error', 'Data Tidak Ditemukan!');
+    
+            // Redirect ke halaman yang sesuai
+            return redirect('/partners');
+        }
+    }
+                
+
+                    
+
+
+    // ------------ TESTIMONI -------------------------------==============================================
+    // ====================================================================================================                                    
+
 
 }
