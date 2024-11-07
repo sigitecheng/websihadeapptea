@@ -31,7 +31,7 @@
     border-radius: 25px;
     text-align: center;
     width: 100%;
-    height: 200vh;
+    height: 180vh;
     margin-left: none;
     background: linear-gradient(to bottom, #90EE90, white, wheat);
     align-items: center;
@@ -425,7 +425,7 @@
 
         </div>
 
-        <div class="pagination-container" style="margin-top: 75px; margin-bottom:75px; display: flex; flex-direction: column; align-items: center;">
+        <div class="pagination-container" style="margin-top: 25px; margin-bottom:75px; display: flex; flex-direction: column; align-items: center;">
                 <div class="pagination-info mb-2" style="margin-bottom: 10px; color:orange; font-weight: 500;">
                     Data Ke {{ $data->firstItem() }} Sampai {{ $data->lastItem() }} Dari {{ $data->total() }} Jumlah {{$title}}
                 </div>

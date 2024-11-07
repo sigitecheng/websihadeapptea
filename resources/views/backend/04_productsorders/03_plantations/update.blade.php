@@ -31,7 +31,7 @@
     border-radius: 25px;
     text-align: center;
     width: 100%;
-    height: 125vh;
+    height: 100vh;
     margin-left: none;
     background: linear-gradient(to bottom, #90EE90, white, wheat);
     align-items: center;
@@ -206,7 +206,7 @@
             .container-update {
                 /* margin-top: 500px; */
                 width: 920px;
-                height: 85vh;
+                height: 60vh;
                 margin: 0 auto;
                 padding: 20px;
                 background-color: #E0E0E0; /* Warna silver */
@@ -269,10 +269,9 @@
             <form action="{{ route('update.productplantations', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST') <!-- Ubah metode menjadi PUT untuk update data -->
-                
                 <div class="form-group d-flex align-items-center mt-3">
                     <label for="partners_id" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-user mr-2"></i>Nama Perusahaan
+                        <i class="fas fa-building mr-2"></i> Nama Perusahaan
                     </label>
                     <select class="form-control" id="partners_id" name="partners_id" required>
                         <option style="text-transform: uppercase" value="">Pilih Nama Perusahaan</option>
@@ -284,10 +283,10 @@
                         @endforeach
                     </select>
                 </div>
-
+                
                 <div class="form-group d-flex align-items-center mt-3">
                     <label for="plantations_id" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-user mr-2"></i>Nama Produk
+                        <i class="fas fa-cogs mr-2"></i> Nama Produk
                     </label>
                     <select class="form-control" id="plantations_id" name="plantations_id" required>
                         <option style="text-transform: uppercase" value="">Pilih Nama Produk</option>
@@ -299,17 +298,17 @@
                         @endforeach
                     </select>
                 </div>
-
+                
                 <div class="form-group d-flex align-items-center mt-3">
                     <label for="kuantiti" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-briefcase mr-2"></i> Kuantiti
+                        <i class="fas fa-box mr-2"></i> Kuantiti
                     </label>
                     <input style="text-transform: uppercase;" type="number" class="form-control" id="kuantiti" name="kuantiti" value="{{ old('kuantiti', $data->kuantiti) }}" required>
                 </div>
                 
                 <div class="form-group d-flex align-items-center mt-3">
                     <label for="hargasatuan" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-briefcase mr-2"></i> Harga Satuan
+                        <i class="fas fa-tag mr-2"></i> Harga Satuan
                     </label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -321,7 +320,7 @@
                 
                 <div class="form-group d-flex align-items-center mt-3">
                     <label for="totalharga" class="mr-3" style="width: 200px; text-align:left; font-size:14px;">
-                        <i class="fas fa-briefcase mr-2"></i> Total Harga
+                        <i class="fas fa-dollar-sign mr-2"></i> Total Harga
                     </label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -330,6 +329,7 @@
                         <input style="text-transform: uppercase;" type="text" class="form-control" id="totalharga" name="totalharga" value="{{ old('totalharga', number_format($data->totalharga, 0, ',', '.')) }}" readonly required>
                     </div>
                 </div>
+                
                 
                 <script>
                     // Format angka menjadi Rupiah

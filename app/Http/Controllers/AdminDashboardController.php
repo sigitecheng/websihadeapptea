@@ -1004,7 +1004,7 @@ class AdminDashboardController extends Controller
                         $peternakan = Peternakan::all();
                         // $user = Auth::user();
                 
-                        return view('backend.03_produk.02_perternakan.create', [
+                        return view('backend.03_produk.02_peternakan.create', [
                             'data' => $peternakan,
                             // 'user' => $user,
                             'title' => 'Create Animal Farming Products',
